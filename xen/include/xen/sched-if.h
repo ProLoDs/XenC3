@@ -172,7 +172,7 @@ extern const struct scheduler sched_credit_def;
 extern const struct scheduler sched_credit2_def;
 extern const struct scheduler sched_arinc653_def;
 
-
+extern const struct scheduler sched_creditc3_def;
 struct cpupool
 {
     int              cpupool_id;

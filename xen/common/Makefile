@@ -23,6 +23,7 @@ obj-y += preempt.o
 obj-y += random.o
 obj-y += rangeset.o
 obj-y += sched_credit.o
+obj-y += sched_creditc3.o
 obj-y += sched_credit2.o
 obj-y += sched_sedf.o
 obj-y += sched_arinc653.o
