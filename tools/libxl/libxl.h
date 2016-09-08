@@ -1077,6 +1077,13 @@ int libxl_sched_credit_params_get(libxl_ctx *ctx, uint32_t poolid,
 int libxl_sched_credit_params_set(libxl_ctx *ctx, uint32_t poolid,
                                   libxl_sched_credit_params *scinfo);
 
+/* Per-scheduler parameters */
+int libxl_sched_creditc3_params_get(libxl_ctx *ctx, uint32_t poolid,
+                                  libxl_sched_credit_params *scinfo);
+int libxl_sched_creditc3_params_set(libxl_ctx *ctx, uint32_t poolid,
+                                  libxl_sched_credit_params *scinfo);
+
+
 /* Scheduler Per-domain parameters */
 
 #define LIBXL_DOMAIN_SCHED_PARAM_WEIGHT_DEFAULT    -1
