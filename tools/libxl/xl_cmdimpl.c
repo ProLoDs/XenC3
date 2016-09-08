@@ -5477,126 +5477,126 @@ int main_sched_credit(int argc, char **argv)
  */
 
 /*int main_sched_creditc3(int argc, char **argv)
-{
-    const char *dom = NULL;
-    const char *cpupool = NULL;
-    int weight = 256, cap = 0, opt_w = 0, opt_c = 0;
-    int opt_s = 0;
-    int tslice = 0, opt_t = 0, ratelimit = 0, opt_r = 0;
-    int opt, rc;
-    static struct option opts[] = {
-        {"domain", 1, 0, 'd'},
-        {"weight", 1, 0, 'w'},
-        {"cap", 1, 0, 'c'},
-        {"schedparam", 0, 0, 's'},
-        {"tslice_ms", 1, 0, 't'},
-        {"ratelimit_us", 1, 0, 'r'},
-        {"cpupool", 1, 0, 'p'},
-        COMMON_LONG_OPTS,
-        {0, 0, 0, 0}
-    };
-
-    SWITCH_FOREACH_OPT(opt, "d:w:c:p:t:r:hs", opts, "sched-credit", 0) {
-    case 'd':
-        dom = optarg;
-        break;
-    case 'w':
-        weight = strtol(optarg, NULL, 10);
-        opt_w = 1;
-        break;
-    case 'c':
-        cap = strtol(optarg, NULL, 10);
-        opt_c = 1;
-        break;
-    case 't':
-        tslice = strtol(optarg, NULL, 10);
-        opt_t = 1;
-        break;
-    case 'r':
-        ratelimit = strtol(optarg, NULL, 10);
-        opt_r = 1;
-        break;
-    case 's':
-        opt_s = 1;
-        break;
-    case 'p':
-        cpupool = optarg;
-        break;
-    }
-
-    if ((cpupool || opt_s) && (dom || opt_w || opt_c)) {
-        fprintf(stderr, "Specifying a cpupool or schedparam is not "
-                "allowed with domain options.\n");
-        return 1;
-    }
-    if (!dom && (opt_w || opt_c)) {
-        fprintf(stderr, "Must specify a domain.\n");
-        return 1;
-    }
-    if (!opt_s && (opt_t || opt_r)) {
-        fprintf(stderr, "Must specify schedparam to set schedule "
-                "parameter values.\n");
-        return 1;
-    }
-
-    if (opt_s) {
-        libxl_sched_credit_params scparam;
-        uint32_t poolid = 0;
-
-        if (cpupool) {
-            if (cpupool_qualifier_to_cpupoolid(cpupool, &poolid, NULL) ||
-                !libxl_cpupoolid_is_valid(ctx, poolid)) {
-                fprintf(stderr, "unknown cpupool \'%s\'\n", cpupool);
-                return -ERROR_FAIL;
-            }
-        }
-
-        if (!opt_t && !opt_r) { /* Output scheduling parameters */
-            return -sched_creditc3_pool_output(poolid);
-        } else { /* Set scheduling parameters*/
-            rc = sched_creditc3_params_get(poolid, &scparam);
-            if (rc)
-                return -rc;
-
-            if (opt_t)
-                scparam.tslice_ms = tslice;
-
-            if (opt_r)
-                scparam.ratelimit_us = ratelimit;
-
-            rc = sched_creditc3_params_set(poolid, &scparam);
-            if (rc)
-                return -rc;
-        }
-    } else if (!dom) { /* list all domain's credit scheduler info */
-        return -sched_domain_output(8,
-                                    sched_credit_domain_output,
-                                    sched_credit_pool_output,
-                                    cpupool);
-    } else {
-        uint32_t domid = find_domain(dom);
-
-        if (!opt_w && !opt_c) { /* output credit scheduler info */
-            sched_creditc3_domain_output(-1);
-            return -sched_creditc3_domain_output(domid);
-        } else { /* set credit scheduler paramaters */
-            libxl_domain_sched_params scinfo;
-            libxl_domain_sched_params_init(&scinfo);
-            scinfo.sched = 8;
-            if (opt_w)
-                scinfo.weight = weight;
-            if (opt_c)
-                scinfo.cap = cap;
-            rc = sched_domain_set(domid, &scinfo);
-            libxl_domain_sched_params_dispose(&scinfo);
-            if (rc)
-                return -rc;
-        }
-    }
-
-    return 0;
-}
-*/
+//{
+//    const char *dom = NULL;
+//    const char *cpupool = NULL;
+//    int weight = 256, cap = 0, opt_w = 0, opt_c = 0;
+//    int opt_s = 0;
+//    int tslice = 0, opt_t = 0, ratelimit = 0, opt_r = 0;
+//    int opt, rc;
+//    static struct option opts[] = {
+//        {"domain", 1, 0, 'd'},
+//        {"weight", 1, 0, 'w'},
+//        {"cap", 1, 0, 'c'},
+//        {"schedparam", 0, 0, 's'},
+//        {"tslice_ms", 1, 0, 't'},
+//        {"ratelimit_us", 1, 0, 'r'},
+//        {"cpupool", 1, 0, 'p'},
+//        COMMON_LONG_OPTS,
+//        {0, 0, 0, 0}
+//    };
+//
+//    SWITCH_FOREACH_OPT(opt, "d:w:c:p:t:r:hs", opts, "sched-credit", 0) {
+//    case 'd':
+//        dom = optarg;
+//        break;
+//    case 'w':
+//        weight = strtol(optarg, NULL, 10);
+//        opt_w = 1;
+//        break;
+//    case 'c':
+//        cap = strtol(optarg, NULL, 10);
+//        opt_c = 1;
+//        break;
+//    case 't':
+//        tslice = strtol(optarg, NULL, 10);
+//        opt_t = 1;
+//        break;
+//    case 'r':
+//        ratelimit = strtol(optarg, NULL, 10);
+//        opt_r = 1;
+//        break;
+//    case 's':
+//        opt_s = 1;
+//        break;
+//    case 'p':
+//        cpupool = optarg;
+//        break;
+//    }
+//
+//    if ((cpupool || opt_s) && (dom || opt_w || opt_c)) {
+//        fprintf(stderr, "Specifying a cpupool or schedparam is not "
+//                "allowed with domain options.\n");
+//        return 1;
+//    }
+//    if (!dom && (opt_w || opt_c)) {
+//        fprintf(stderr, "Must specify a domain.\n");
+//        return 1;
+//    }
+//    if (!opt_s && (opt_t || opt_r)) {
+//        fprintf(stderr, "Must specify schedparam to set schedule "
+//                "parameter values.\n");
+//        return 1;
+//    }
+//
+//    if (opt_s) {
+//        libxl_sched_credit_params scparam;
+//        uint32_t poolid = 0;
+//
+//        if (cpupool) {
+//            if (cpupool_qualifier_to_cpupoolid(cpupool, &poolid, NULL) ||
+//                !libxl_cpupoolid_is_valid(ctx, poolid)) {
+//                fprintf(stderr, "unknown cpupool \'%s\'\n", cpupool);
+//                return -ERROR_FAIL;
+//            }
+//        }
+//
+//        if (!opt_t && !opt_r) { /* Output scheduling parameters */
+//            return -sched_creditc3_pool_output(poolid);
+//        } else { /* Set scheduling parameters*/
+//            rc = sched_creditc3_params_get(poolid, &scparam);
+//            if (rc)
+//                return -rc;
+//
+//            if (opt_t)
+//                scparam.tslice_ms = tslice;
+//
+//            if (opt_r)
+//                scparam.ratelimit_us = ratelimit;
+//
+//            rc = sched_creditc3_params_set(poolid, &scparam);
+//            if (rc)
+//                return -rc;
+//        }
+//    } else if (!dom) { /* list all domain's credit scheduler info */
+//        return -sched_domain_output(8,
+//                                    sched_credit_domain_output,
+//                                    sched_credit_pool_output,
+//                                    cpupool);
+//    } else {
+//        uint32_t domid = find_domain(dom);
+//
+//        if (!opt_w && !opt_c) { /* output credit scheduler info */
+//            sched_creditc3_domain_output(-1);
+//            return -sched_creditc3_domain_output(domid);
+//        } else { /* set credit scheduler paramaters */
+//            libxl_domain_sched_params scinfo;
+//            libxl_domain_sched_params_init(&scinfo);
+//            scinfo.sched = 8;
+//            if (opt_w)
+//                scinfo.weight = weight;
+//            if (opt_c)
+//                scinfo.cap = cap;
+//            rc = sched_domain_set(domid, &scinfo);
+//            libxl_domain_sched_params_dispose(&scinfo);
+//            if (rc)
+//                return -rc;
+//        }
+//    }
+//
+//    return 0;
+//}
+//*/
 
 
 
