@@ -4730,7 +4730,7 @@ static int sched_arinc653_domain_set(libxl__gc *gc, uint32_t domid,
          configuration, so we simply return success. */
     return 0;
 }
-
+// start credit
 static int sched_credit_domain_get(libxl__gc *gc, uint32_t domid,
                                    libxl_domain_sched_params *scinfo)
 {
@@ -4861,6 +4861,145 @@ int libxl_sched_credit_params_set(libxl_ctx *ctx, uint32_t poolid,
 
     return 0;
 }
+
+// end credit
+
+// start creditc3
+static int sched_creditc3_domain_get(libxl__gc *gc, uint32_t domid,
+                                   libxl_domain_sched_params *scinfo)
+{
+    struct xen_domctl_sched_credit sdom;
+    int rc;
+
+    rc = xc_sched_creditc3_domain_get(CTX->xch, domid, &sdom);
+    if (rc != 0) {
+        LOGE(ERROR, "getting domain sched creditc3");
+        return ERROR_FAIL;
+    }
+
+    libxl_domain_sched_params_init(scinfo);
+    scinfo->sched = 8 ;// equals credit c3 --> cant find the define;
+    scinfo->weight = sdom.weight;
+    scinfo->cap = sdom.cap;
+
+    return 0;
+}
+
+static int sched_creditc3_domain_set(libxl__gc *gc, uint32_t domid,
+                                   const libxl_domain_sched_params *scinfo)
+{
+    struct xen_domctl_sched_credit sdom;
+    xc_domaininfo_t domaininfo;
+    int rc;
+
+    rc = xc_domain_getinfolist(CTX->xch, domid, 1, &domaininfo);
+    if (rc < 0) {
+        LOGE(ERROR, "getting domain info list");
+        return ERROR_FAIL;
+    }
+    if (rc != 1 || domaininfo.domain != domid)
+        return ERROR_INVAL;
+
+    rc = xc_sched_creditc3_domain_get(CTX->xch, domid, &sdom);
+    if (rc != 0) {
+        LOGE(ERROR, "getting domain sched creditc3");
+        return ERROR_FAIL;
+    }
+
+    if (scinfo->weight != LIBXL_DOMAIN_SCHED_PARAM_WEIGHT_DEFAULT) {
+        if (scinfo->weight < 1 || scinfo->weight > 65535) {
+            LOG(ERROR, "Cpu weight out of range, "
+                "valid values are within range from 1 to 65535");
+            return ERROR_INVAL;
+        }
+        sdom.weight = scinfo->weight;
+    }
+
+    if (scinfo->cap != LIBXL_DOMAIN_SCHED_PARAM_CAP_DEFAULT) {
+        if (scinfo->cap < 0
+            || scinfo->cap > (domaininfo.max_vcpu_id + 1) * 100) {
+            LOG(ERROR, "Cpu cap out of range, "
+                "valid range is from 0 to %d for specified number of vcpus",
+                ((domaininfo.max_vcpu_id + 1) * 100));
+            return ERROR_INVAL;
+        }
+        sdom.cap = scinfo->cap;
+    }
+
+    rc = xc_sched_creditc3_domain_set(CTX->xch, domid, &sdom);
+    if ( rc < 0 ) {
+        LOGE(ERROR, "setting domain sched credit");
+        return ERROR_FAIL;
+    }
+
+    return 0;
+}
+
+int libxl_sched_creditc3_params_get(libxl_ctx *ctx, uint32_t poolid,
+                                  libxl_sched_credit_params *scinfo)
+{
+    struct xen_sysctl_credit_schedule sparam;
+    int rc;
+
+    rc = xc_sched_creditc3_params_get(ctx->xch, poolid, &sparam);
+    if (rc != 0) {
+        LIBXL__LOG_ERRNO(ctx, LIBXL__LOG_ERROR, "getting sched credit param");
+        return ERROR_FAIL;
+    }
+
+    scinfo->tslice_ms = sparam.tslice_ms;
+    scinfo->ratelimit_us = sparam.ratelimit_us;
+
+    return 0;
+}
+
+int libxl_sched_creditc3_params_set(libxl_ctx *ctx, uint32_t poolid,
+                                  libxl_sched_credit_params *scinfo)
+{
+    struct xen_sysctl_credit_schedule sparam;
+    int rc=0;
+
+    if (scinfo->tslice_ms <  XEN_SYSCTL_CSCHED_TSLICE_MIN
+        || scinfo->tslice_ms > XEN_SYSCTL_CSCHED_TSLICE_MAX) {
+        LIBXL__LOG(ctx, LIBXL__LOG_ERROR,
+            "Time slice out of range, valid range is from %d to %d",
+                            XEN_SYSCTL_CSCHED_TSLICE_MIN,
+                            XEN_SYSCTL_CSCHED_TSLICE_MAX);
+        return ERROR_INVAL;
+    }
+    if (scinfo->ratelimit_us <  XEN_SYSCTL_SCHED_RATELIMIT_MIN
+        || scinfo->ratelimit_us > XEN_SYSCTL_SCHED_RATELIMIT_MAX) {
+        LIBXL__LOG(ctx, LIBXL__LOG_ERROR,
+            "Ratelimit out of range, valid range is from %d to %d",
+                            XEN_SYSCTL_SCHED_RATELIMIT_MIN,
+                            XEN_SYSCTL_SCHED_RATELIMIT_MAX);
+        return ERROR_INVAL;
+    }
+    if (scinfo->ratelimit_us > scinfo->tslice_ms*1000) {
+        LIBXL__LOG(ctx, LIBXL__LOG_ERROR,
+                   "Ratelimit cannot be greater than timeslice\n");
+        return ERROR_INVAL;
+    }
+
+    sparam.tslice_ms = scinfo->tslice_ms;
+    sparam.ratelimit_us = scinfo->ratelimit_us;
+
+    rc = xc_sched_creditc3_params_set(ctx->xch, poolid, &sparam);
+    if ( rc < 0 ) {
+        LIBXL__LOG_ERRNO(ctx, LIBXL__LOG_ERROR, "setting sched credit param");
+        return ERROR_FAIL;
+    }
+
+    scinfo->tslice_ms = sparam.tslice_ms;
+    scinfo->ratelimit_us = sparam.ratelimit_us;
+
+    return 0;
+}
+
+// end creditc3
+
+
+
 
 static int sched_credit2_domain_get(libxl__gc *gc, uint32_t domid,
                                     libxl_domain_sched_params *scinfo)
@@ -4995,6 +5134,9 @@ int libxl_domain_sched_params_set(libxl_ctx *ctx, uint32_t domid,
     case LIBXL_SCHEDULER_CREDIT:
         ret=sched_credit_domain_set(gc, domid, scinfo);
         break;
+    case 8: // creditc3 case
+        ret = sched_creditc3_domain_set(gc, domid, scinfo);
+        break;
     case LIBXL_SCHEDULER_CREDIT2:
         ret=sched_credit2_domain_set(gc, domid, scinfo);
         break;
@@ -5027,6 +5169,9 @@ int libxl_domain_sched_params_get(libxl_ctx *ctx, uint32_t domid,
         break;
     case LIBXL_SCHEDULER_CREDIT:
         ret=sched_credit_domain_get(gc, domid, scinfo);
+        break;
+    case 8: // case creditc3
+        ret=sched_creditc3_domain_get(gc, domid, scinfo);
         break;
     case LIBXL_SCHEDULER_CREDIT2:
         ret=sched_credit2_domain_get(gc, domid, scinfo);

@@ -1966,7 +1966,7 @@ static struct csched_private _csched_priv;
 const struct scheduler sched_creditc3_def = {
     .name           = "SMP Credit Scheduler",
     .opt_name       = "creditc3",
-    .sched_id       = XEN_SCHEDULER_CREDIT,
+    .sched_id       = XEN_SCHEDULER_CREDITC3,
     .sched_data     = &_csched_priv,
 
     .init_domain    = csched_dom_init,
