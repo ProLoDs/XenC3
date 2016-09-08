@@ -5475,7 +5475,8 @@ int main_sched_credit(int argc, char **argv)
  * -p [pool] -s [params] : Set sched params for pool
  * -p [pool] -d...       : Illegal
  */
-int main_sched_creditc3(int argc, char **argv)
+
+/*int main_sched_creditc3(int argc, char **argv)
 {
     const char *dom = NULL;
     const char *cpupool = NULL;
@@ -5595,7 +5596,7 @@ int main_sched_creditc3(int argc, char **argv)
 
     return 0;
 }
-
+*/
 
 
 
