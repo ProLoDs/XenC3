@@ -5141,76 +5141,76 @@ static int sched_credit_pool_output(uint32_t poolid)
 
 
 //start creditc3
-
-static int sched_creditc3_params_set(int poolid, libxl_sched_credit_params *scinfo)
-{
-    int rc;
-
-    rc = libxl_sched_creditc3_params_set(ctx, poolid, scinfo);
-    if (rc)
-        fprintf(stderr, "libxl_sched_credit_params_set failed.\n");
-
-    return rc;
-}
-
-static int sched_creditc3_params_get(int poolid, libxl_sched_credit_params *scinfo)
-{
-    int rc;
-
-    rc = libxl_sched_creditc3_params_get(ctx, poolid, scinfo);
-    if (rc)
-        fprintf(stderr, "libxl_sched_credit_params_get failed.\n");
-
-    return rc;
-}
-
-static int sched_creditc3_domain_output(int domid)
-{
-    char *domname;
-    libxl_domain_sched_params scinfo;
-    int rc;
-
-    if (domid < 0) {
-        printf("%-33s %4s %6s %4s\n", "Name", "ID", "Weight", "Cap");
-        return 0;
-    }
-    rc = sched_domain_get(8, domid, &scinfo);
-    if (rc)
-        return rc;
-    domname = libxl_domid_to_name(ctx, domid);
-    printf("%-33s %4d %6d %4d\n",
-        domname,
-        domid,
-        scinfo.weight,
-        scinfo.cap);
-    free(domname);
-    libxl_domain_sched_params_dispose(&scinfo);
-    return 0;
-}
-
-static int sched_creditc3_pool_output(uint32_t poolid)
-{
-    libxl_sched_credit_params scparam;
-    char *poolname;
-    int rc;
-
-    poolname = libxl_cpupoolid_to_name(ctx, poolid);
-    rc = sched_credit_params_get(poolid, &scparam);
-    if (rc) {
-        printf("Cpupool %s: [sched params unavailable]\n",
-               poolname);
-    } else {
-        printf("Cpupool %s: tslice=%dms ratelimit=%dus\n",
-               poolname,
-               scparam.tslice_ms,
-               scparam.ratelimit_us);
-    }
-    free(poolname);
-    return 0;
-}
-
-
-// end creditc3
+//
+//static int sched_creditc3_params_set(int poolid, libxl_sched_credit_params *scinfo)
+//{
+//    int rc;
+//
+//    rc = libxl_sched_creditc3_params_set(ctx, poolid, scinfo);
+//    if (rc)
+//        fprintf(stderr, "libxl_sched_credit_params_set failed.\n");
+//
+//    return rc;
+//}
+//
+//static int sched_creditc3_params_get(int poolid, libxl_sched_credit_params *scinfo)
+//{
+//    int rc;
+//
+//    rc = libxl_sched_creditc3_params_get(ctx, poolid, scinfo);
+//    if (rc)
+//        fprintf(stderr, "libxl_sched_credit_params_get failed.\n");
+//
+//    return rc;
+//}
+//
+//static int sched_creditc3_domain_output(int domid)
+//{
+//    char *domname;
+//    libxl_domain_sched_params scinfo;
+//    int rc;
+//
+//    if (domid < 0) {
+//        printf("%-33s %4s %6s %4s\n", "Name", "ID", "Weight", "Cap");
+//        return 0;
+//    }
+//    rc = sched_domain_get(8, domid, &scinfo);
+//    if (rc)
+//        return rc;
+//    domname = libxl_domid_to_name(ctx, domid);
+//    printf("%-33s %4d %6d %4d\n",
+//        domname,
+//        domid,
+//        scinfo.weight,
+//        scinfo.cap);
+//    free(domname);
+//    libxl_domain_sched_params_dispose(&scinfo);
+//    return 0;
+//}
+//
+//static int sched_creditc3_pool_output(uint32_t poolid)
+//{
+//    libxl_sched_credit_params scparam;
+//    char *poolname;
+//    int rc;
+//
+//    poolname = libxl_cpupoolid_to_name(ctx, poolid);
+//    rc = sched_credit_params_get(poolid, &scparam);
+//    if (rc) {
+//        printf("Cpupool %s: [sched params unavailable]\n",
+//               poolname);
+//    } else {
+//        printf("Cpupool %s: tslice=%dms ratelimit=%dus\n",
+//               poolname,
+//               scparam.tslice_ms,
+//               scparam.ratelimit_us);
+//    }
+//    free(poolname);
+//    return 0;
+//}
+//
+//
+//// end creditc3
 
 
 
@@ -5597,12 +5597,6 @@ int main_sched_credit(int argc, char **argv)
 //    return 0;
 //}
 //*/
-
-
-
-
-
-
 
 
 int main_sched_credit2(int argc, char **argv)
