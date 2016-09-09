@@ -5551,7 +5551,7 @@ int main_sched_creditc3(int argc, char **argv)
 
         if (!opt_t && !opt_r) { /* Output scheduling parameters */
             return -sched_creditc3_pool_output(poolid);
-        } else { /* Set scheduling parameters*/
+        } else { /* Set scheduling parameters */
             rc = sched_creditc3_params_get(poolid, &scparam);
             if (rc)
                 return -rc;

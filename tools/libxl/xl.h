@@ -65,6 +65,7 @@ int main_vcpuset(int argc, char **argv);
 int main_memmax(int argc, char **argv);
 int main_memset(int argc, char **argv);
 int main_sched_credit(int argc, char **argv);
+int main_sched_creditc3(int argc, char **argv);
 int main_sched_credit2(int argc, char **argv);
 int main_sched_sedf(int argc, char **argv);
 int main_domid(int argc, char **argv);
