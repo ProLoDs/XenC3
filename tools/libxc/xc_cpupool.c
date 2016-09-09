@@ -48,7 +48,7 @@ int xc_cpupool_create(xc_interface *xch,
     sysctl.u.cpupool_op.sched_id = sched_id;
     if ( (err = do_sysctl_save(xch, &sysctl)) != 0 )
     {
-    	printf("Fuck error: %i",err);
+    	PERROR("Fuck error: %i",err);
         return err;
     }
 
