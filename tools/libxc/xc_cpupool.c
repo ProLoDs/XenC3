@@ -46,6 +46,7 @@ int xc_cpupool_create(xc_interface *xch,
     sysctl.u.cpupool_op.cpupool_id = (*ppoolid == 0) ?
         XEN_SYSCTL_CPUPOOL_PAR_ANY : *ppoolid;
     sysctl.u.cpupool_op.sched_id = sched_id;
+    PERROR("sched_id: %i", sched_id);
     if ( (err = do_sysctl_save(xch, &sysctl)) != 0 )
     {
     	PERROR("Fuck error: %i",err);
