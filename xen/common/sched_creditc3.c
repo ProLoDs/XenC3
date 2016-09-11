@@ -364,7 +364,7 @@ static void burn_credits(struct csched_vcpu *svc, s_time_t now)
 static bool_t __read_mostly opt_tickle_one_idlec3 = 1;
 boolean_param("tickle_one_idle_cpuc3", opt_tickle_one_idlec3);
 
-DEFINE_PER_CPU(unsigned int, last_tickle_cpu);
+DEFINE_PER_CPU(unsigned int, last_tickle_cpuc3);
 
 static inline void
 __runq_tickle(unsigned int cpu, struct csched_vcpu *new)
@@ -451,9 +451,9 @@ __runq_tickle(unsigned int cpu, struct csched_vcpu *new)
                 SCHED_STAT_CRANK(tickle_idlers_some);
                 if ( opt_tickle_one_idlec3 )
                 {
-                    this_cpu(last_tickle_cpu) =
-                        cpumask_cycle(this_cpu(last_tickle_cpu), &idle_mask);
-                    cpumask_set_cpu(this_cpu(last_tickle_cpu), &mask);
+                    this_cpu(last_tickle_cpuc3) =
+                        cpumask_cycle(this_cpu(last_tickle_cpuc3), &idle_mask);
+                    cpumask_set_cpu(this_cpu(last_tickle_cpuc3), &mask);
                 }
                 else
                     cpumask_or(&mask, &mask, &idle_mask);
