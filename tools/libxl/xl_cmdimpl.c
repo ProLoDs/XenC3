@@ -5494,7 +5494,7 @@ int main_sched_creditc3(int argc, char **argv)
         {0, 0, 0, 0}
     };
 
-    SWITCH_FOREACH_OPT(opt, "d:w:c:p:t:r:hs", opts, "sched-credit", 0) {
+    SWITCH_FOREACH_OPT(opt, "d:w:c:p:t:r:hs", opts, "sched-creditc3", 0) {
     case 'd':
         dom = optarg;
         break;
