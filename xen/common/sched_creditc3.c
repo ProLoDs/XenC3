@@ -593,14 +593,14 @@ __csched_vcpu_check(struct vcpu *vc)
  * as a good value.
  */
 static unsigned int vcpu_migration_delay;
-integer_param("vcpu_migration_delay", vcpu_migration_delay);
+integer_param("vcpu_migration_delayc3", vcpu_migration_delay);
 
-void set_vcpu_migration_delay(unsigned int delay)
+void set_vcpu_migration_delayc3(unsigned int delay)
 {
     vcpu_migration_delay = delay;
 }
 
-unsigned int get_vcpu_migration_delay(void)
+unsigned int get_vcpu_migration_delayc3(void)
 {
     return vcpu_migration_delay;
 }
