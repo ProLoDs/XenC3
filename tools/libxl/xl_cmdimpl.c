@@ -5195,7 +5195,7 @@ static int sched_creditc3_pool_output(uint32_t poolid)
     int rc;
 
     poolname = libxl_cpupoolid_to_name(ctx, poolid);
-    rc = sched_credit_params_get(poolid, &scparam);
+    rc = sched_creditc3_params_get(poolid, &scparam);
     if (rc) {
         printf("Cpupool %s: [sched params unavailable]\n",
                poolname);
