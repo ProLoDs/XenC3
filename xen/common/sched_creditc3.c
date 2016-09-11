@@ -361,8 +361,8 @@ static void burn_credits(struct csched_vcpu *svc, s_time_t now)
     svc->start_time += (credits * MILLISECS(1)) / CSCHED_CREDITS_PER_MSEC;
 }
 
-static bool_t __read_mostly opt_tickle_one_idle = 1;
-boolean_param("tickle_one_idle_cpuc3", opt_tickle_one_idle);
+static bool_t __read_mostly opt_tickle_one_idlec3 = 1;
+boolean_param("tickle_one_idle_cpuc3", opt_tickle_one_idlec3);
 
 DEFINE_PER_CPU(unsigned int, last_tickle_cpu);
 
@@ -449,7 +449,7 @@ __runq_tickle(unsigned int cpu, struct csched_vcpu *new)
             {
                 /* Which of the idlers suitable for new shall we wake up? */
                 SCHED_STAT_CRANK(tickle_idlers_some);
-                if ( opt_tickle_one_idle )
+                if ( opt_tickle_one_idlec3 )
                 {
                     this_cpu(last_tickle_cpu) =
                         cpumask_cycle(this_cpu(last_tickle_cpu), &idle_mask);
