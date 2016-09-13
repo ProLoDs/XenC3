@@ -1689,7 +1689,13 @@ csched_schedule(
     else
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
+
+
+    // TODO Insert check and swap here
     snext = __runq_elem(runq->next);
+
+
+
     ret.migrated = 0;
 
     /* Tasklet work (which runs in idle VCPU context) overrides all else. */
