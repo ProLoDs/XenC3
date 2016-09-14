@@ -1705,9 +1705,9 @@ csched_schedule(
     else
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
+    // test
+    __check_swap(runq->next)
 
-    if(__check_swap(runq->next))
-    	kprintf("SWAP!");
     // TODO Insert check and swap here
     snext = __runq_elem(runq->next);
 
