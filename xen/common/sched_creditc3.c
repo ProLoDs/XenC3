@@ -1623,9 +1623,9 @@ static inline bool_t
 __check_swap(struct list_head *elem)
 {
 	bool_t ret = 0;
-	struct csched_vcpu * current = __runq_elem(elem->next);
+	struct csched_vcpu * current_element = __runq_elem(elem->next);
 
-	domid_t current_domid = current->sdom->dom->domain_id;
+	domid_t current_domid = current_element->sdom->dom->domain_id;
 	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
 		ret = 1;
 	this_cpu(next_to_last_domid) = this_cpu(last_domid);
