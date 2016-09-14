@@ -1624,6 +1624,7 @@ __check_swap(struct list_head *elem)
 {
 	bool_t ret = 0;
 	struct csched_vcpu * current = __runq_elem(elem->next);
+
 	domid_t current_domid = current->sdom->dom->domain_id;
 	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
 		ret = 1;
@@ -1706,7 +1707,7 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
     // test
-    __check_swap(runq->next)
+    __check_swap(runq->next);
 
     // TODO Insert check and swap here
     snext = __runq_elem(runq->next);
