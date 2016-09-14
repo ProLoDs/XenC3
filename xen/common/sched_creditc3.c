@@ -1617,6 +1617,22 @@ csched_load_balance(struct csched_private *prv, int cpu,
     return snext;
 }
 
+DEFINE_PER_CPU(domid_t, last_domid);
+DEFINE_PER_CPU(domid_t, next_to_last_domid);
+static inline bool_t
+__check_swap(struct list_head *elem)
+{
+	bool_t ret = 0;
+	struct csched_vcpu * current = __runq_elem(elem->next);
+	domid_t current_domid = current->sdom->dom->domain_id;
+	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
+		ret = 1;
+	this_cpu(next_to_last_domid) = this_cpu(last_domid);
+	this_cpu(last_domid) = current_domid;
+    return ret;
+}
+
+
 /*
  * This function is in the critical path. It is designed to be simple and
  * fast for the common case.
@@ -1690,7 +1706,8 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
 
-
+    if(__check_swap(runq->next))
+    	kprintf("SWAP!");
     // TODO Insert check and swap here
     snext = __runq_elem(runq->next);
 
