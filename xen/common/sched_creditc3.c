@@ -1733,8 +1733,8 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
     snext = __runq_elem(runq->next);
-	struct hvm_hw_cpu tmp_cpu = get_cpu();
-	printk("%p",tmp_cpu);
+
+	printk("%p",get_cpu());
 //    // test
 //if(__check_swap(runq->next))
 //    {
