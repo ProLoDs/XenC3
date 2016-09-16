@@ -1628,13 +1628,13 @@ __check_swap(struct list_head *elem)
 {
 	bool_t ret = 0;
 	struct csched_vcpu * current_element = __runq_elem(elem->next);
+	domid_t *p = per_cpu(last_domid, smp_processor_id());
+	*p = 30;
+//	domid_t current_domid = current_element->sdom->dom->domain_id;
 
-	domid_t current_domid = current_element->sdom->dom->domain_id;
-	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
-		ret = 1;
-	put_cpu_next_to_last_domid(this_cpu(last_domid));
-	struct hvm_hw_cpu tmp_cpu = get_cpu();
-	printk("%p",tmp_cpu);
+//	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
+//		ret = 1;
+
 //	this_cpu(next_to_last_domid) = this_cpu(last_domid);
 //	this_cpu(last_domid) = current_domid;
     return ret;
@@ -1734,12 +1734,12 @@ csched_schedule(
 
     snext = __runq_elem(runq->next);
 
-	printk("%p",get_cpu());
-//    // test
-//if(__check_swap(runq->next))
-//    {
-//    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
-//    }
+
+    // test
+    if(__check_swap(runq->next))
+    {
+    	printk(KERN_INFO "SWAP needed.\n");
+    }
 //    	//__swap_runq(runq, snext->sdom->dom->domain_id);
 //    // TODO Insert check and swap here
 
