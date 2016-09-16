@@ -1627,7 +1627,7 @@ static inline bool_t
 __check_swap(struct list_head *elem)
 {
 	bool_t ret = 0;
-	struct csched_vcpu * current_element = __runq_elem(elem->next);
+//	struct csched_vcpu * current_element = __runq_elem(elem->next);
 	this_cpu(last_domid) = 4;
 //	domid_t *p = per_cpu(last_domid, smp_processor_id());
 //	*p = 30;
