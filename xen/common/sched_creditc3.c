@@ -1733,12 +1733,13 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
     snext = __runq_elem(runq->next);
-
+	struct hvm_hw_cpu tmp_cpu = get_cpu();
+	printk("%p",tmp_cpu);
 //    // test
-if(__check_swap(runq->next))
-    {
-    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
-    }
+//if(__check_swap(runq->next))
+//    {
+//    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
+//    }
 //    	//__swap_runq(runq, snext->sdom->dom->domain_id);
 //    // TODO Insert check and swap here
 
