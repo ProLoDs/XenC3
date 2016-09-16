@@ -1632,8 +1632,8 @@ __check_swap(struct list_head *elem)
 	domid_t current_domid = current_element->sdom->dom->domain_id;
 	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
 		ret = 1;
-	this_cpu(next_to_last_domid) = this_cpu(last_domid);
-	this_cpu(last_domid) = current_domid;
+//	this_cpu(next_to_last_domid) = this_cpu(last_domid);
+//	this_cpu(last_domid) = current_domid;
     return ret;
 }
 /*
@@ -1732,10 +1732,10 @@ csched_schedule(
     snext = __runq_elem(runq->next);
 
 //    // test
-//if(__check_swap(runq->next))
-//    {
-//    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
-//    }
+if(__check_swap(runq->next))
+    {
+    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
+    }
 //    	//__swap_runq(runq, snext->sdom->dom->domain_id);
 //    // TODO Insert check and swap here
 
