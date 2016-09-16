@@ -1632,6 +1632,7 @@ __check_swap(struct list_head *elem)
 	domid_t current_domid = current_element->sdom->dom->domain_id;
 	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
 		ret = 1;
+	put_cpu_next_to_last_domid(this_cpu(last_domid));
 //	this_cpu(next_to_last_domid) = this_cpu(last_domid);
 //	this_cpu(last_domid) = current_domid;
     return ret;
