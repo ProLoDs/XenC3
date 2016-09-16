@@ -1633,6 +1633,8 @@ __check_swap(struct list_head *elem)
 	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
 		ret = 1;
 	put_cpu_next_to_last_domid(this_cpu(last_domid));
+	struct hvm_hw_cpu tmp_cpu = get_cpu();
+	printk("%p",tmp_cpu);
 //	this_cpu(next_to_last_domid) = this_cpu(last_domid);
 //	this_cpu(last_domid) = current_domid;
     return ret;
