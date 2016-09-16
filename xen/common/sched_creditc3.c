@@ -1641,7 +1641,8 @@ __check_swap(struct list_head *elem)
  *
  */
 
-static inline void swap_runq(struct list_head * const runq, domid_t current)
+static inline void
+__swap_runq(struct list_head * const runq, domid_t current)
 {
 	struct list_head *iter;
 	list_for_each( iter, runq )
@@ -1732,7 +1733,7 @@ csched_schedule(
 
     // test
     if(__check_swap(runq->next))
-    	swap_runq(runq, snext->sdom->dom->domain_id);
+    	__swap_runq(runq, snext->sdom->dom->domain_id);
     // TODO Insert check and swap here
 
 
