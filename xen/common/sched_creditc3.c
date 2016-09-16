@@ -1619,6 +1619,10 @@ csched_load_balance(struct csched_private *prv, int cpu,
 
 DEFINE_PER_CPU(domid_t, last_domid);
 DEFINE_PER_CPU(domid_t, next_to_last_domid);
+/*
+ *
+ * Checks for Domain Id pattern like 121 or 212
+*/
 static inline bool_t
 __check_swap(struct list_head *elem)
 {
@@ -1632,7 +1636,25 @@ __check_swap(struct list_head *elem)
 	this_cpu(last_domid) = current_domid;
     return ret;
 }
+/*
+ * This function pulls the next different Domain in front of the Queue
+ *
+ */
 
+static inline void swap_runq(struct list_head * const runq, domid_t current)
+{
+	struct list_head *iter;
+	list_for_each( iter, runq )
+	    {
+	        const struct csched_vcpu * const iter_svc = __runq_elem(iter);
+	        if ( current != iter_svc->sdom->dom->domain_id )
+	            break;
+	    }
+	// add to the front of queue
+	list_add(iter,runq);
+	//delete old
+	list_del(iter);
+}
 
 /*
  * This function is in the critical path. It is designed to be simple and
@@ -1706,11 +1728,13 @@ csched_schedule(
     else
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
-    // test
-    __check_swap(runq->next);
-
-    // TODO Insert check and swap here
     snext = __runq_elem(runq->next);
+
+    // test
+    if(__check_swap(runq->next))
+    	swap_runq(runq, snext->sdom->dom->domain_id);
+    // TODO Insert check and swap here
+
 
 
 
