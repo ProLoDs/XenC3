@@ -1731,13 +1731,13 @@ csched_schedule(
 
     snext = __runq_elem(runq->next);
 
-    // test
-    if(__check_swap(runq->next))
-    {
-    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
-    }
-    	//__swap_runq(runq, snext->sdom->dom->domain_id);
-    // TODO Insert check and swap here
+//    // test
+//if(__check_swap(runq->next))
+//    {
+//    	printk(KERN_INFO "module crash_syms2 being loaded.\n");
+//    }
+//    	//__swap_runq(runq, snext->sdom->dom->domain_id);
+//    // TODO Insert check and swap here
 
 
 
