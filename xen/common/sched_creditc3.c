@@ -1618,7 +1618,7 @@ csched_load_balance(struct csched_private *prv, int cpu,
 }
 
 DEFINE_PER_CPU(domid_t, last_domid);
-DEFINE_PER_CPU(domid_t, next_to_last_domid);
+DEFINE_PER_CPU(domid_t, last2_domid);
 /*
  *
  * Checks for Domain Id pattern like 121 or 212
@@ -1627,13 +1627,13 @@ static inline bool_t
 __check_swap(struct list_head *elem)
 {
 	bool_t ret = 0;
-	struct csched_vcpu * current_element = __runq_elem(elem->next);
+	struct csched_vcpu * c3_current_element = __runq_elem(elem->next);
 
 //
-	domid_t current_domid = current_element->sdom->dom->domain_id;
+	domid_t c3_current_domid = c3_current_element->sdom->dom->domain_id;
 
-//	if (current_domid == this_cpu(next_to_last_domid) && current_domid != this_cpu(last_domid))
-//		ret = 1;
+	if (c3_current_domid == this_cpu(last2_domid) && current_domid != this_cpu(last_domid))
+		ret = 1;
 
 //	this_cpu(next_to_last_domid) = this_cpu(last_domid);
 //	this_cpu(last_domid) = current_domid;
