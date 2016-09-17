@@ -1631,7 +1631,8 @@ __check_swap(struct csched_vcpu *snext)
 		return 0;
 //
 //	domid_t c3_current_domid = snext->sdom->dom->domain_id;
-	struct csched_dom *sdom = snext->sdom;
+	struct csched_dom *sdom;
+	sdom = snext->sdom;
 	printk("weight %i \n",sdom->weight);
 	//c3_current_domid = 4;
 //	printk("Domain %i", c3_current_domid);
