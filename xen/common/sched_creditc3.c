@@ -1630,13 +1630,13 @@ __check_swap(struct csched_vcpu *snext)
 
 //
 	domid_t c3_current_domid = snext->sdom->dom->domain_id;
-	c3_current_domid = 4;
+	//c3_current_domid = 4;
 //	printk("Domain %i", c3_current_domid);
-//	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
-//		ret = 1;
+	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
+		ret = 1;
 
-//	this_cpu(next_to_last_domid) = this_cpu(last_domid);
-//	this_cpu(last_domid) = current_domid;
+	this_cpu(next_to_last_domid) = this_cpu(last_domid);
+	this_cpu(last_domid) = current_domid;
     return ret;
 }
 /*
@@ -1734,7 +1734,7 @@ csched_schedule(
 
     snext = __runq_elem(runq->next);
 
-printk("test123\n");
+
     // test
     if(__check_swap(snext))
     {
