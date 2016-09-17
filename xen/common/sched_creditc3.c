@@ -1631,9 +1631,10 @@ __check_swap(struct list_head *elem)
 
 //
 	domid_t c3_current_domid = c3_current_element->sdom->dom->domain_id;
-
-	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
-		ret = 1;
+	c3_current_domid = 4;
+//	printk("Domain %i", c3_current_domid);
+//	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
+//		ret = 1;
 
 //	this_cpu(next_to_last_domid) = this_cpu(last_domid);
 //	this_cpu(last_domid) = current_domid;
@@ -1734,12 +1735,12 @@ csched_schedule(
 
     snext = __runq_elem(runq->next);
 
-
+    printk("test123");
     // test
-    if(__check_swap(runq->next))
-    {
-    	printk(KERN_INFO "SWAP needed.\n");
-    }
+//    if(__check_swap(runq->next))
+//    {
+//    	printk(KERN_INFO "SWAP needed.\n");
+//    }
 //    	//__swap_runq(runq, snext->sdom->dom->domain_id);
 //    // TODO Insert check and swap here
 
