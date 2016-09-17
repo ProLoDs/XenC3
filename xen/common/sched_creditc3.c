@@ -1624,13 +1624,12 @@ DEFINE_PER_CPU(domid_t, last2_domid);
  * Checks for Domain Id pattern like 121 or 212
 */
 static inline bool_t
-__check_swap(struct list_head *elem)
+__check_swap(struct csched_vcpu *snext)
 {
 	bool_t ret = 0;
-	struct csched_vcpu * c3_current_element = __runq_elem(elem->next);
 
 //
-	domid_t c3_current_domid = c3_current_element->sdom->dom->domain_id;
+	domid_t c3_current_domid = snext->sdom->dom->domain_id;
 	c3_current_domid = 4;
 //	printk("Domain %i", c3_current_domid);
 //	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
@@ -1735,12 +1734,12 @@ csched_schedule(
 
     snext = __runq_elem(runq->next);
 
-    printk("test123");
+printk("test123\n");
     // test
-//    if(__check_swap(runq->next))
-//    {
-//    	printk(KERN_INFO "SWAP needed.\n");
-//    }
+    if(__check_swap(snext))
+    {
+    	printk(KERN_INFO "SWAP needed.\n");
+    }
 //    	//__swap_runq(runq, snext->sdom->dom->domain_id);
 //    // TODO Insert check and swap here
 
