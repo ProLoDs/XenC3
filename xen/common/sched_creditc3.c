@@ -1652,9 +1652,10 @@ static inline struct csched_vcpu *
 __swap_runq(struct list_head * const runq, domid_t current_domain)
 {
 	struct list_head *iter;
+	const struct csched_vcpu *  iter_svc;
 	list_for_each( iter, runq )
 	    {
-	        const struct csched_vcpu * const iter_svc = __runq_elem(iter);
+	        iter_svc = __runq_elem(iter);
 	        if ( iter_svc->pri != CSCHED_PRI_IDLE )
 	        {
 	            if (current_domain != iter_svc->sdom->dom->domain_id)
@@ -1662,9 +1663,10 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	        }
 	    }
 	// add to the front of queue
-	list_add(iter,runq);
+	list_add(iter_svc->runq_elem,iter);
 	//delete old
-	list_del(iter);
+	__runq_remove(iter_svc);
+
 	return  __runq_elem(runq->next);
 }
 
