@@ -1626,7 +1626,7 @@ DEFINE_PER_CPU(domid_t, last2_domid);
 static inline bool_t
 __check_swap(struct csched_vcpu *snext)
 {
-	struct csched_dom *sdom;
+
 	domid_t c3_current_domid ;
 	bool_t ret = 0;
 	if (snext->pri == CSCHED_PRI_IDLE)
