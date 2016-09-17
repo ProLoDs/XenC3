@@ -1655,8 +1655,11 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	list_for_each( iter, runq )
 	    {
 	        const struct csched_vcpu * const iter_svc = __runq_elem(iter);
-	        if ( current_domain != iter_svc->sdom->dom->domain_id )
-	            break;
+	        if ( iter_svc->pri != CSCHED_PRI_IDLE )
+	        {
+	            if (current_domain != iter_svc->sdom->dom->domain_id)
+	                break;
+	        }
 	    }
 	// add to the front of queue
 	list_add(iter,runq);
