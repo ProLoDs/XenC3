@@ -1662,7 +1662,7 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	list_add(iter,runq);
 	//delete old
 	list_del(iter);
-	return iter;
+	return  __runq_elem(iter);
 }
 
 /*
