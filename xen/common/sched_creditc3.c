@@ -1627,11 +1627,12 @@ static inline bool_t
 __check_swap(struct csched_vcpu *snext)
 {
 	struct csched_dom *sdom;
+	domid_t c3_current_domid ;
 	bool_t ret = 0;
 	if (snext->pri == CSCHED_PRI_IDLE)
 		return 0;
 //
-	domid_t c3_current_domid = snext->sdom->dom->domain_id;
+	c3_current_domid = snext->sdom->dom->domain_id;
 
 
 	printk("domid %i \n",c3_current_domid);
