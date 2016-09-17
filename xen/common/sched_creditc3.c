@@ -1635,7 +1635,7 @@ __check_swap(struct csched_vcpu *snext)
 	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
 		ret = 1;
 
-	this_cpu(next_to_last_domid) = this_cpu(last_domid);
+	this_cpu(last2_domid) = this_cpu(last_domid);
 	this_cpu(last_domid) = current_domid;
     return ret;
 }
