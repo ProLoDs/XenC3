@@ -1631,10 +1631,10 @@ __check_swap(struct csched_vcpu *snext)
 	if (snext->pri == CSCHED_PRI_IDLE)
 		return 0;
 //
-//	domid_t c3_current_domid = snext->sdom->dom->domain_id;
+	domid_t c3_current_domid = snext->sdom->dom->domain_id;
 
-	sdom = snext->sdom;
-	printk("weight %i \n",sdom->weight);
+
+	printk("domid %i \n",c3_current_domid);
 	//c3_current_domid = 4;
 //	printk("Domain %i", c3_current_domid);
 //	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
