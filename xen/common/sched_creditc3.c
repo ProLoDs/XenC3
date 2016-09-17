@@ -1635,7 +1635,7 @@ __check_swap(struct csched_vcpu *snext)
 	c3_current_domid = snext->sdom->dom->domain_id;
 
 
-	printk("domid %i \n",c3_current_domid);
+//	printk("domid %i \n",c3_current_domid);
 	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
 		ret = 1;
 
@@ -1648,7 +1648,7 @@ __check_swap(struct csched_vcpu *snext)
  *
  */
 
-static inline void
+static inline struct csched_vcpu *
 __swap_runq(struct list_head * const runq, domid_t current_domain)
 {
 	struct list_head *iter;
@@ -1662,6 +1662,7 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	list_add(iter,runq);
 	//delete old
 	list_del(iter);
+	return iter;
 }
 
 /*
@@ -1742,9 +1743,10 @@ csched_schedule(
     // test
     if(__check_swap(snext))
     {
-    	printk(KERN_INFO "SWAP needed.\n");
+    	printk("SWAP needed!");
+    	snext = __swap_runq(runq, snext->sdom->dom->domain_id);
     }
-//    	//__swap_runq(runq, snext->sdom->dom->domain_id);
+//    	//
 //    // TODO Insert check and swap here
 
 
