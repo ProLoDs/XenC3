@@ -1629,9 +1629,10 @@ __check_swap(struct csched_vcpu *snext)
 	bool_t ret = 0;
 
 //
-	domid_t c3_current_domid = snext->sdom->dom->domain_id;
+//	domid_t c3_current_domid = snext->sdom->dom->domain_id;
+	struct csched_vcpu *sdom = snext->sdom;
 	//c3_current_domid = 4;
-	printk("Domain %i", c3_current_domid);
+//	printk("Domain %i", c3_current_domid);
 //	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
 //		ret = 1;
 //
