@@ -1655,7 +1655,7 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	struct csched_vcpu  iter_svc;
 	list_for_each( iter, runq )
 	    {
-	        &iter_svc = __runq_elem(iter);
+	        iter_svc = *__runq_elem(iter);
 	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
 	        {
 	            if (current_domain != iter_svc.sdom->dom->domain_id)
