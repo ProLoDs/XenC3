@@ -1663,7 +1663,7 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	        }
 	    }
 	// add to the front of queue
-	list_add(iter_svc->runq_elem,iter);
+	list_add(&iter_svc->runq_elem,iter);
 	//delete old
 	__runq_remove(iter_svc);
 
