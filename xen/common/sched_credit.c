@@ -1617,6 +1617,44 @@ csched_load_balance(struct csched_private *prv, int cpu,
     return snext;
 }
 
+
+static inline void
+__runq_count(struct list_head * const runq){
+    struct list_head *iter;
+    struct csched_vcpu  iter_svc;
+    int dom0 = 0;
+    int domU1 = 0;
+    int domU2 = 0;
+    list_for_each( iter, runq )
+    {
+        iter_svc = *__runq_elem(iter);
+        if ( iter_svc.pri != CSCHED_PRI_IDLE )
+        {
+            switch(iter_svc.sdom->dom->domain_id){
+            case 0:
+                dom0++;
+//                printk("Dom0 \n");
+                break;
+            case 1:
+                domU1++;
+//                printk("DomU1 \n");
+                break;
+            case 2:
+//                printk("DomU2 \n");
+                domU2++;
+                break;
+            default:
+                printk("Unknown Domain ID %i \n",iter_svc.sdom->dom->domain_id);
+            }
+        }
+
+    }
+    printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
+}
+
+
+
+
 /*
  * This function is in the critical path. It is designed to be simple and
  * fast for the common case.
@@ -1688,6 +1726,12 @@ csched_schedule(
         __runq_insert(cpu, scurr);
     else
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
+
+
+    // insert shit here
+    __runq_count(runq);
+    // Shit ends here
+
 
     snext = __runq_elem(runq->next);
     ret.migrated = 0;
