@@ -1643,11 +1643,44 @@ __check_swap(struct csched_vcpu *snext)
 	this_cpu(last_domid) = c3_current_domid;
     return ret;
 }
+
+
 /*
  * This function pulls the next different Domain in front of the Queue
  *
  */
+static inline void
+__runq_count(struct list_head * const runq){
+    struct list_head *iter;
+    struct csched_vcpu  iter_svc;
+    int dom0 = 0;
+    int domU1 = 0;
+    int domU2 = 0;
+    list_for_each( iter, runq )
+    {
+        iter_svc = *__runq_elem(iter);
+        if ( iter_svc.pri != CSCHED_PRI_IDLE )
+        {
+            switch(iter_svc.sdom->dom->domain_id){
+            case 0:
+                dom0++;
+                printk("Dom0 \n");
+                break;
+            case 1:
+                domU1++;
+                printk("DomU1 \n");
+                break;
+            case 2:
+                printk("DomU2 \n");
+                domU2++;
+                break;
+            default:
+            	printk("Unknown Domain ID %i \n",iter_svc.sdom->dom->domain_id);
+            }
+        }
 
+    }
+}
 static inline struct csched_vcpu *
 __swap_runq(struct list_head * const runq, domid_t current_domain)
 {
@@ -1748,10 +1781,10 @@ csched_schedule(
     // test
     if(__check_swap(snext))
     {
-    	printk("SWAP needed!");
+    	//printk("SWAP needed! \n");
     	snext = __swap_runq(runq, snext->sdom->dom->domain_id);
     }
-//    	//
+    __runq_count(runq);
 //    // TODO Insert check and swap here
 
 
