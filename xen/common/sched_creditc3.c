@@ -1664,14 +1664,14 @@ __runq_count(struct list_head * const runq){
             switch(iter_svc.sdom->dom->domain_id){
             case 0:
                 dom0++;
-                printk("Dom0 \n");
+//                printk("Dom0 \n");
                 break;
             case 1:
                 domU1++;
-                printk("DomU1 \n");
+//                printk("DomU1 \n");
                 break;
             case 2:
-                printk("DomU2 \n");
+//                printk("DomU2 \n");
                 domU2++;
                 break;
             default:
@@ -1680,6 +1680,7 @@ __runq_count(struct list_head * const runq){
         }
 
     }
+    printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
 static inline struct csched_vcpu *
 __swap_runq(struct list_head * const runq, domid_t current_domain)
@@ -1777,16 +1778,17 @@ csched_schedule(
 
     snext = __runq_elem(runq->next);
 
+// TODO Insert check and swap here
 
-    // test
+
     if(__check_swap(snext))
     {
     	//printk("SWAP needed! \n");
     	snext = __swap_runq(runq, snext->sdom->dom->domain_id);
     }
     __runq_count(runq);
-//    // TODO Insert check and swap here
 
+// END OF TESTAREA
 
 
 
