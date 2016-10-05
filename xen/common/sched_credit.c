@@ -1635,11 +1635,11 @@ __runq_count(struct list_head * const runq){
                 dom0++;
 //                printk("Dom0 \n");
                 break;
-            case 2:
+            case 1:
                 domU1++;
 //                printk("DomU1 \n");
                 break;
-            case 3:
+            case 2:
 //                printk("DomU2 \n");
                 domU2++;
                 break;
