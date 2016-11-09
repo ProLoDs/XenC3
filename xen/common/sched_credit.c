@@ -1687,7 +1687,7 @@ __runq_count(struct list_head * const runq){
 }
 
 
-
+int first_start = 1;
 
 /*
  * This function is in the critical path. It is designed to be simple and
@@ -1764,7 +1764,12 @@ csched_schedule(
 
     // insert shit here
     printk("Cache Misses: %" PRIu64 " \n",cache_misses);
-    stopPMC(cpu);
+    if(first_start){
+
+        first_start=0;
+    }else {
+        stopPMC(cpu);
+    }
     __runq_count(runq);
     startPMC(cpu);
     // Shit ends here
