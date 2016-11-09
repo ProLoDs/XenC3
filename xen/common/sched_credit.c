@@ -1618,6 +1618,40 @@ csched_load_balance(struct csched_private *prv, int cpu,
 }
 
 
+#define MAX_DOMAIN_NUMBER 8
+volatile uint64_t cache_misses = 0;   // element 0 is reserved for dom0, element 7 is reserved for IDLE_DOMAIN_ID.
+// multiplexing the performance counter for more than 4 VMs
+#define MSR_K7_PERFCTR0                 0xc0010004 // wichtiges Register?
+#define MSR_K7_EVNTSEL0                 0xc0010000 // auch wichtiges Register?
+void startPMC(unsigned int pcpu_id)
+{
+     uint32_t eax, edx;
+     /* reload performance counter for next dom */
+          wrmsrl(MSR_K7_PERFCTR0, cache_misses);
+     edx = 0x4;
+     // L3 cache misses for accesses from a core(cpu)
+     eax = 0xE1 | (0x3 << 16) | (0x1 << (12 + pcpu_id)) | (0x7 << 8) | (0x1 << 22);
+     wrmsr(MSR_K7_EVNTSEL0, eax, edx);
+}
+// multiplexing the performance counter for more than 4 VMs
+void stopPMC(unsigned int pcpu_id)
+{
+       uint32_t eax, edx;
+       edx = 0x4;
+       eax = (0xE1 | (0x3 << 16) | (0x1 << (12 + pcpu_id)) | (0x7 << 8))
+& ~(0x1 << 22); // L3 cache misses for accesses from core(cpu)
+       wrmsr(MSR_K7_EVNTSEL0, eax, edx);
+      /* save current performance counter */
+
+      rdmsrl(MSR_K7_PERFCTR0, cache_misses);
+}
+
+
+
+
+
+
+
 static inline void
 __runq_count(struct list_head * const runq){
     struct list_head *iter;
@@ -1729,7 +1763,10 @@ csched_schedule(
 
 
     // insert shit here
+    printk("Cache Misses: %i \n",cache_misses);
+    stopPMC(cpu);
     __runq_count(runq);
+    startPMC(cpu);
     // Shit ends here
 
 
