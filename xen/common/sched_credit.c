@@ -1621,8 +1621,8 @@ csched_load_balance(struct csched_private *prv, int cpu,
 #define MAX_DOMAIN_NUMBER 8
 volatile uint64_t cache_misses = 0;   // element 0 is reserved for dom0, element 7 is reserved for IDLE_DOMAIN_ID.
 // multiplexing the performance counter for more than 4 VMs
-#define MSR_K7_PERFCTR0                 0xc0010004 // wichtiges Register?
-#define MSR_K7_EVNTSEL0                 0xc0010000 // auch wichtiges Register?
+//#define MSR_K7_PERFCTR0                 0xc0010004 // wichtiges Register?
+//#define MSR_K7_EVNTSEL0                 0xc0010000 // auch wichtiges Register?
 void startPMC(unsigned int pcpu_id)
 {
      uint32_t eax, edx;
