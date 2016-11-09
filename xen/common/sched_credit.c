@@ -1763,7 +1763,7 @@ csched_schedule(
 
 
     // insert shit here
-    printk("Cache Misses: %i \n",cache_misses);
+    printk("Cache Misses: %" PRIu64 " \n",cache_misses);
     stopPMC(cpu);
     __runq_count(runq);
     startPMC(cpu);
