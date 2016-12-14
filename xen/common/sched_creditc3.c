@@ -1633,12 +1633,17 @@ __check_swap(struct csched_vcpu *snext)
 		return 0;
 //
 	c3_current_domid = snext->sdom->dom->domain_id;
-
+	// already Dom0 no swap needed
+	if (c3_current_domid == 0){
+	    return 0;
+	}
 
 //	printk("domid %i \n",c3_current_domid);
-	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
-		ret = 1;
-
+//	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
+//		ret = 1;
+	if (c3_current_domid != this_cpu(last_domid)){
+	    ret = 1;
+	}
 	this_cpu(last2_domid) = this_cpu(last_domid);
 	this_cpu(last_domid) = c3_current_domid;
     return ret;
@@ -1692,10 +1697,16 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 	        iter_svc = *__runq_elem(iter);
 	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
 	        {
-	            if (current_domain != iter_svc.sdom->dom->domain_id)
+	            // DOMAIN0 always has Domain Id 0
+	            if ( 0 == iter_svc.sdom->dom->domain_id)
 	                break;
 	        }
 	    }
+	if (&iter_svc.sdom->dom->domain_id != 0){
+	    printk("No Dom0 in Q \n");
+	    // TODO manual override of cache
+
+	}
 	// add to the front of queue
 	list_add(&iter_svc.runq_elem,iter);
 	//delete old

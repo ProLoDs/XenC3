@@ -29,7 +29,7 @@ else
 endif
 
 .PHONY: _build
-_build: $(TARGET)$(CONFIG_XEN_INSTALL_SUFFIX)
+_build: $(TARGET)$(CONFIG_XEN_INSTALL_SUFFIX) -lLIB
 
 .PHONY: _install
 _install: D=$(DESTDIR)
