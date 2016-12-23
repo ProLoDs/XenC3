@@ -8,6 +8,7 @@
 //#include <linux/module.h>   /* Needed by all modules */
 //#include <linux/kernel.h>   /* Needed for KERN_INFO */
 #include <xen/perf_counter.h>
+#include <stdint.h>
 
 static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
 {
@@ -82,7 +83,7 @@ void start_counter(enum cache_level l)
 
     }
 }
-uint64_t stop_counter(enum cache_level l)
+void* stop_counter(enum cache_level l)
 {
 
     uint32_t eax, edx, ecx;
@@ -107,5 +108,5 @@ uint64_t stop_counter(enum cache_level l)
     		break;
 
     }
-    return ret;
+    return (void*)&ret;
 }
