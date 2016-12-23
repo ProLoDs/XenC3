@@ -8,7 +8,7 @@
 #ifndef XEN_INCLUDE_XEN_PERF_COUNTER_H_
 #define XEN_INCLUDE_XEN_PERF_COUNTER_H_
 
-
+#include <stdint.h>
 
 #endif /* XEN_INCLUDE_XEN_PERF_COUNTER_H_ */
 /*4 Performance Counters Selector for %ecx in insn wrmsr*/
