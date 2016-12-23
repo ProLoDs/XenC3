@@ -95,6 +95,13 @@ uint64_t stop_counter(enum cache_level l)
     case(L2):
     		break;
     case(L3):
+		    eax = 0;
+			SET_MSR_USR_BIT(eax);
+			SET_MSR_OS_BIT(eax);
+			SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+			eax |= MSR_ENFLAG;
+			eax |= (1<<20); //INT bit: counter overflow
+			ecx = PERFEVTSEL2;
 			eax &= (~MSR_ENFLAG);
     		rtxen_write_msr(eax, ecx);
 		    printk(KERN_INFO "stop the counter, eax=%#010x\n", eax);
