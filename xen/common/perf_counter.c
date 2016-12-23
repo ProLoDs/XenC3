@@ -83,7 +83,7 @@ void start_counter(enum cache_level l)
 
     }
 }
-void* stop_counter(enum cache_level l)
+uint64_t stop_counter(enum cache_level l)
 {
 
     uint32_t eax, edx, ecx;
@@ -108,5 +108,5 @@ void* stop_counter(enum cache_level l)
     		break;
 
     }
-    return (void*)&ret;
+    return ret;
 }

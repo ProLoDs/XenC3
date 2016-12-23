@@ -77,5 +77,5 @@ enum cache_level
     L3
 };
 void start_counter(enum cache_level l);
-void* stop_counter(enum cache_level l);
+uint64_t stop_counter(enum cache_level l);
 
