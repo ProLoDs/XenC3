@@ -8,9 +8,10 @@
 #ifndef XEN_INCLUDE_XEN_PERF_COUNTER_H_
 #define XEN_INCLUDE_XEN_PERF_COUNTER_H_
 
-#include <stdint.h>
+
 
 #endif /* XEN_INCLUDE_XEN_PERF_COUNTER_H_ */
+#include <stdint.h>
 /*4 Performance Counters Selector for %ecx in insn wrmsr*/
 #define PERFEVTSEL0    0x186
 #define PERFEVTSEL1    0x187
