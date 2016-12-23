@@ -23,7 +23,7 @@
 #include <xen/errno.h>
 #include <xen/keyhandler.h>
 #include <xen/trace.h>
-
+#include <xen/perf_counter.h>
 
 /*
  * Basic constants
@@ -1757,16 +1757,16 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
 
-    // insert shit here
-//    printk("Cache Misses: %" PRIu64 " \n",cache_misses);
-//    if(first_start){
-//
-//        first_start=0;
-//    }else {
-//        stopPMC(cpu);
-//    }
+    // FIXME insert shit here
+    printk("Cache Misses: %" PRIu64 " \n",cache_misses);
+    if(first_start){
+
+        first_start=0;
+    }else {
+        stop_counter(L3);
+    }
     __runq_count(runq);
-//    startPMC(cpu);
+    start_counter(L3);
     // Shit ends here
 
 
