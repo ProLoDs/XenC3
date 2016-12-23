@@ -8,7 +8,7 @@
 //#include <linux/module.h>   /* Needed by all modules */
 //#include <linux/kernel.h>   /* Needed for KERN_INFO */
 #include <xen/perf_counter.h>
-
+#include <asm/types.h>
 static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
 {
     /*clear counter first*/

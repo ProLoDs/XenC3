@@ -8,7 +8,8 @@
 #ifndef XEN_INCLUDE_XEN_PERF_COUNTER_H_
 #define XEN_INCLUDE_XEN_PERF_COUNTER_H_
 
-
+#include <xen/perf_counter.h>
+#include <asm/types.h>
 
 #endif /* XEN_INCLUDE_XEN_PERF_COUNTER_H_ */
 
