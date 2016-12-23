@@ -31,6 +31,13 @@ static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
         : "m" (ecx), "m" (eax)
         : "eax", "ecx", "edx" /* clobbered */);
 }
+static inline void  rtxen_read_msr(uint32_t* ecx, uint32_t *eax, uint32_t* edx)
+{    __asm__ __volatile__(\
+        "rdmsr"\
+        :"=d" (*edx), "=a" (*eax)\
+        :"c"(*ecx)
+        );
+}
 void wrmsr(uint32_t idx, uint64_t v)
 {
     asm volatile (
@@ -96,8 +103,8 @@ uint64_t stop_counter(enum cache_level l)
 		    eax = 1;
 		    edx = 2;
 		    printk(KERN_INFO "rdmsr: ecx=%#010x\n", ecx);
-		    rdmsr(&ecx, &eax, &edx); /*need to pass into address!*/
-		    ret = ( ((uint64_t) edx << 32) | eax );
+		    rtxen_read_msr(&ecx, &eax, &edx); /*need to pass into address!*/
+		    ret = (((uint64_t) edx << 32) | eax );
     		break;
 
     }
