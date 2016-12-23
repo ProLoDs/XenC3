@@ -49,10 +49,12 @@ uint64_t rdmsr(uint32_t idx)
     return (lo | ((uint64_t)hi << 32));
 }
 
-void start_counter(enum cache_level l){
+void start_counter(enum cache_level l)
+{
 
     uint32_t eax, edx, ecx;
-    switch(l){
+    switch(l)
+    {
     case(L1):
 
     		break;
@@ -74,11 +76,13 @@ void start_counter(enum cache_level l){
 
     }
 }
-uint64_t stop_counter(enum cache_level l){
+uint64_t stop_counter(enum cache_level l)
+{
 
     uint32_t eax, edx, ecx;
     uint64_t ret = 0;
-    switch(l){
+    switch(l)
+    {
     case(L1):
 
     		break;

@@ -1763,7 +1763,7 @@ csched_schedule(
 
         first_start=0;
     }else {
-        stop_counter(L3);
+        cache_misses = stop_counter(L3);
     }
     __runq_count(runq);
     start_counter(L3);
