@@ -11,7 +11,6 @@
 #include <xen/perf_counter.h>
 #include <asm/types.h>
 
-#endif /* XEN_INCLUDE_XEN_PERF_COUNTER_H_ */
 
 /*4 Performance Counters Selector for %ecx in insn wrmsr*/
 #define PERFEVTSEL0    0x186
@@ -80,3 +79,5 @@ enum cache_level
 void start_counter(enum cache_level l);
 uint64_t stop_counter(enum cache_level l);
 
+
+#endif /* XEN_INCLUDE_XEN_PERF_COUNTER_H_ */
