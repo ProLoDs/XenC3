@@ -1758,16 +1758,17 @@ csched_schedule(
 
 
     // FIXME insert shit here
+    	cache_misses = testmsr();
     printk("Cache Misses: %" PRIu64 " \n",cache_misses);
-    if(first_start){
-
-        first_start=0;
-    }else {
-        cache_misses =  stop_counter(L3);
-    }
-    __runq_count(runq);
-    start_counter(L3);
-    // Shit ends here
+//    if(first_start){
+//
+//        first_start=0;
+//    }else {
+//        cache_misses =  stop_counter(L3);
+//    }
+    //__runq_count(runq);
+    //start_counter(L3);
+    // FIXME Shit ends here
 
 
     snext = __runq_elem(runq->next);

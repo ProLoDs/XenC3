@@ -65,19 +65,26 @@ void start_counter(enum cache_level l)
 
     		break;
     case(L2):
-    		break;
+
+	        eax = 0;
+            SET_MSR_USR_BIT(eax);
+            SET_MSR_OS_BIT(eax);
+            SET_EVENT_MASK(eax, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
+            eax |= MSR_ENFLAG;
+            eax |= (1<<20); //INT bit: counter overflow
+            ecx = PERFEVTSEL2;
+            rtxen_write_msr(eax, ecx);
+            break;
     case(L3):
 				eax = 0;
 		        SET_MSR_USR_BIT(eax);
 		        SET_MSR_OS_BIT(eax);
-		        SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+		        SET_EVENT_MASK(eax, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
 		        eax |= MSR_ENFLAG;
 		        eax |= (1<<20); //INT bit: counter overflow
-		        ecx = PERFEVTSEL2;
-//		        printk(KERN_INFO "before wrmsr: eax=%#010x, ecx=%#010x\n", eax, ecx);
+		        ecx = PERFEVTSEL0;
 		        rtxen_write_msr(eax, ecx);
-//		        printk(KERN_INFO "after wrmsr: eax=%#010x, ecx=%#010x\n", eax, ecx);
-//		        printk(KERN_INFO "L3 all request set MSR PMC2\n");
+
     		break;
 
     }
@@ -93,6 +100,22 @@ uint64_t stop_counter(enum cache_level l)
 
     		break;
     case(L2):
+		eax = 0;
+			SET_MSR_USR_BIT(eax);
+			SET_MSR_OS_BIT(eax);
+			SET_EVENT_MASK(eax, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
+			eax |= MSR_ENFLAG;
+			eax |= (1<<20); //INT bit: counter overflow
+			ecx = PERFEVTSEL3;
+			eax &= (~MSR_ENFLAG);
+		    rtxen_write_msr(eax, ecx);
+			   //printk(KERN_INFO "stop the counter, eax=%#010x\n", eax);
+			ecx = PMC2;
+			eax = 1;
+			edx = 2;
+			 //printk(KERN_INFO "rdmsr: ecx=%#010x\n", ecx);
+			rtxen_read_msr(&ecx, &eax, &edx); /*need to pass into address!*/
+			ret = (((uint64_t) edx << 32) | eax );
     		break;
     case(L3):
 		    eax = 0;
@@ -101,11 +124,11 @@ uint64_t stop_counter(enum cache_level l)
 			SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
 			eax |= MSR_ENFLAG;
 			eax |= (1<<20); //INT bit: counter overflow
-			ecx = PERFEVTSEL2;
+			ecx = PERFEVTSEL0;
 			eax &= (~MSR_ENFLAG);
     		rtxen_write_msr(eax, ecx);
 		    //printk(KERN_INFO "stop the counter, eax=%#010x\n", eax);
-		    ecx = PMC2;
+		    ecx = PMC0;
 		    eax = 1;
 		    edx = 2;
 		    //printk(KERN_INFO "rdmsr: ecx=%#010x\n", ecx);
@@ -115,4 +138,41 @@ uint64_t stop_counter(enum cache_level l)
 
     }
     return ret;
+}
+static inline void delay(void )
+{
+    char tmp[1000];
+    int i;
+    for( i = 0; i < 1000; i++ )
+    {
+        tmp[i] = i * 2;
+    }
+}
+static inline uint64_t testmsr(void)
+{
+
+	    uint32_t eax, edx, ecx;
+	    uint64_t l3_all;
+
+	    eax = 0;
+	        SET_MSR_USR_BIT(eax);
+	        SET_MSR_OS_BIT(eax);
+	        SET_EVENT_MASK(eax, L3_ALLREQ_EVENT, L3_ALLREQ_MASK);
+	        eax |= MSR_ENFLAG;
+	        eax |= (1<<20); //INT bit: counter overflow
+	        ecx = PERFEVTSEL2;
+
+	        rtxen_write_msr(eax, ecx);
+
+	        delay();
+	        eax &= (~MSR_ENFLAG);
+	        rtxen_write_msr(eax, ecx);
+
+	        ecx = PMC2;
+	        eax = 1;
+	        edx = 2;
+	        rtxen_read_msr(&ecx, &eax, &edx); /*need to pass into address!*/
+	        l3_all = ( ((uint64_t) edx << 32) | eax );
+	        return l3_all;
+
 }
