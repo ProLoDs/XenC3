@@ -148,7 +148,7 @@ static inline void delay(void )
         tmp[i] = i * 2;
     }
 }
-inline uint64_t testmsr(void)
+uint64_t testmsr(void)
 {
 
 	    uint32_t eax, edx, ecx;
