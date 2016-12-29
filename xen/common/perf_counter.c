@@ -9,7 +9,8 @@
 //#include <linux/kernel.h>   /* Needed for KERN_INFO */
 #include <xen/perf_counter.h>
 #include <xen/types.h>
-static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
+
+static inline void rtxen_clear_msr( uint32_t ecx)
 {
     /*clear counter first*/
    __asm__ __volatile__ ("movl %0, %%ecx\n\t"
@@ -19,6 +20,10 @@ static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
         : /* no outputs */
         : "m" (ecx)
         : "eax", "ecx", "edx" /* all clobbered */);
+}
+static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
+{
+
 
    eax |= MSR_ENFLAG;
 
@@ -73,6 +78,7 @@ void start_counter(enum cache_level l)
             eax |= MSR_ENFLAG;
             eax |= (1<<20); //INT bit: counter overflow
             ecx = PERFEVTSEL2;
+            rtxen_clear_msr(ecx);
             rtxen_write_msr(eax, ecx);
             break;
     case(L3):
@@ -83,6 +89,7 @@ void start_counter(enum cache_level l)
 		        eax |= MSR_ENFLAG;
 		        eax |= (1<<20); //INT bit: counter overflow
 		        ecx = PERFEVTSEL0;
+		        rtxen_clear_msr(ecx);
 		        rtxen_write_msr(eax, ecx);
 
     		break;
@@ -161,7 +168,7 @@ uint64_t testmsr(void)
 	        eax |= MSR_ENFLAG;
 	        eax |= (1<<20); //INT bit: counter overflow
 	        ecx = PERFEVTSEL2;
-
+	        rtxen_clear_msr(ecx);
 	        rtxen_write_msr(eax, ecx);
 
 	        delay();
