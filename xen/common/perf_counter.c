@@ -36,9 +36,9 @@ static inline void rtxen_write_msr(uint32_t eax, uint32_t ecx)
         : "eax", "ecx", "edx" /* clobbered */);
 }
 static inline void  rtxen_read_msr(uint32_t* ecx, uint32_t *eax, uint32_t* edx)
-{    __asm__ __volatile__(\
-        "rdmsr"\
-        :"=d" (*edx), "=a" (*eax)\
+{    __asm__ __volatile__(
+        "rdmsr"
+        :"=d" (*edx), "=a" (*eax)
         :"c"(*ecx)
         );
 }
@@ -67,7 +67,14 @@ void start_counter(enum cache_level l)
     switch(l)
     {
     case(L1):
-
+			eax = 0;
+            SET_MSR_USR_BIT(eax);
+            SET_MSR_OS_BIT(eax);
+            SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+            eax |= MSR_ENFLAG;
+            eax |= (1<<20); //INT bit: counter overflow
+            ecx = PERFEVTSEL2;
+            wrmsr(ecx,eax,0x4);
     		break;
     case(L2):
 
@@ -104,7 +111,16 @@ uint64_t stop_counter(enum cache_level l)
     switch(l)
     {
     case(L1):
-
+		    eax = 0;
+			SET_MSR_USR_BIT(eax);
+			SET_MSR_OS_BIT(eax);
+			SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+			eax |= MSR_ENFLAG;
+			eax |= (1<<20); //INT bit: counter overflow
+			ecx = PERFEVTSEL3;
+			eax &= (~MSR_ENFLAG);
+			wrmsr(ecx,eax,0x4);
+			ret = rdmsr(edx);
     		break;
     case(L2):
 		eax = 0;
@@ -133,14 +149,14 @@ uint64_t stop_counter(enum cache_level l)
 			eax |= (1<<20); //INT bit: counter overflow
 			ecx = PERFEVTSEL0;
 			eax &= (~MSR_ENFLAG);
-    		rtxen_write_msr(eax, ecx);
+    		wrmsr(,eax, ecx);
 		    //printk(KERN_INFO "stop the counter, eax=%#010x\n", eax);
 		    ecx = PMC0;
 		    eax = 1;
 		    edx = 2;
 		    //printk(KERN_INFO "rdmsr: ecx=%#010x\n", ecx);
-		    rtxen_read_msr(&ecx, &eax, &edx); /*need to pass into address!*/
-		    ret = (((uint64_t) edx << 32) | eax );
+		    ret  = rdmsr(ecx); /*need to pass into address!*/
+		    //ret = (((uint64_t) edx << 32) | eax );
     		break;
 
     }
