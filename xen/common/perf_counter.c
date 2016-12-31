@@ -152,7 +152,7 @@ uint64_t stop_counter(enum cache_level l)
 			eax |= (1<<20); //INT bit: counter overflow
 			ecx = PERFEVTSEL0;
 			eax &= (~MSR_ENFLAG);
-    		wrmsr(,eax, ecx);
+    		wrmsr(eax, ecx);
 		    //printk(KERN_INFO "stop the counter, eax=%#010x\n", eax);
 		    ecx = PMC0;
 		    eax = 1;
