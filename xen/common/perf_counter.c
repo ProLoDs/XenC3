@@ -120,7 +120,7 @@ uint64_t stop_counter(enum cache_level l)
 			SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
 			event |= MSR_ENFLAG;
 			event |= (1<<20); //INT bit: counter overflow
-			event = PERFEVTSEL3;
+			ecx = PERFEVTSEL2;
 			event &= (~MSR_ENFLAG);
 			wrmsr(ecx,event);
 			ret = rdmsr(ecx);
