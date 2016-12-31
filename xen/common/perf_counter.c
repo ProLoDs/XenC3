@@ -64,17 +64,19 @@ void start_counter(enum cache_level l)
 {
 
     uint32_t eax, ecx;
+    uint64_t event;
+
     switch(l)
     {
     case(L1):
-			eax = 0;
-            SET_MSR_USR_BIT(eax);
-            SET_MSR_OS_BIT(eax);
-            SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
-            eax |= MSR_ENFLAG;
-            eax |= (1<<20); //INT bit: counter overflow
+			event = 0;
+            SET_MSR_USR_BIT(event);
+            SET_MSR_OS_BIT(event);
+            SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+            event |= MSR_ENFLAG;
+            event |= (1<<20); //INT bit: counter overflow
             ecx = PERFEVTSEL2;
-            wrmsr(ecx,eax,0x4);
+            wrmsr(ecx,event);
     		break;
     case(L2):
 
@@ -107,20 +109,21 @@ uint64_t stop_counter(enum cache_level l)
 {
 
     uint32_t eax, edx, ecx;
+    uint64_t event;
     uint64_t ret = 0;
     switch(l)
     {
     case(L1):
-		    eax = 0;
-			SET_MSR_USR_BIT(eax);
-			SET_MSR_OS_BIT(eax);
-			SET_EVENT_MASK(eax, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
-			eax |= MSR_ENFLAG;
-			eax |= (1<<20); //INT bit: counter overflow
-			ecx = PERFEVTSEL3;
-			eax &= (~MSR_ENFLAG);
-			wrmsr(ecx,eax,0x4);
-			ret = rdmsr(edx);
+		    event = 0;
+			SET_MSR_USR_BIT(event);
+			SET_MSR_OS_BIT(event);
+			SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+			event |= MSR_ENFLAG;
+			event |= (1<<20); //INT bit: counter overflow
+			event = PERFEVTSEL3;
+			event &= (~MSR_ENFLAG);
+			wrmsr(ecx,event);
+			ret = rdmsr(ecx);
     		break;
     case(L2):
 		eax = 0;
