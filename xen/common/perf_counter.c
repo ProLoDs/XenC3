@@ -179,27 +179,25 @@ uint64_t testmsr(void)
 {
 
 	    uint32_t eax, edx, ecx;
+	    uint64_t event;
 	    uint64_t l3_all;
 
-	    eax = 0;
-	        SET_MSR_USR_BIT(eax);
-	        SET_MSR_OS_BIT(eax);
-	        SET_EVENT_MASK(eax, L3_ALLREQ_EVENT, L3_ALLREQ_MASK);
-	        eax |= MSR_ENFLAG;
-	        eax |= (1<<20); //INT bit: counter overflow
+	        event = 0;
+	        SET_MSR_USR_BIT(event);
+	        SET_MSR_OS_BIT(event);
+	        SET_EVENT_MASK(event, L3_ALLREQ_EVENT, L3_ALLREQ_MASK);
+	        event |= MSR_ENFLAG;
+	        event |= (1<<20); //INT bit: counter overflow
 	        ecx = PERFEVTSEL2;
 	        rtxen_clear_msr(ecx);
-	        rtxen_write_msr(eax, ecx);
+	        wrmsr(ecx, event);
 
 	        delay();
-	        eax &= (~MSR_ENFLAG);
-	        rtxen_write_msr(eax, ecx);
+	        event &= (~MSR_ENFLAG);
+	        wrmsr(ecx, event);
 
 	        ecx = PMC2;
-	        eax = 1;
-	        edx = 2;
-	        rtxen_read_msr(&ecx, &eax, &edx); /*need to pass into address!*/
-	        l3_all = ( ((uint64_t) edx << 32) | eax );
+	        l3_all = rdmsr(ecx);
 	        return l3_all;
 
 }
