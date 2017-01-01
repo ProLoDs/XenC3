@@ -72,10 +72,10 @@ void start_counter(enum cache_level l)
 			event = 0;
             SET_MSR_USR_BIT(event);
             SET_MSR_OS_BIT(event);
-            SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+            SET_EVENT_MASK(event, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
             event |= MSR_ENFLAG;
             event |= (1<<20); //INT bit: counter overflow
-            ecx = PERFEVTSEL2;
+            ecx = PERFEVTSEL0;
             rtxen_clear_msr(ecx);
             wrmsr(ecx,event);
     		break;
@@ -118,12 +118,13 @@ uint64_t stop_counter(enum cache_level l)
 		    event = 0;
 			SET_MSR_USR_BIT(event);
 			SET_MSR_OS_BIT(event);
-			SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
+			SET_EVENT_MASK(event, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
 			event |= MSR_ENFLAG;
 			event |= (1<<20); //INT bit: counter overflow
-			ecx = PERFEVTSEL2;
+			ecx = PERFEVTSEL0;
 			event &= (~MSR_ENFLAG);
 			wrmsr(ecx,event);
+			ecx = PMC0;
 			ret = rdmsr(ecx);
     		break;
     case(L2):
@@ -185,7 +186,7 @@ uint64_t testmsr(void)
 	        event = 0;
 	        SET_MSR_USR_BIT(event);
 	        SET_MSR_OS_BIT(event);
-	        SET_EVENT_MASK(event, L3_ALLREQ_EVENT, L3_ALLREQ_MASK);
+	        SET_EVENT_MASK(event, L2_ALLREQ_EVENT, L2_ALLREQ_MASK);
 	        event |= MSR_ENFLAG;
 	        event |= (1<<20); //INT bit: counter overflow
 	        ecx = PERFEVTSEL2;
