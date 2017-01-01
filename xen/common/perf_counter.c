@@ -178,7 +178,7 @@ static inline void delay(void )
 uint64_t testmsr(void)
 {
 
-	    uint32_t eax, edx, ecx;
+	    uint32_t  ecx;
 	    uint64_t event;
 	    uint64_t l3_all;
 
