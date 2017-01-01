@@ -76,6 +76,7 @@ void start_counter(enum cache_level l)
             event |= MSR_ENFLAG;
             event |= (1<<20); //INT bit: counter overflow
             ecx = PERFEVTSEL2;
+            rtxen_clear_msr(ecx);
             wrmsr(ecx,event);
     		break;
     case(L2):
