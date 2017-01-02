@@ -51,11 +51,15 @@ void start_counter(enum cache_level l)
     event |= (1<<20); //INT bit: counter overflow
     switch(l)
     {
-    case(L1):
+    case(L1_I):
 
             SET_EVENT_MASK(event, L1I_ALLMISS_EVENT, L1I_ALLMISS_MASK);
             ecx = PERFEVTSEL0;
     		break;
+    case(L1_D):
+            SET_EVENT_MASK(event, L1D_LDMISS_EVENT, L1D_LDMISS_MASK);
+            ecx = PERFEVTSEL0;
+       		break;
     case(L2):
             SET_EVENT_MASK(event, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
             ecx = PERFEVTSEL1;
@@ -85,26 +89,33 @@ uint64_t stop_counter(enum cache_level l)
 	event &= (~MSR_ENFLAG);
     switch(l)
     {
-    case(L1):
+    case(L1_I):
             SET_EVENT_MASK(event, L1I_ALLMISS_EVENT, L1I_ALLMISS_MASK);
 			ecx = PERFEVTSEL0;
 			wrmsr(ecx,event);
 			ecx = PMC0;
 			ret = rdmsr(ecx);
     		break;
+    case(L1_D):
+            SET_EVENT_MASK(event, L1D_LDMISS_EVENT, L1D_LDMISS_MASK);
+   			ecx = PERFEVTSEL0;
+   			wrmsr(ecx,event);
+   			ecx = PMC1;
+   			ret = rdmsr(ecx);
+    		break;
     case(L2):
 
 			SET_EVENT_MASK(event, L2_ALLMISS_EVENT, L2_ALLMISS_MASK);
 			ecx = PERFEVTSEL1;
 			wrmsr(ecx,event);
-			ecx = PMC1;
+			ecx = PMC2;
 			ret = rdmsr(ecx);
     		break;
     case(L3):
 			SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
 			ecx = PERFEVTSEL2;
 			wrmsr(ecx,event);
-			ecx = PMC2;
+			ecx = PMC3;
 			ret = rdmsr(ecx);
     		break;
 

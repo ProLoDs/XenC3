@@ -1618,28 +1618,8 @@ csched_load_balance(struct csched_private *prv, int cpu,
 }
 
 
-volatile uint64_t cache_misses = 0;
-void startPMC(unsigned int pcpu_id)
-{
-     uint32_t eax, edx;
-     /* reload performance counter for next dom */
-          wrmsrl(MSR_K7_PERFCTR0, cache_misses);
-     edx = 0x4;
-     // L3 cache misses for accesses from a core(cpu)
-     eax = 0xE1 | (0x3 << 16) | (0x1 << (12 + pcpu_id)) | (0x7 << 8) | (0x1 << 22);
-     wrmsr(MSR_K7_EVNTSEL0, eax, edx);
-}
-
-void stopPMC(unsigned int pcpu_id)
-{
-       uint32_t eax, edx;
-       edx = 0x4;
-       eax = (0xE1 | (0x3 << 16) | (0x1 << (12 + pcpu_id)) | (0x7 << 8))& ~(0x1 << 22); // L3 cache misses for accesses from core(cpu)
-       wrmsr(MSR_K7_EVNTSEL0, eax, edx);
-      /* save current performance counter */
-
-      rdmsrl(MSR_K7_PERFCTR0, cache_misses);
-}
+volatile uint64_t cache_misses_L1 = 0;
+volatile uint64_t cache_misses_L2 = 0;
 
 
 
@@ -1758,17 +1738,15 @@ csched_schedule(
 
 
     // FIXME insert shit here
-//    cache_misses = testmsr();
-    printk("Cache Misses: %" PRIu64 " \n",cache_misses);
+    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
     if(first_start){
-
         first_start=0;
     }else {
     	printk("Counter Stopped!\n");
-        cache_misses =  stop_counter(L1);
+        cache_misses_L2 =  stop_counter(L2);
     }
     //__runq_count(runq);
-    start_counter(L1);
+    start_counter(L2);
     printk("Counter started!\n");
     // FIXME Shit ends here
 

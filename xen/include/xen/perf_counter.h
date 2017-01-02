@@ -72,7 +72,8 @@
 
 enum cache_level
 {
-	L1,
+	L1_I,
+	L1_D,
     L2,
     L3
 };
