@@ -1,0 +1,50 @@
+Technische Daten zu UNITS2-Server:
+
+Handle 0x0005, DMI type 7, 19 bytes
+Cache Information
+	Socket Designation: L1 Cache
+	Configuration: Enabled, Not Socketed, Level 1
+	Operational Mode: Write Back
+	Location: Internal
+	Installed Size: 384 kB
+	Maximum Size: 384 kB
+	Supported SRAM Types:
+		Unknown
+	Installed SRAM Type: Unknown
+	Speed: Unknown
+	Error Correction Type: Parity
+	System Type: Other
+	Associativity: 8-way Set-associative
+
+Handle 0x0006, DMI type 7, 19 bytes
+Cache Information
+	Socket Designation: L2 Cache
+	Configuration: Enabled, Not Socketed, Level 2
+	Operational Mode: Write Back
+	Location: Internal
+	Installed Size: 1536 kB - 1 572 864 byte - 24 576 cache lines
+	Maximum Size: 1536 kB
+	Supported SRAM Types:
+		Unknown
+	Installed SRAM Type: Unknown
+	Speed: Unknown
+	Error Correction Type: Single-bit ECC
+	System Type: Unified
+	Associativity: 8-way Set-associative
+
+Handle 0x0007, DMI type 7, 19 bytes
+Cache Information
+	Socket Designation: L3 Cache
+	Configuration: Enabled, Not Socketed, Level 3
+	Operational Mode: Write Back
+	Location: Internal
+	Installed Size: 15360 kB
+	Maximum Size: 15360 kB
+	Supported SRAM Types:
+		Unknown
+	Installed SRAM Type: Unknown
+	Speed: Unknown
+	Error Correction Type: Single-bit ECC
+	System Type: Unified
+	Associativity: 20-way Set-associative
+
