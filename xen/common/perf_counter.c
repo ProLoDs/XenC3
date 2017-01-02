@@ -131,3 +131,10 @@ static inline void delay(void )
         tmp[i] = i * 2;
     }
 }
+
+uint64_t test_msr(void)
+{
+	start_counter(L2);
+	delay();
+	return stop_counter(L2);
+}

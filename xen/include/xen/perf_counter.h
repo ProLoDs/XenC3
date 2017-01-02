@@ -79,6 +79,6 @@ enum cache_level
 };
 void start_counter(enum cache_level l);
 uint64_t stop_counter(enum cache_level l);
-uint64_t testmsr(void);
+uint64_t test_msr(void);
 
 #endif /* XEN_INCLUDE_XEN_PERF_COUNTER_H_ */
