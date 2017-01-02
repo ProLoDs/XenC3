@@ -1619,33 +1619,103 @@ csched_load_balance(struct csched_private *prv, int cpu,
 
 DEFINE_PER_CPU(domid_t, last_domid);
 
+
+/*
+ * Just clear cache each time
+ */
+static inline void
+__swap_clear_cache(void)
+{
+	volatile asm("wbinvd");
+}
+
+/*
+ * After an untrusted Domain, just try to swap for Dom0
+ * enforce DomU-X, Dom0, DomU-X, Dom0 ...
+ */
+static inline struct csched_vcpu *
+__swap_simple_Dom0_swap(struct list_head * const runq)
+{
+	struct list_head *iter;
+	struct csched_vcpu  iter_svc;
+	struct csched_vcpu * current = __runq_elem(runq->next);
+	// idle task skip
+	if (current->pri == CSCHED_PRI_IDLE)
+		return current;
+	// current is already dom0
+	if(current->sdom->dom->domain_id == 0)
+		return current;
+	//last domain was dom0
+	if (last_domid == 0)
+		return current;
+
+	list_for_each( iter, runq )
+	    {
+	        iter_svc = *__runq_elem(iter);
+	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
+	        {
+	            // DOMAIN0 always has Domain Id 0
+	            if ( 0 == iter_svc.sdom->dom->domain_id)
+	                break;
+	        }
+	    }
+	if (&iter_svc.sdom->dom->domain_id != 0){
+	    printk("No Dom0 in Q \n");
+	    return current;
+
+	}
+	// add to the front of queue
+	list_add(&iter_svc.runq_elem,iter);
+	//delete old
+	__runq_remove(&iter_svc);
+
+	return  __runq_elem(runq->next);
+}
 /*
  *
  * Checks for Domain Id pattern like 121 or 212
 */
-static inline bool_t
-__check_swap_simple(struct csched_vcpu *snext)
+#define CACHEMISS_THRESHOLD 1572864
+static inline struct csched_vcpu *
+__swap_simple_Dom0_swap(struct list_head * const runq, uint64_t cache_misses)
 {
+	struct list_head *iter;
+	struct csched_vcpu  iter_svc;
+	struct csched_vcpu * current = __runq_elem(runq->next);
+	// idle task skip
+	if (current->pri == CSCHED_PRI_IDLE)
+		return current;
+	// current is already dom0
+	if(current->sdom->dom->domain_id == 0)
+		return current;
+	//last domain was dom0
+	if (last_domid == 0)
+		return current;
+    if (cache_misses > CACHEMISS_THRESHOLD)
+    	return current;
+	list_for_each( iter, runq )
+	    {
+	        iter_svc = *__runq_elem(iter);
+	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
+	        {
+	            // DOMAIN0 always has Domain Id 0
+	            if ( 0 == iter_svc.sdom->dom->domain_id)
+	                break;
+	        }
+	    }
+	if (&iter_svc.sdom->dom->domain_id != 0){
+	    printk("No Dom0 in Q \n");
+	    // clear write back and invalidate cache
+	    volatile asm("wbinvd");
+	    return current;
 
-	domid_t c3_current_domid ;
-	bool_t ret = 0;
-	if (snext->pri == CSCHED_PRI_IDLE)
-		return 0;
-//
-	c3_current_domid = snext->sdom->dom->domain_id;
-	// already Dom0 no swap needed
-	if (c3_current_domid == 0){
-	    return 0;
 	}
+	// add to the front of queue
+	list_add(&iter_svc.runq_elem,iter);
+	//delete old
+	__runq_remove(&iter_svc);
 
-//	printk("domid %i \n",c3_current_domid);
-//	if (c3_current_domid == this_cpu(last2_domid) && c3_current_domid != this_cpu(last_domid))
-//		ret = 1;
-	if (c3_current_domid != this_cpu(last_domid)){
-	    ret = 1;
-	}
-	this_cpu(last_domid) = c3_current_domid;
-    return ret;
+	return  __runq_elem(runq->next);
 }
 
 

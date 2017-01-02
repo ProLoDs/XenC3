@@ -75,6 +75,9 @@ void start_counter(enum cache_level l)
     rtxen_clear_msr(ecx);
     wrmsr(ecx,event);
 }
+/*
+ * return : cache misses in byte not cache lines!
+ */
 uint64_t stop_counter(enum cache_level l)
 {
 
