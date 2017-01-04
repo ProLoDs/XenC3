@@ -1861,12 +1861,12 @@ csched_schedule(
 // TODO Insert check and swap here
 
 
-    if(__check_swap_simple(snext))
-    {
-    	//printk("SWAP needed! \n");
-    	snext = __swap_runq(runq, snext->sdom->dom->domain_id);
-    }
-    __runq_count(runq);
+//    if(__check_swap_simple(snext))
+//    {
+//    	//printk("SWAP needed! \n");
+//    	snext = __swap_runq(runq, snext->sdom->dom->domain_id);
+//    }
+//    __runq_count(runq);
 
 // END OF TESTAREA
 
