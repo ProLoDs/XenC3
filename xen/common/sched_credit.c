@@ -1738,8 +1738,8 @@ csched_schedule(
 
 
     // FIXME insert shit here
-    cache_misses_L2 = test_msr();
-    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
+//    cache_misses_L2 = test_msr();
+//    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
 //    if(first_start){
 //        first_start=0;
 //    }else {
