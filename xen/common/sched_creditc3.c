@@ -1626,7 +1626,7 @@ DEFINE_PER_CPU(domid_t, last_domid);
 static inline void
 __swap_clear_cache(void)
 {
-	volatile asm("wbinvd");
+	 asm volatile("wbinvd");
 }
 
 /*
@@ -1638,16 +1638,16 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 {
 	struct list_head *iter;
 	struct csched_vcpu  iter_svc;
-	struct csched_vcpu * current = __runq_elem(runq->next);
+	struct csched_vcpu * current_element = __runq_elem(runq->next);
 	// idle task skip
-	if (current->pri == CSCHED_PRI_IDLE)
-		return current;
+	if (current_element->pri == CSCHED_PRI_IDLE)
+		return current_element;
 	// current is already dom0
-	if(current->sdom->dom->domain_id == 0)
-		return current;
+	if(current_element->sdom->dom->domain_id == 0)
+		return current_element;
 	//last domain was dom0
 	if (last_domid == 0)
-		return current;
+		return current_element;
 
 	list_for_each( iter, runq )
 	    {
@@ -1661,7 +1661,7 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 	    }
 	if (&iter_svc.sdom->dom->domain_id != 0){
 	    printk("No Dom0 in Q \n");
-	    return current;
+	    return current_element;
 
 	}
 	// add to the front of queue
@@ -1681,18 +1681,18 @@ __swap_simple_Dom0_swap(struct list_head * const runq, uint64_t cache_misses)
 {
 	struct list_head *iter;
 	struct csched_vcpu  iter_svc;
-	struct csched_vcpu * current = __runq_elem(runq->next);
+	struct csched_vcpu * current_element = __runq_elem(runq->next);
 	// idle task skip
-	if (current->pri == CSCHED_PRI_IDLE)
-		return current;
+	if (current_element->pri == CSCHED_PRI_IDLE)
+		return current_element;
 	// current is already dom0
-	if(current->sdom->dom->domain_id == 0)
-		return current;
+	if(current_element->sdom->dom->domain_id == 0)
+		return current_element;
 	//last domain was dom0
 	if (last_domid == 0)
-		return current;
+		return current_element;
     if (cache_misses > CACHEMISS_THRESHOLD)
-    	return current;
+    	return current_element;
 	list_for_each( iter, runq )
 	    {
 	        iter_svc = *__runq_elem(iter);
@@ -1706,8 +1706,8 @@ __swap_simple_Dom0_swap(struct list_head * const runq, uint64_t cache_misses)
 	if (&iter_svc.sdom->dom->domain_id != 0){
 	    printk("No Dom0 in Q \n");
 	    // clear write back and invalidate cache
-	    volatile asm("wbinvd");
-	    return current;
+	    asm volatile ("wbinvd");
+	    return current_element;
 
 	}
 	// add to the front of queue
