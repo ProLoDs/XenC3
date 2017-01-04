@@ -1677,7 +1677,7 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 */
 #define CACHEMISS_THRESHOLD 1572864
 static inline struct csched_vcpu *
-__swap_simple_Dom0_swap(struct list_head * const runq, uint64_t cache_misses)
+__swap_cachemiss(struct list_head * const runq, uint64_t cache_misses)
 {
 	struct list_head *iter;
 	struct csched_vcpu  iter_svc;
