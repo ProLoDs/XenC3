@@ -1646,7 +1646,7 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 	if(current_element->sdom->dom->domain_id == 0)
 		return current_element;
 	//last domain was dom0
-	if (last_domid == 0)
+	if (this_cpu(last_domid) == 0)
 		return current_element;
 
 	list_for_each( iter, runq )
@@ -1689,7 +1689,7 @@ __swap_simple_Dom0_swap(struct list_head * const runq, uint64_t cache_misses)
 	if(current_element->sdom->dom->domain_id == 0)
 		return current_element;
 	//last domain was dom0
-	if (last_domid == 0)
+	if (this_cpu(last_domid) == 0)
 		return current_element;
     if (cache_misses > CACHEMISS_THRESHOLD)
     	return current_element;
