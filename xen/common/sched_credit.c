@@ -1747,7 +1747,7 @@ csched_schedule(
 //    }
     //__runq_count(runq);
 //    start_counter(L2);
-
+    asm volatile("wbinvd");
     // FIXME Shit ends here
 
 
