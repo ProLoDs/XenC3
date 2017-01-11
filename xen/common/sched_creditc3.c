@@ -1783,7 +1783,11 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 
 	return  __runq_elem(runq->next);
 }
-
+/*
+ * C3 Test Vars --> clean up needed!
+ */
+uint64_t cache_misses_L2 = 0;
+int first_start = 1;
 /*
  * This function is in the critical path. It is designed to be simple and
  * fast for the common case.
@@ -1860,8 +1864,8 @@ csched_schedule(
 
 // TODO Insert check and swap here
 
-    uint64_t cache_misses_L2;
-    int first_start = 1;
+
+
 
 
     printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
