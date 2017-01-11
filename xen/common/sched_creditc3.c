@@ -1860,7 +1860,9 @@ csched_schedule(
 
 // TODO Insert check and swap here
 
-    uint64_t cache_misses_L2 = 0;
+    uint64_t cache_misses_L2;
+    int first_start = 1;
+
 
     printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
     if(first_start){
