@@ -23,7 +23,7 @@
 #include <xen/errno.h>
 #include <xen/keyhandler.h>
 #include <xen/trace.h>
-
+#include <xen/perf_counter.h>
 
 /*
  * Basic constants
@@ -1860,6 +1860,16 @@ csched_schedule(
 
 // TODO Insert check and swap here
 
+    uint64_t cache_misses_L2 = 0;
+
+    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
+    if(first_start){
+        first_start=0;
+    }else {
+        cache_misses_L2 =  stop_counter(L2);
+    }
+    //__runq_count(runq);
+    start_counter(L2);
 
 //    if(__check_swap_simple(snext))
 //    {
