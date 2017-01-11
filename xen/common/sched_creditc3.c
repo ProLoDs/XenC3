@@ -1786,8 +1786,8 @@ __swap_runq(struct list_head * const runq, domid_t current_domain)
 /*
  * C3 Test Vars --> clean up needed!
  */
-uint64_t cache_misses_L2 = 0;
-int first_start = 1;
+uint64_t cache_misses_L2_c3 = 0;
+int first_start_c3 = 1;
 /*
  * This function is in the critical path. It is designed to be simple and
  * fast for the common case.
@@ -1868,11 +1868,11 @@ csched_schedule(
 
 
 
-    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
-    if(first_start){
-        first_start=0;
+    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2_c3);
+    if(first_start_c3){
+        first_start_c3=0;
     }else {
-        cache_misses_L2 =  stop_counter(L2);
+        cache_misses_L2_c3 =  stop_counter(L2);
     }
     //__runq_count(runq);
     start_counter(L2);
