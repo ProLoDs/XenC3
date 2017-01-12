@@ -1869,19 +1869,19 @@ csched_schedule(
 
 
 
-
-    printk("Cache Misses: %" PRIu64 " \n",delta);
-    if(first_start_c3){
-        first_start_c3=0;
-    }else {
-    	tmp = stop_counter(L2);
-    	delta = tmp - cache_misses_L2_c3 ;
-        cache_misses_L2_c3 =  tmp;
-    }
+//
+//    printk("Cache Misses: %" PRIu64 " \n",delta);
+//    if(first_start_c3){
+//        first_start_c3=0;
+//    }else {
+//    	tmp = stop_counter(L2);
+//    	delta = tmp - cache_misses_L2_c3 ;
+//        cache_misses_L2_c3 =  tmp;
+//    }
 
     printk("test function new test: %" PRIu64 " \n", test_msr());
     //__runq_count(runq);
-    start_counter(L2);
+//    start_counter(L2);
 
 //    if(__check_swap_simple(snext))
 //    {
