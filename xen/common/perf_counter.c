@@ -137,6 +137,7 @@ static inline void delay(void )
 
 uint64_t test_msr(void)
 {
+	asm volatile("wbinvd");
 	start_counter(L2);
 	delay();
 	return stop_counter(L2);

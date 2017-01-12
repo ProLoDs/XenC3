@@ -1878,6 +1878,8 @@ csched_schedule(
     	delta = tmp - cache_misses_L2_c3 ;
         cache_misses_L2_c3 =  tmp;
     }
+
+    printk("test function new test: %" PRIu64 " \n", test_msr());
     //__runq_count(runq);
     start_counter(L2);
 
