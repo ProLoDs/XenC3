@@ -127,12 +127,12 @@ uint64_t stop_counter(enum cache_level l)
 }
 static inline void delay(void )
 {
-    char tmp[1000];
-    int i;
-    for( i = 0; i < 1000; i++ )
-    {
-        tmp[i] = i * 2;
-    }
+	int tmp[1000][1000];
+	int  i, j, sum = 0;
+	    for (j = 0; j < 1000; j++)
+	        for (i = 0; i < 1000; i++)
+	            sum += tmp[i][j];
+
 }
 
 uint64_t test_msr(void)
