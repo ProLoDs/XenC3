@@ -1618,7 +1618,7 @@ csched_load_balance(struct csched_private *prv, int cpu,
 }
 
 DEFINE_PER_CPU(domid_t, last_domid);
-
+DEFINE_PER_CPU(uint64_t, noise_distance);
 
 /*
  * Just clear cache each time
@@ -1691,8 +1691,11 @@ __swap_cachemiss(struct list_head * const runq, uint64_t cache_misses)
 	//last domain was dom0
 	if (this_cpu(last_domid) == 0)
 		return current_element;
-    if (cache_misses > CACHEMISS_THRESHOLD)
+    if (this_cpu(noise_distance) > CACHEMISS_THRESHOLD)
+    {
+
     	return current_element;
+    }
 	list_for_each( iter, runq )
 	    {
 	        iter_svc = *__runq_elem(iter);
@@ -1878,10 +1881,10 @@ csched_schedule(
     	delta = tmp - cache_misses_L2_c3 ;
         cache_misses_L2_c3 =  tmp;
     }
-
+    start_counter(L2);
 //    printk("test function new test: %" PRIu64 " \n", test_msr());
     //__runq_count(runq);
-    start_counter(L2);
+
 
 //    if(__check_swap_simple(snext))
 //    {
@@ -2086,7 +2089,7 @@ static int
 csched_init(struct scheduler *ops)
 {
     struct csched_private *prv;
-
+    this_cpu(noise_distance) = 0;
     prv = xzalloc(struct csched_private);
     if ( prv == NULL )
         return -ENOMEM;

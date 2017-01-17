@@ -44,10 +44,12 @@
 #define L2_ALLREQ_EVENT     0x24
 #define L2_ALLREQ_MASK      L2_ALLCODEREQ_MASK  /*0xFF*/
 #define L2_ALLMISS_EVENT    0x24
-#define L2_ALLMISS_MASK     L2_ALLCODEMISS_MASK /*0xAA*/
+#define L2_ALLMISS_MASK		0xAA
 
 #define L2_ALLCODEREQ_MASK  0x30
+// this seams to be only instruction
 #define L2_ALLCODEMISS_MASK 0x20
+
 
 /*L3 shared cache*/ /*confirmed*/
 /*Use the last level cache event and mask*/
