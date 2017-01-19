@@ -1832,7 +1832,7 @@ csched_schedule(
 
     snext=__swap_cachemiss(snext, cache_misses_L2);
 
-    if(benchmark_total >= 1000){
+    if(benchmark_total_1 >= 1000){
     	printk("Total: %"PRIu64 "\n",benchmark_total_1);
     	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache_1);
     	printk("Good Path: %"PRIu64 "\n",benchmark_last_next_1);
