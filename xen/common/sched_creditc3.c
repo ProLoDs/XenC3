@@ -1718,7 +1718,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	} else
 	{
 
-		list_for_each( iter, current_element->runq_elem )
+		list_for_each( iter, current_element->runq_elem->next )
 	    {
 		  iter_svc = *__runq_elem(iter);
 		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
