@@ -1675,52 +1675,89 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
  *
  * Checks for Domain Id pattern like 121 or 212
 */
-#define CACHEMISS_THRESHOLD 1572864
+#define CACHEMISS_THRESHOLD 1572864 / 2
 static inline struct csched_vcpu *
-__swap_cachemiss(struct list_head * const runq, uint64_t cache_misses)
+__swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
 {
-	struct list_head *iter;
-	struct csched_vcpu  iter_svc;
-	struct csched_vcpu * current_element = __runq_elem(runq->next);
+	struct csched_vcpu  tmp;
+
 	// idle task skip
 	if (current_element->pri == CSCHED_PRI_IDLE)
 		return current_element;
-	// current is already dom0
-	if(current_element->sdom->dom->domain_id == 0)
-		return current_element;
-	//last domain was dom0
-	if (this_cpu(last_domid) == 0)
-		return current_element;
-    if (this_cpu(noise_distance) > CACHEMISS_THRESHOLD)
-    {
 
-    	return current_element;
-    }
-	list_for_each( iter, runq )
-	    {
-	        iter_svc = *__runq_elem(iter);
-	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
-	        {
-	            // DOMAIN0 always has Domain Id 0
-	            if ( 0 == iter_svc.sdom->dom->domain_id)
-	                break;
-	        }
-	    }
-	if (&iter_svc.sdom->dom->domain_id != 0){
-	    printk("No Dom0 in Q \n");
-	    // clear write back and invalidate cache
-	    asm volatile ("wbinvd");
-	    return current_element;
 
+
+	// check if last is trsuted
+	if(this_cpu(last_domid) == 0)
+	{
+		this_cpu(noise_distance) += cache_misses;
+		// Check if current is trusted
+		if(current_element->sdom->dom->domain_id == 0)
+		{
+			return current_element;
+		}else
+		{
+			if(this_cpu(noise_distance) >= CACHEMISS_THRESHOLD)
+			{
+				this_cpu(noise_distance) = 0;
+				return current_element;
+			}else
+			{
+				this_cpu(noise_distance) = 0;
+				asm volatile ("wbinvd");
+			}
+		}
+	} else
+	{
+		tmp = _trusted_dom_in_q(current_element);
+		// no trusted domain in Q
+		if (tmp == NULL)
+		{
+			asm volatile ("wbinvd");
+			return current_element;
+		}else
+		{
+			// add to the front of queue
+			list_add(&current_element.runq_elem,tmp);
+			//delete old
+			__runq_remove(&tmp);
+			return tmp;
+		}
 	}
-	// add to the front of queue
-	list_add(&iter_svc.runq_elem,iter);
-	//delete old
-	__runq_remove(&iter_svc);
+
+
+
+
+
 
 	return  __runq_elem(runq->next);
 }
+static inline struct csched_vcpu *
+_trusted_dom_in_q(struct csched_vcpu * const current_element)
+{
+	struct list_head *iter;
+	struct csched_vcpu  iter_svc;
+	list_for_each( iter, current_element->next )
+    {
+	  iter_svc = *__runq_elem(iter);
+	  if ( iter_svc.pri != CSCHED_PRI_IDLE )
+	  {
+	  // DOMAIN0 always has Domain Id 0
+	    if ( 0 == iter_svc.sdom->dom->domain_id)
+		  break;
+	  }
+    }
 
+
+	if (&iter_svc.sdom->dom->domain_id == 0)
+	{
+	    return current_element;
+	}
+	else
+	{
+		return NULL;
+	}
+}
 
 /*
  * This function pulls the next different Domain in front of the Queue
