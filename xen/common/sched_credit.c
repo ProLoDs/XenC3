@@ -1665,11 +1665,14 @@ __runq_count(struct list_head * const runq){
 int first_start = 1;
 DEFINE_PER_CPU(domid_t, last_domid_1);
 DEFINE_PER_CPU(uint64_t, noise_distance_1);
-uint64_t benchmark_total_1 = 0;
-uint64_t benchmark_last_next_1 = 0;
-uint64_t benchmark_flush_cache_1 = 0;
-uint64_t benchmark_cache_miss_successful_1 = 0;
-uint64_t benchmark_swap_dom0_1 = 0;
+static uint64_t benchmark_total_1 = 0;
+static uint64_t benchmark_last_next_1 = 0;
+static uint64_t benchmark_flush_cache_1 = 0;
+static uint64_t benchmark_cache_miss_successful_1 = 0;
+static uint64_t benchmark_swap_dom0_1 = 0;
+static uint64_t benchmark_idle = 0;
+static uint64_t delta = 0;
+static uint64_t tmp = 0;
 #define CACHEMISS_THRESHOLD 1572864 / 2
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
@@ -1681,7 +1684,10 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 
 	// idle task skip
 	if (current_element->pri == CSCHED_PRI_IDLE)
+	{
+		benchmark_idle++;
 		return current_element;
+	}
 
 
 
@@ -1817,12 +1823,14 @@ csched_schedule(
     // FIXME insert shit here
     //cache_misses_L2 = test_msr();
     //printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
-    if(first_start){
-        first_start=0;
+
+    if(first_start_c3){
+        first_start_c3=0;
     }else {
-        cache_misses_L2 =  stop_counter(L2);
+    	tmp = stop_counter(L2);
+    	delta = tmp - cache_misses_L2_c3 ;
+        cache_misses_L2_c3 =  tmp;
     }
-    //__runq_count(runq);
     start_counter(L2);
 //    asm volatile("wbinvd");
     // FIXME Shit ends here
@@ -1838,11 +1846,13 @@ csched_schedule(
     	printk("Good Path: %"PRIu64 "\n",benchmark_last_next_1);
     	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0_1);
     	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful_1);
+    	printk("Idle: %"PRIu64 "\n",benchmark_idle);
     	benchmark_total_1 = 0;
     	benchmark_cache_miss_successful_1 = 0;
     	benchmark_flush_cache_1 = 0;
     	benchmark_last_next_1 = 0;
     	benchmark_swap_dom0_1 = 0;
+    	benchmark_idle = 0;
     }
 
     ret.migrated = 0;
