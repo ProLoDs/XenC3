@@ -1671,6 +1671,14 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 
 	return  __runq_elem(runq->next);
 }
+
+
+
+static inline struct csched_vcpu *
+_trusted_dom_in_q(struct csched_vcpu * const current_element)
+{
+
+}
 /*
  *
  * Checks for Domain Id pattern like 121 or 212
@@ -1680,7 +1688,8 @@ static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
 {
 	struct csched_vcpu  tmp;
-
+	struct list_head *iter;
+	struct csched_vcpu  iter_svc;
 	// idle task skip
 	if (current_element->pri == CSCHED_PRI_IDLE)
 		return current_element;
@@ -1709,55 +1718,34 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		}
 	} else
 	{
-		tmp = _trusted_dom_in_q(current_element);
-		// no trusted domain in Q
-		if (tmp == NULL)
+
+		list_for_each( iter, current_element->next )
+	    {
+		  iter_svc = *__runq_elem(iter);
+		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
+		  {
+		  // DOMAIN0 always has Domain Id 0
+		    if ( 0 == iter_svc.sdom->dom->domain_id)
+			  break;
+		  }
+	    }
+
+		if (&iter_svc.sdom->dom->domain_id == 0)
+		{
+			// add to the front of queue
+			list_add(&iter_svc.runq_elem,iter);
+			//delete old
+			__runq_remove(&iter);
+		    return __runq_elem(iter);
+		}
+		else
 		{
 			asm volatile ("wbinvd");
 			return current_element;
-		}else
-		{
-			// add to the front of queue
-			list_add(&current_element.runq_elem,tmp);
-			//delete old
-			__runq_remove(&tmp);
-			return tmp;
 		}
 	}
-
-
-
-
-
-
-	return  __runq_elem(runq->next);
 }
-static inline struct csched_vcpu *
-_trusted_dom_in_q(struct csched_vcpu * const current_element)
-{
-	struct list_head *iter;
-	struct csched_vcpu  iter_svc;
-	list_for_each( iter, current_element->next )
-    {
-	  iter_svc = *__runq_elem(iter);
-	  if ( iter_svc.pri != CSCHED_PRI_IDLE )
-	  {
-	  // DOMAIN0 always has Domain Id 0
-	    if ( 0 == iter_svc.sdom->dom->domain_id)
-		  break;
-	  }
-    }
 
-
-	if (&iter_svc.sdom->dom->domain_id == 0)
-	{
-	    return current_element;
-	}
-	else
-	{
-		return NULL;
-	}
-}
 
 /*
  * This function pulls the next different Domain in front of the Queue
