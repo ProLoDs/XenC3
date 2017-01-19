@@ -1687,7 +1687,6 @@ _trusted_dom_in_q(struct csched_vcpu * const current_element)
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
 {
-	struct csched_vcpu  tmp;
 	struct list_head *iter;
 	struct csched_vcpu  iter_svc;
 	// idle task skip
@@ -1719,7 +1718,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	} else
 	{
 
-		list_for_each( iter, current_element->next )
+		list_for_each( iter, current_element->runq_elem )
 	    {
 		  iter_svc = *__runq_elem(iter);
 		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
@@ -1729,13 +1728,12 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			  break;
 		  }
 	    }
-
 		if (&iter_svc.sdom->dom->domain_id == 0)
 		{
 			// add to the front of queue
 			list_add(&iter_svc.runq_elem,iter);
 			//delete old
-			__runq_remove(&iter);
+			__runq_remove(&iter_svc);
 		    return __runq_elem(iter);
 		}
 		else
