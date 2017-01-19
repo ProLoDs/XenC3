@@ -1674,11 +1674,7 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 
 
 
-static inline struct csched_vcpu *
-_trusted_dom_in_q(struct csched_vcpu * const current_element)
-{
 
-}
 /*
  *
  * Checks for Domain Id pattern like 121 or 212
@@ -1718,7 +1714,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	} else
 	{
 
-		list_for_each( iter, current_element->runq_elem->next )
+		list_for_each( iter, current_element->runq_elem.next )
 	    {
 		  iter_svc = *__runq_elem(iter);
 		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
