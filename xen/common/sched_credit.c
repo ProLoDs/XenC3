@@ -1824,7 +1824,7 @@ csched_schedule(
     //cache_misses_L2 = test_msr();
     //printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
 
-    if(first_start_c3){
+    if(first_start){
         first_start_c3=0;
     }else {
     	tmp = stop_counter(L2);
