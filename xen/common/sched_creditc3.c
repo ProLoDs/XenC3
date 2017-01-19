@@ -1742,6 +1742,9 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			return current_element;
 		}
 	}
+	// if nothing works....
+	asm volatile ("wbinvd");
+	return current_element;
 }
 
 
