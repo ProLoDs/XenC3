@@ -1828,8 +1828,8 @@ csched_schedule(
         first_start_c3=0;
     }else {
     	tmp = stop_counter(L2);
-    	delta = tmp - cache_misses_L2_c3 ;
-        cache_misses_L2_c3 =  tmp;
+    	delta = tmp - cache_misses_L2 ;
+        cache_misses_L2 =  tmp;
     }
     start_counter(L2);
 //    asm volatile("wbinvd");
