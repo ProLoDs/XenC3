@@ -1619,7 +1619,11 @@ csched_load_balance(struct csched_private *prv, int cpu,
 
 DEFINE_PER_CPU(domid_t, last_domid);
 DEFINE_PER_CPU(uint64_t, noise_distance);
-
+uint64_t benchmark_total = 0;
+uint64_t benchmark_last_next = 0;
+uint64_t benchmark_flush_cache = 0;
+uint64_t benchmark_cache_miss_successful = 0;
+uint64_t benchmark_swap_dom0 = 0;
 /*
  * Just clear cache each time
  */
@@ -1639,6 +1643,9 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 	struct list_head *iter;
 	struct csched_vcpu  iter_svc;
 	struct csched_vcpu * current_element = __runq_elem(runq->next);
+
+
+
 	// idle task skip
 	if (current_element->pri == CSCHED_PRI_IDLE)
 		return current_element;
@@ -1685,6 +1692,9 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 {
 	struct list_head *iter;
 	struct csched_vcpu  iter_svc;
+
+	benchmark_total++;
+
 	// idle task skip
 	if (current_element->pri == CSCHED_PRI_IDLE)
 		return current_element;
@@ -1698,15 +1708,18 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		// Check if current is trusted
 		if(current_element->sdom->dom->domain_id == 0)
 		{
+			benchmark_last_next++;
 			return current_element;
 		}else
 		{
 			if(this_cpu(noise_distance) >= CACHEMISS_THRESHOLD)
 			{
+				benchmark_cache_miss_successful++;
 				this_cpu(noise_distance) = 0;
 				return current_element;
 			}else
 			{
+				benchmark_flush_cache++;
 				this_cpu(noise_distance) = 0;
 				asm volatile ("wbinvd");
 			}
@@ -1726,6 +1739,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	    }
 		if (&iter_svc.sdom->dom->domain_id == 0)
 		{
+			benchmark_swap_dom0++;
 			// add to the front of queue
 			list_add(&iter_svc.runq_elem,iter);
 			//delete old
@@ -1734,6 +1748,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		}
 		else
 		{
+			benchmark_flush_cache++;
 			asm volatile ("wbinvd");
 			return current_element;
 		}

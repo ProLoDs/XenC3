@@ -1663,7 +1663,84 @@ __runq_count(struct list_head * const runq){
 
 
 int first_start = 1;
+DEFINE_PER_CPU(domid_t, last_domid);
+DEFINE_PER_CPU(uint64_t, noise_distance);
+uint64_t benchmark_total = 0;
+uint64_t benchmark_last_next = 0;
+uint64_t benchmark_flush_cache = 0;
+uint64_t benchmark_cache_miss_successful = 0;
+uint64_t benchmark_swap_dom0 = 0;
+#define CACHEMISS_THRESHOLD 1572864 / 2
+static inline struct csched_vcpu *
+__swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
+{
+	struct list_head *iter;
+	struct csched_vcpu  iter_svc;
 
+	benchmark_total++;
+
+	// idle task skip
+	if (current_element->pri == CSCHED_PRI_IDLE)
+		return current_element;
+
+
+
+	// check if last is trsuted
+	if(this_cpu(last_domid) == 0)
+	{
+		this_cpu(noise_distance) += cache_misses;
+		// Check if current is trusted
+		if(current_element->sdom->dom->domain_id == 0)
+		{
+			benchmark_last_next++;
+			return current_element;
+		}else
+		{
+			if(this_cpu(noise_distance) >= CACHEMISS_THRESHOLD)
+			{
+				benchmark_cache_miss_successful++;
+				this_cpu(noise_distance) = 0;
+				return current_element;
+			}else
+			{
+				benchmark_flush_cache++;
+				this_cpu(noise_distance) = 0;
+				asm volatile ("wbinvd");
+			}
+		}
+	} else
+	{
+
+		list_for_each( iter, current_element->runq_elem.next )
+	    {
+		  iter_svc = *__runq_elem(iter);
+		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
+		  {
+		  // DOMAIN0 always has Domain Id 0
+		    if ( 0 == iter_svc.sdom->dom->domain_id)
+			  break;
+		  }
+	    }
+		if (&iter_svc.sdom->dom->domain_id == 0)
+		{
+			benchmark_swap_dom0++;
+			// add to the front of queue
+			list_add(&iter_svc.runq_elem,iter);
+			//delete old
+			__runq_remove(&iter_svc);
+		    return __runq_elem(iter);
+		}
+		else
+		{
+			benchmark_flush_cache++;
+			asm volatile ("wbinvd");
+			return current_element;
+		}
+	}
+	// if nothing works....
+	asm volatile ("wbinvd");
+	return current_element;
+}
 /*
  * This function is in the critical path. It is designed to be simple and
  * fast for the common case.
@@ -1752,6 +1829,22 @@ csched_schedule(
 
 
     snext = __runq_elem(runq->next);
+
+    snext=__swap_cachemiss(snext);
+
+    if(benchmark_total >= 1000){
+    	printk("Total: "PRIu64 "\n",benchmark_total);
+    	printk("FLush Cache: "PRIu64 "\n",benchmark_flush_cache);
+    	printk("Good Path: "PRIu64 "\n",benchmark_last_next);
+    	printk("Swap Dom0: "PRIu64 "\n",benchmark_swap_dom0);
+    	printk("Enough Cache Miss: "PRIu64 "\n",benchmark_cache_miss_successful);
+    	benchmark_total = 0;
+    	benchmark_cache_miss_successful = 0;
+    	benchmark_flush_cache = 0;
+    	benchmark_last_next = 0;
+    	benchmark_swap_dom0 = 0;
+    }
+
     ret.migrated = 0;
 
     /* Tasklet work (which runs in idle VCPU context) overrides all else. */
