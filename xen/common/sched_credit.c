@@ -1815,29 +1815,29 @@ csched_schedule(
 
 
     // FIXME insert shit here
-//    cache_misses_L2 = test_msr();
-//    printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
-//    if(first_start){
-//        first_start=0;
-//    }else {
-//        cache_misses_L2 =  stop_counter(L2);
-//    }
+    //cache_misses_L2 = test_msr();
+    //printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
+    if(first_start){
+        first_start=0;
+    }else {
+        cache_misses_L2 =  stop_counter(L2);
+    }
     //__runq_count(runq);
-//    start_counter(L2);
+    start_counter(L2);
 //    asm volatile("wbinvd");
     // FIXME Shit ends here
 
 
     snext = __runq_elem(runq->next);
 
-    snext=__swap_cachemiss(snext);
+    snext=__swap_cachemiss(snext, cache_misses_L2);
 
     if(benchmark_total >= 1000){
-    	printk("Total: "PRIu64 "\n",benchmark_total);
-    	printk("FLush Cache: "PRIu64 "\n",benchmark_flush_cache);
-    	printk("Good Path: "PRIu64 "\n",benchmark_last_next);
-    	printk("Swap Dom0: "PRIu64 "\n",benchmark_swap_dom0);
-    	printk("Enough Cache Miss: "PRIu64 "\n",benchmark_cache_miss_successful);
+    	printk("Total: %"PRIu64 "\n",benchmark_total);
+    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
+    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
+    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
+    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
     	benchmark_total = 0;
     	benchmark_cache_miss_successful = 0;
     	benchmark_flush_cache = 0;
