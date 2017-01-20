@@ -1735,9 +1735,12 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		if (iter_svc->sdom->dom->domain_id == 0)
 		{
 			benchmark_swap_dom0_1++;
-			// add to the front of queue
-			list_add(&iter_svc->runq_elem,&current_element->runq_elem);
+
 			//delete old
+			list_del(iter);
+			// add to the front of queue
+			list_add(iter,current_element->runq_elem->prev);
+
 			__runq_remove(iter_svc);
 		    return iter_svc;
 		}
