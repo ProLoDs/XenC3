@@ -1678,7 +1678,7 @@ static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
 {
 	struct list_head *iter;
-	struct csched_vcpu  iter_svc;
+	struct csched_vcpu  iter_svc = (struct csched_vcpu) null;
 
 	benchmark_total_1++;
 
