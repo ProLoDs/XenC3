@@ -1694,7 +1694,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	// check if last is trsuted
 	if(this_cpu(last_domid_1) == 0)
 	{
-		this_cpu(last_domid_1) = current_element.sdom.dom.domain_id;
+		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
 		this_cpu(noise_distance_1) += cache_misses;
 		// Check if current is trusted
 		if(current_element->sdom->dom->domain_id == 0)
@@ -1718,7 +1718,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		}
 	} else
 	{
-		this_cpu(last_domid_1) = current_element.sdom.dom.domain_id;
+		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
 		list_for_each( iter, current_element->runq_elem.next )
 	    {
 		  iter_svc = *__runq_elem(iter);
