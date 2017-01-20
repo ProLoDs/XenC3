@@ -1678,7 +1678,7 @@ static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
 {
 	struct list_head *iter;
-	struct csched_vcpu  iter_svc = (struct csched_vcpu) NULL;
+	struct csched_vcpu  *iter_svc;
 
 	benchmark_total_1++;
 
@@ -1721,8 +1721,8 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
 		list_for_each( iter, current_element->runq_elem.next )
 	    {
-		  iter_svc = *__runq_elem(iter);
-		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
+		  iter_svc = __runq_elem(iter);
+		  if ( iter_svc->pri != CSCHED_PRI_IDLE )
 		  {
 		  // DOMAIN0 always has Domain Id 0
 		    if ( 0 == iter_svc.sdom->dom->domain_id)
@@ -1736,7 +1736,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			//list_add(&iter_svc.runq_elem, current_element->runq_elem.next );
 			//delete old
 			//__runq_remove(&iter_svc);
-		    return __runq_elem(iter);
+		    return iter_svc;
 		}
 		else
 		{
