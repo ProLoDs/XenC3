@@ -1694,6 +1694,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	// check if last is trsuted
 	if(this_cpu(last_domid_1) == 0)
 	{
+		this_cpu(last_domid_1) = current_element.sdom.dom.domain_id;
 		this_cpu(noise_distance_1) += cache_misses;
 		// Check if current is trusted
 		if(current_element->sdom->dom->domain_id == 0)
@@ -1712,11 +1713,12 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 				benchmark_flush_cache_1++;
 				this_cpu(noise_distance_1) = 0;
 				asm volatile ("wbinvd");
+				return current_element;
 			}
 		}
 	} else
 	{
-
+		this_cpu(last_domid_1) = current_element.sdom.dom.domain_id;
 		list_for_each( iter, current_element->runq_elem.next )
 	    {
 		  iter_svc = *__runq_elem(iter);
@@ -1731,7 +1733,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		{
 			benchmark_swap_dom0_1++;
 			// add to the front of queue
-			list_add(&iter_svc.runq_elem,iter);
+			list_add(&iter_svc.runq_elem, current_element->runq_elem.next );
 			//delete old
 			__runq_remove(&iter_svc);
 		    return __runq_elem(iter);
