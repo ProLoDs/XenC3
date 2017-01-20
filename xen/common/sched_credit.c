@@ -1739,7 +1739,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			//delete old
 			list_del(iter);
 			// add to the front of queue
-			list_add(iter,current_element->runq_elem->prev);
+			list_add(iter,current_element->runq_elem.prev);
 
 			__runq_remove(iter_svc);
 		    return iter_svc;
