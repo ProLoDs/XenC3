@@ -1675,11 +1675,12 @@ static uint64_t delta = 0;
 static uint64_t tmp = 0;
 #define CACHEMISS_THRESHOLD 1572864 / 2
 static inline struct csched_vcpu *
-__swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
+__swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
 	struct list_head *iter;
 	struct csched_vcpu  *iter_svc;
-
+    const int cpu = smp_processor_id();
+    struct list_head * const runq = RUNQ(cpu);
 	benchmark_total_1++;
 
 	// idle task skip
@@ -1739,7 +1740,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			//delete old
 			list_del(iter);
 			// add to the front of queue
-			list_add(iter,current_element->runq_elem.prev);
+			list_add(iter,runq);
 
 			__runq_remove(iter_svc);
 		    return iter_svc;
