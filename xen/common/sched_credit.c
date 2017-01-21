@@ -1733,7 +1733,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			  break;
 		  }
 	    }
-		if (iter_svc->pri !=CSCHED_PRI_IDLE )
+		if (iter_svc->pri != CSCHED_PRI_IDLE )
 		{
 			if( iter_svc->sdom->dom->domain_id == 0)
 			{
@@ -1742,9 +1742,9 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			//delete old
 			list_del(iter);
 			// add to the front of queue
-			list_add(iter,runq);
+			list_add(iter,runq->next);
 
-		    return iter_svc;
+		    return __runq_elem(iter);
 		    }
 		}
 
