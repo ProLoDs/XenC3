@@ -1723,7 +1723,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		iter_svc = current_element;
 
 		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
-		list_for_each( iter, current_element->runq_elem.next )
+		list_for_each( iter,runq )
 	    {
 		  iter_svc = __runq_elem(iter);
 		  if ( iter_svc->pri != CSCHED_PRI_IDLE )
