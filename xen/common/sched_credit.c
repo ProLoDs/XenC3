@@ -1739,10 +1739,13 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			{
 			benchmark_swap_dom0_1++;
 
+
 			//delete old
 			list_del(iter);
 			// add to the front of queue
 			list_add(iter,runq->next);
+			return current_element;
+
 
 		    return __runq_elem(iter);
 		    }
@@ -1845,10 +1848,9 @@ csched_schedule(
 //    asm volatile("wbinvd");
     // FIXME Shit ends here
 
-
+    __swap_cachemiss(snext, cache_misses_L2);
     snext = __runq_elem(runq->next);
 
-    snext=__swap_cachemiss(snext, cache_misses_L2);
 
     if(benchmark_total_1 >= 1000){
     	printk("Total: %"PRIu64 "\n",benchmark_total_1);
