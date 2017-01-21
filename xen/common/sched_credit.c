@@ -1733,8 +1733,10 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			  break;
 		  }
 	    }
-		if (iter_svc->pri !=CSCHED_PRI_IDLE && iter_svc->sdom->dom->domain_id == 0)
+		if (iter_svc->pri !=CSCHED_PRI_IDLE )
 		{
+			if( iter_svc->sdom->dom->domain_id == 0)
+			{
 			benchmark_swap_dom0_1++;
 
 			//delete old
@@ -1742,15 +1744,14 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			// add to the front of queue
 			list_add(iter,runq);
 
-			__runq_remove(iter_svc);
 		    return iter_svc;
+		    }
 		}
-		else
-		{
-			benchmark_flush_cache_1++;
-			asm volatile ("wbinvd");
-			return current_element;
-		}
+
+		benchmark_flush_cache_1++;
+		asm volatile ("wbinvd");
+		return current_element;
+
 	}
 	// if nothing works....
 	asm volatile ("wbinvd");
