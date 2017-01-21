@@ -1732,7 +1732,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			  break;
 		  }
 	    }
-		if (iter_svc->sdom->dom->domain_id == 0)
+		if (iter_svc->pri !=CSCHED_PRI_IDLE && iter_svc->sdom->dom->domain_id == 0)
 		{
 			benchmark_swap_dom0_1++;
 
