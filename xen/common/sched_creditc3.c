@@ -1674,7 +1674,7 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 	// add to the front of queue
 	list_add(&iter_svc.runq_elem,iter);
 	//delete old
-	__runq_remove(&iter_svc);
+	list_del(iter);
 
 	return  __runq_elem(runq->next);
 }
@@ -1741,9 +1741,10 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		{
 			benchmark_swap_dom0++;
 			// add to the front of queue
+			list_del(iter);
 			list_add(&iter_svc.runq_elem,iter);
 			//delete old
-			__runq_remove(&iter_svc);
+
 		    return __runq_elem(iter);
 		}
 		else
