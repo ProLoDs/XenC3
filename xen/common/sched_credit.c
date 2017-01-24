@@ -1845,7 +1845,7 @@ csched_schedule(
         cache_misses_L2 =  tmp;
     }
     start_counter(L2);
-//    asm volatile("wbinvd");
+    asm volatile("wbinvd");
     // FIXME Shit ends here
 
 //    __swap_cachemiss(__runq_elem(runq->next), cache_misses_L2);
