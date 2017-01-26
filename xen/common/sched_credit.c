@@ -1673,7 +1673,8 @@ static uint64_t benchmark_swap_dom0_1 = 0;
 static uint64_t benchmark_idle = 0;
 static uint64_t delta = 0;
 static uint64_t tmp = 0;
-#define CACHEMISS_THRESHOLD 1572864 / 2
+//#define CACHEMISS_THRESHOLD 1572864 / 2
+#define CACHEMISS_THRESHOLD 1572864
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
@@ -1845,10 +1846,10 @@ csched_schedule(
         cache_misses_L2 =  tmp;
     }
     start_counter(L2);
-    asm volatile("wbinvd");
-    // FIXME Shit ends here
+//    asm volatile("wbinvd");
+//     FIXME Shit ends here
 
-//    __swap_cachemiss(__runq_elem(runq->next), cache_misses_L2);
+    __swap_cachemiss(__runq_elem(runq->next), cache_misses_L2);
     snext = __runq_elem(runq->next);
 
 

@@ -5,6 +5,8 @@
 credit = []
 cache = []
 creditc3 = []
+def avg(l):
+    return reduce(lambda x, y: x + y, l) / len(l)
 
 def timestring_to_sec(input_string):
     mins = input_string.split("m")[0]
@@ -20,15 +22,19 @@ def add_to_list(input_string,dest_list):
         if "real" in line:
             dest_list.append(timestring_to_sec(line.split("\t")[1]))
 
-
-add_to_list("DomU2_cache.txt",cache)
-add_to_list("Dom1_cache.txt",cache)
-add_to_list("DomU2_credit.txt",credit)
-add_to_list("Dom1_credit.txt",credit)
+add_to_list("output_cache_dom1.txt",cache)
+add_to_list("output_cache_dom2.txt",cache)
+add_to_list("output_credit_dom1.txt",credit)
+add_to_list("output_credit_dom2.txt",credit)
+add_to_list("output_c3_dom1.txt",creditc3)
+add_to_list("output_c3_dom2.txt",creditc3)
 #print credit , cache
 
 with open("output.csv","w") as out:
+    out.write("Credit Scheduler;Flush Cache;Credit C3 Scheduler\n")
     for c1,c2,c3 in map(None,credit,cache,creditc3):
         #print str(c1) + "," + str(c2) + "," + str(c3)
         out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + "\n")
+    out.write(";;\n")
+    out.write(str(avg(credit)) + ";" + str(avg(cache)) + ";" + str(avg(creditc3)) + "\n")
     

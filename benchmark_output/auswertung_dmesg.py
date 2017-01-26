@@ -7,7 +7,7 @@ swap_dom0 = 0
 enough_cache_misses = 0
         
 raw_datasets = []
-with open("dmesg2.txt","r") as dmesg_in:
+with open("dmesg.txt","r") as dmesg_in:
     raw = dmesg_in.read()
     
 for dataset in raw.split("Total"):
