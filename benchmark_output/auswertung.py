@@ -4,7 +4,8 @@
 
 credit = []
 cache = []
-creditc3 = []
+creditc3_50 = []
+creditc3_100 = []
 def avg(l):
     return reduce(lambda x, y: x + y, l) / len(l)
 
@@ -26,15 +27,17 @@ add_to_list("output_cache_dom1.txt",cache)
 add_to_list("output_cache_dom2.txt",cache)
 add_to_list("output_credit_dom1.txt",credit)
 add_to_list("output_credit_dom2.txt",credit)
-add_to_list("output_c3_dom1.txt",creditc3)
-add_to_list("output_c3_dom2.txt",creditc3)
+add_to_list("output_c3_50_dom1.txt",creditc3_50)
+add_to_list("output_c3_50_dom2.txt",creditc3_50)
+add_to_list("output_c3_100_dom1.txt",creditc3_100)
+add_to_list("output_c3_100_dom2.txt",creditc3_100)
 #print credit , cache
 
 with open("output.csv","w") as out:
-    out.write("Credit Scheduler;Flush Cache;Credit C3 Scheduler\n")
-    for c1,c2,c3 in map(None,credit,cache,creditc3):
+    out.write("Credit Scheduler;Flush Cache;Credit C3 50 Scheduler;Credit C3 100 Scheduler\n")
+    for c1,c2,c3,c4 in map(None,credit,cache,creditc3_50,creditc3_100):
         #print str(c1) + "," + str(c2) + "," + str(c3)
-        out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + "\n")
-    out.write(";;\n")
-    out.write(str(avg(credit)) + ";" + str(avg(cache)) + ";" + str(avg(creditc3)) + "\n")
+        out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + ";" + str(c4) + "\n")
+    out.write(";;;\n")
+    out.write(str(avg(credit)) + ";" + str(avg(cache)) + ";" + str(avg(creditc3_50))+ ";" + str(avg(creditc3_100)) + "\n")
     
