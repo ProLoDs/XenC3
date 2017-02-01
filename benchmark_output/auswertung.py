@@ -29,8 +29,8 @@ add_to_list("output_credit_dom1.txt",credit)
 add_to_list("output_credit_dom2.txt",credit)
 add_to_list("output_c3_50_dom1.txt",creditc3_50)
 add_to_list("output_c3_50_dom2.txt",creditc3_50)
-add_to_list("output_c3_100_dom1.txt",creditc3_100)
-add_to_list("output_c3_100_dom2.txt",creditc3_100)
+add_to_list("output_c3_100_2_dom1.txt",creditc3_100)
+add_to_list("output_c3_100_2_dom2.txt",creditc3_100)
 #print credit , cache
 
 with open("output.csv","w") as out:
