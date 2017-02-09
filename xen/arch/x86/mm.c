@@ -1643,8 +1643,11 @@ static inline int update_intpte(intpte_t *p,
                 break;
             }
 
-            if ( t == old )
-                break;
+            if ( t == old ){
+                //TODO add ptmonitoring here
+            	printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domid, &p, old, _new);
+            	break;
+            }
 
             /* Allowed to change in Accessed/Dirty flags only. */
             BUG_ON((t ^ old) & ~(intpte_t)(_PAGE_ACCESSED|_PAGE_DIRTY));
