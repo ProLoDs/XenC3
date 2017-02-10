@@ -319,11 +319,11 @@ static inline int paging_cmpxchg_guest_entry(struct vcpu *v, intpte_t *p,
 {
     if ( unlikely(paging_mode_enabled(v->domain) 
                   && v->arch.paging.mode != NULL) ){
-    	printk("Update (shadow) GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, new);
+    	//printk("Update (shadow) GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, *old, new);
         return paging_get_hostmode(v)->cmpxchg_guest_entry(v, p, old, new, gmfn);
     }
     else{
-    	printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, new);
+    	//printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, *old, new);
         return (!cmpxchg_user(p, *old, new));
     }
 }
