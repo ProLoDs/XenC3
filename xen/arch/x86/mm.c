@@ -1645,7 +1645,7 @@ static inline int update_intpte(intpte_t *p,
 
             if ( t == old ){
                 //TODO add ptmonitoring here
-            	printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domid, &p, old, _new);
+            	printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
             	break;
             }
 
