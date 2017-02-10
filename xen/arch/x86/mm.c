@@ -128,7 +128,8 @@ l1_pgentry_t __attribute__ ((__section__ (".bss.page_aligned")))
     l1_fixmap[L1_PAGETABLE_ENTRIES];
 
 #define MEM_LOG(_f, _a...) gdprintk(XENLOG_WARNING , _f "\n" , ## _a)
-
+#define PTEXT_LOG(_op, _type, _dom,_p,_old,_new) printk(_op " " _type " GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", _dom, _p,_old,_new)
+const intpte_t nopte = 0;
 /*
  * PTE updates can be done with ordinary writes except:
  *  1. Debug builds get extra checking by using CMPXCHG[8B].
@@ -1617,7 +1618,8 @@ static inline int update_intpte(intpte_t *p,
                                 intpte_t new,
                                 unsigned long mfn,
                                 struct vcpu *v,
-                                int preserve_ad)
+                                int preserve_ad,
+								unsigned long type)
 {
     int rv = 1;
     int write=0;
@@ -1657,7 +1659,31 @@ static inline int update_intpte(intpte_t *p,
             old = t;
         }
     }
-    //printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
+    char * typename = NULL;
+    switch ( type & PGT_type_mask )
+       {
+       case PGT_l1_page_table:
+    	   typename = "l1";
+           break;
+       case PGT_l2_page_table:
+    	   typename = "l2";
+    	   break;
+       case PGT_l3_page_table:
+    	   typename = "l3";
+           break;
+       case PGT_l4_page_table:
+    	   typename = "l4";
+           break;
+       }
+    if(NULL != typename){
+		if(write){
+			PTEXT_LOG("Write ", typename, v->domain->domain_id, &p, nopte,new);
+		}else{
+			PTEXT_LOG("Update ", typename, v->domain->domain_id, &p, old, _new);
+			//printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
+		}
+    }
+
     return rv;
 }
 
@@ -1666,7 +1692,7 @@ static inline int update_intpte(intpte_t *p,
 #define UPDATE_ENTRY(_t,_p,_o,_n,_m,_v,_ad)                         \
     update_intpte(&_t ## e_get_intpte(*(_p)),                       \
                   _t ## e_get_intpte(_o), _t ## e_get_intpte(_n),   \
-                  (_m), (_v), (_ad))
+                  (_m), (_v), (_ad), PGT_ ## _t ##_page_table)
 
 /* Update the L1 entry at pl1e to new value nl1e. */
 static int mod_l1_entry(l1_pgentry_t *pl1e, l1_pgentry_t nl1e,
@@ -3613,8 +3639,10 @@ long do_mmu_update(
                 break;
                 case PGT_writable_page:
                     perfc_incr(writable_mmu_updates);
-                    if ( paging_write_guest_entry(v, va, req.val, _mfn(mfn)) )
+                    if ( paging_write_guest_entry(v, va, req.val, _mfn(mfn)) ){
+                    	PTEXT_LOG("Write ", "(writablepage) ", v->domain->domain_id, &va, nopte ,req.val);
                         rc = 0;
+                    }
                     break;
                 }
                 page_unlock(page);
@@ -3625,7 +3653,10 @@ long do_mmu_update(
             {
                 perfc_incr(writable_mmu_updates);
                 if ( paging_write_guest_entry(v, va, req.val, _mfn(mfn)) )
+                {
+                	PTEXT_LOG("Write ", "(writablepage) ", v->domain->domain_id, &va, nopte ,req.val);
                     rc = 0;
+                }
                 put_page_type(page);
             }
 
@@ -5006,6 +5037,7 @@ static int ptwr_emulated_update(
             put_page_from_l1e(nl1e, d);
             return X86EMUL_CMPXCHG_FAILED;
         }
+        PTEXT_LOG("Update ", "l1e (emulupdate) ", v->domain->domain_id, &l1e_get_intpte(*pl1e), t, l1e_get_intpte(nl1e));
     }
     else
     {

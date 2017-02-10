@@ -299,11 +299,11 @@ static inline int paging_write_guest_entry(struct vcpu *v, intpte_t *p,
 {
     if ( unlikely(paging_mode_enabled(v->domain) 
                   && v->arch.paging.mode != NULL) ){
-    	printk("Write (shadow) GPT DOM %" PRIu16 " [%p] %" PRIpte "\n", v->domain->domain_id, &p, new);
+    	//printk("Write (shadow) GPT DOM %" PRIu16 " [%p] %" PRIpte "\n", v->domain->domain_id, &p, new);
         return paging_get_hostmode(v)->write_guest_entry(v, p, new, gmfn);
     }
     else {
-    	printk("Write GPT DOM %" PRIu16 " [%p] %" PRIpte "\n", v->domain->domain_id, &p, new);
+    	//printk("Write GPT DOM %" PRIu16 " [%p] %" PRIpte "\n", v->domain->domain_id, &p, new);
         return (!__copy_to_user(p, &new, sizeof(new)));
     }
 }
