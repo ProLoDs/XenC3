@@ -1620,10 +1620,12 @@ static inline int update_intpte(intpte_t *p,
                                 int preserve_ad)
 {
     int rv = 1;
+    int write=0;
 #ifndef PTE_UPDATE_WITH_CMPXCHG
     if ( !preserve_ad )
     {
         rv = paging_write_guest_entry(v, p, new, _mfn(mfn));
+        write = 1;
     }
     else
 #endif
@@ -1645,7 +1647,7 @@ static inline int update_intpte(intpte_t *p,
 
             if ( t == old ){
                 //TODO add ptmonitoring here
-            	printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
+            	//printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
             	break;
             }
 
@@ -1655,6 +1657,7 @@ static inline int update_intpte(intpte_t *p,
             old = t;
         }
     }
+    //printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
     return rv;
 }
 

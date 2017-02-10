@@ -298,10 +298,14 @@ static inline int paging_write_guest_entry(struct vcpu *v, intpte_t *p,
                                            intpte_t new, mfn_t gmfn)
 {
     if ( unlikely(paging_mode_enabled(v->domain) 
-                  && v->arch.paging.mode != NULL) )
+                  && v->arch.paging.mode != NULL) ){
+    	printk("Write (shadow) GPT DOM %" PRIu16 " [%p] %" PRIpte "\n", v->domain->domain_id, &p, new);
         return paging_get_hostmode(v)->write_guest_entry(v, p, new, gmfn);
-    else 
+    }
+    else {
+    	printk("Write GPT DOM %" PRIu16 " [%p] %" PRIpte "\n", v->domain->domain_id, &p, new);
         return (!__copy_to_user(p, &new, sizeof(new)));
+    }
 }
 
 
@@ -314,10 +318,14 @@ static inline int paging_cmpxchg_guest_entry(struct vcpu *v, intpte_t *p,
                                              mfn_t gmfn)
 {
     if ( unlikely(paging_mode_enabled(v->domain) 
-                  && v->arch.paging.mode != NULL) )
+                  && v->arch.paging.mode != NULL) ){
+    	printk("Update (shadow) GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, new);
         return paging_get_hostmode(v)->cmpxchg_guest_entry(v, p, old, new, gmfn);
-    else 
+    }
+    else{
+    	printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, new);
         return (!cmpxchg_user(p, *old, new));
+    }
 }
 
 /* Helper function that writes a pte in such a way that a concurrent read 
