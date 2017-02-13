@@ -128,7 +128,7 @@ l1_pgentry_t __attribute__ ((__section__ (".bss.page_aligned")))
     l1_fixmap[L1_PAGETABLE_ENTRIES];
 
 #define MEM_LOG(_f, _a...) gdprintk(XENLOG_WARNING , _f "\n" , ## _a)
-#define PTEXT_LOG(_op, _type, _dom,_p,_old,_new) printk(_op " " _type " GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", _dom, _p,_old,_new)
+#define PTEXT_LOG(_op, _type, _dom,_p,_old,_new) printk(_op " %s GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n",_type, _dom, _p,_old,_new)
 const intpte_t nopte = 0;
 /*
  * PTE updates can be done with ordinary writes except:
@@ -1623,6 +1623,7 @@ static inline int update_intpte(intpte_t *p,
 {
     int rv = 1;
     int write=0;
+    char* typename;
 #ifndef PTE_UPDATE_WITH_CMPXCHG
     if ( !preserve_ad )
     {
@@ -1659,7 +1660,7 @@ static inline int update_intpte(intpte_t *p,
             old = t;
         }
     }
-    char * typename = NULL;
+    typename = NULL;
     switch ( type & PGT_type_mask )
        {
        case PGT_l1_page_table:
@@ -1679,7 +1680,7 @@ static inline int update_intpte(intpte_t *p,
 		if(write){
 			PTEXT_LOG("Write ", typename, v->domain->domain_id, &p, nopte,new);
 		}else{
-			PTEXT_LOG("Update ", typename, v->domain->domain_id, &p, old, _new);
+			PTEXT_LOG("Update ", typename, v->domain->domain_id, &p, old, new);
 			//printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
 		}
     }
