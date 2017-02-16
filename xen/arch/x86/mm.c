@@ -1678,9 +1678,9 @@ static inline int update_intpte(intpte_t *p,
        }
     if(NULL != typename){
 		if(write){
-			PTEXT_LOG("Write ", typename, v->domain->domain_id, &p, nopte,new);
+			PTEXT_LOG("Write ", typename, v->domain->domain_id, p, nopte,new);
 		}else{
-			PTEXT_LOG("Update ", typename, v->domain->domain_id, &p, old, new);
+			PTEXT_LOG("Update ", typename, v->domain->domain_id, p, old, new);
 			//printk("Update GPT DOM %" PRIu16 " [%p] %" PRIpte " -> %" PRIpte "\n", v->domain->domain_id, &p, old, _new);
 		}
     }
@@ -3641,7 +3641,7 @@ long do_mmu_update(
                 case PGT_writable_page:
                     perfc_incr(writable_mmu_updates);
                     if ( paging_write_guest_entry(v, va, req.val, _mfn(mfn)) ){
-                    	PTEXT_LOG("Write ", "(writablepage) ", v->domain->domain_id, &va, nopte ,req.val);
+                    	PTEXT_LOG("Write ", "(writablepage) ", v->domain->domain_id, va, nopte ,req.val);
                         rc = 0;
                     }
                     break;
@@ -3655,7 +3655,7 @@ long do_mmu_update(
                 perfc_incr(writable_mmu_updates);
                 if ( paging_write_guest_entry(v, va, req.val, _mfn(mfn)) )
                 {
-                	PTEXT_LOG("Write ", "(writablepage) ", v->domain->domain_id, &va, nopte ,req.val);
+                	PTEXT_LOG("Write ", "(writablepage) ", v->domain->domain_id, va, nopte ,req.val);
                     rc = 0;
                 }
                 put_page_type(page);
