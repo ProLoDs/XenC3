@@ -1670,8 +1670,6 @@ static uint64_t benchmark_flush_cache_1 = 0;
 static uint64_t benchmark_cache_miss_successful_1 = 0;
 static uint64_t benchmark_swap_dom0_1 = 0;
 static uint64_t benchmark_idle = 0;
-static uint64_t delta = 0;
-static uint64_t tmp = 0;
 //#define CACHEMISS_THRESHOLD 1572864 / 2
 #define CACHEMISS_THRESHOLD 1572864
 static inline struct csched_vcpu *
