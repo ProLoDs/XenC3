@@ -1840,7 +1840,7 @@ csched_schedule(
 
 
     //cache_misses_L2 = test_msr();
-    //printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
+    printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
 
     this_cpu(cache_misses_L2) =  stop_counter(L2);
     start_counter(L2);
