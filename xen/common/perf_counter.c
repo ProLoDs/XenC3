@@ -81,7 +81,7 @@ void start_counter(enum cache_level l)
 uint64_t stop_counter(enum cache_level l)
 {
 
-    uint32_t ecx;
+    uint32_t ecx = 0;
     uint64_t event = 0;
     uint64_t ret = 0;
 
