@@ -72,7 +72,8 @@ void start_counter(enum cache_level l)
     	    return;
 
     }
-    rtxen_clear_msr(ecx);
+    // PERFEVTSELX - 0xc0 = PMCX
+    rtxen_clear_msr(ecx - 0xc0);
     wrmsr(ecx,event);
 }
 /*

@@ -1618,8 +1618,7 @@ csched_load_balance(struct csched_private *prv, int cpu,
 }
 
 
-volatile uint64_t cache_misses_L1 = 0;
-volatile uint64_t cache_misses_L2 = 0;
+DEFINE_PER_CPU(uint64_t, cache_misses_L2);
 
 
 
@@ -1744,11 +1743,8 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			//delete old
 			list_del(iter);
 			// add to the front of queue
-			list_add(iter,runq->next);
+			list_add(iter,runq);
 			return current_element;
-
-
-		    return __runq_elem(iter);
 		    }
 		}
 
@@ -1835,21 +1831,24 @@ csched_schedule(
 
 
     // FIXME insert shit here
+
+    /*
+     * TODO:-Replace Swap durch insert
+     * 		-Stabilitätes test der neuen Änderungen
+     * 		-L3 anstatt L2...
+     * 		-
+     *
+     */
+
+
     //cache_misses_L2 = test_msr();
     //printk("Cache Misses: %" PRIu64 " \n",cache_misses_L2);
 
-    if(first_start){
-        first_start=0;
-    }else {
-    	tmp = stop_counter(L2);
-    	delta = tmp - cache_misses_L2 ;
-        cache_misses_L2 =  tmp;
-    }
+    this_cpu(cache_misses_L2) =  stop_counter(L2);
     start_counter(L2);
 //    asm volatile("wbinvd");
 //     FIXME Shit ends here
-
-    __swap_cachemiss(__runq_elem(runq->next), cache_misses_L2);
+    __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
     snext = __runq_elem(runq->next);
 
 
