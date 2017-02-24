@@ -72,12 +72,11 @@ void start_counter(enum cache_level l)
     	    return;
 
     }
-    // PERFEVTSELX - 0xc0 = PMCX
-    rtxen_clear_msr(ecx - 0xc0);
+
     wrmsr(ecx,event);
 }
 /*
- * return : cache misses in byte not cache lines!
+ * return : cache misses in cache lines
  */
 uint64_t stop_counter(enum cache_level l)
 {
@@ -124,6 +123,7 @@ uint64_t stop_counter(enum cache_level l)
     		break;
 
     }
+    rtxen_clear_msr(ecx);
     return ret;
 }
 static inline void delay(void )
