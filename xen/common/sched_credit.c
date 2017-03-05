@@ -1671,7 +1671,7 @@ static uint64_t benchmark_cache_miss_successful_1 = 0;
 static uint64_t benchmark_swap_dom0_1 = 0;
 static uint64_t benchmark_idle = 0;
 //#define CACHEMISS_THRESHOLD 1572864 / 2
-#define CACHEMISS_THRESHOLD 1572864
+#define CACHEMISS_THRESHOLD 24576
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
@@ -1681,7 +1681,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
     struct list_head * const runq = RUNQ(cpu);
 	benchmark_total_1++;
 
-	// idle task skip
+	// All VCPUs in Idle
 	if (current_element->pri == CSCHED_PRI_IDLE)
 	{
 		benchmark_idle++;
