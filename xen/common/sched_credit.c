@@ -1661,17 +1661,17 @@ __runq_count(struct list_head * const runq){
 }
 
 
-int first_start = 1;
+static int first_start = 1;
 DEFINE_PER_CPU(domid_t, last_domid_1);
-DEFINE_PER_CPU(uint64_t, noise_distance_1);
-static uint64_t benchmark_total_1 = 0;
-static uint64_t benchmark_last_next_1 = 0;
-static uint64_t benchmark_flush_cache_1 = 0;
-static uint64_t benchmark_cache_miss_successful_1 = 0;
-static uint64_t benchmark_swap_dom0_1 = 0;
+DEFINE_PER_CPU(uint64_t, noise_distance);
+static uint64_t benchmark_total = 0;
+static uint64_t benchmark_last_next = 0;
+static uint64_t benchmark_flush_cache = 0;
+static uint64_t benchmark_cache_miss_successful = 0;
+static uint64_t benchmark_swap_dom0 = 0;
 static uint64_t benchmark_idle = 0;
 //#define CACHEMISS_THRESHOLD 1572864 / 2
-#define CACHEMISS_THRESHOLD 24576
+#define CACHEMISS_THRESHOLD 24576 / 2
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
@@ -1679,12 +1679,13 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	struct csched_vcpu  *iter_svc;
     const int cpu = smp_processor_id();
     struct list_head * const runq = RUNQ(cpu);
-	benchmark_total_1++;
+	benchmark_total++;
 
 	// All VCPUs in Idle
 	if (current_element->pri == CSCHED_PRI_IDLE)
 	{
 		benchmark_idle++;
+		this_cpu(noise_distance) += cache_misses;
 		return current_element;
 	}
 
@@ -1694,7 +1695,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	if(this_cpu(last_domid_1) == 0)
 	{
 		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
-		this_cpu(noise_distance_1) += cache_misses;
+		this_cpu(noise_distance) += cache_misses;
 		// Check if current is trusted
 		if(current_element->sdom->dom->domain_id == 0)
 		{
@@ -1702,15 +1703,15 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			return current_element;
 		}else
 		{
-			if(this_cpu(noise_distance_1) >= CACHEMISS_THRESHOLD)
+			if(this_cpu(noise_distance) >= CACHEMISS_THRESHOLD)
 			{
-				benchmark_cache_miss_successful_1++;
-				this_cpu(noise_distance_1) = 0;
+				benchmark_cache_miss_successful++;
+				this_cpu(noise_distance) = 0;
 				return current_element;
 			}else
 			{
-				benchmark_flush_cache_1++;
-				this_cpu(noise_distance_1) = 0;
+				benchmark_flush_cache++;
+				this_cpu(noise_distance) = 0;
 				asm volatile ("wbinvd");
 				return current_element;
 			}
@@ -1719,7 +1720,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	{
 		// avoid uninitialised warning
 		iter_svc = current_element;
-
+		current_element->vcpu->domain->domain_id;
 		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
 		list_for_each( iter,runq )
 	    {
@@ -1735,7 +1736,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		{
 			if( iter_svc->sdom->dom->domain_id == 0)
 			{
-			benchmark_swap_dom0_1++;
+			benchmark_swap_dom0++;
 
 
 			//delete old
@@ -1746,7 +1747,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		    }
 		}
 
-		benchmark_flush_cache_1++;
+		benchmark_flush_cache++;
 		asm volatile ("wbinvd");
 		return current_element;
 
