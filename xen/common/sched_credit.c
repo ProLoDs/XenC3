@@ -1850,18 +1850,18 @@ csched_schedule(
     snext = __runq_elem(runq->next);
 
 
-    if(benchmark_total_1 >= 1000){
-    	printk("Total: %"PRIu64 "\n",benchmark_total_1);
-    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache_1);
-    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next_1);
-    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0_1);
-    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful_1);
+    if(benchmark_total >= 1000){
+    	printk("Total: %"PRIu64 "\n",benchmark_total);
+    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
+    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
+    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
+    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
     	printk("Idle: %"PRIu64 "\n",benchmark_idle);
-    	benchmark_total_1 = 0;
-    	benchmark_cache_miss_successful_1 = 0;
-    	benchmark_flush_cache_1 = 0;
-    	benchmark_last_next_1 = 0;
-    	benchmark_swap_dom0_1 = 0;
+    	benchmark_total = 0;
+    	benchmark_cache_miss_successful = 0;
+    	benchmark_flush_cache = 0;
+    	benchmark_last_next = 0;
+    	benchmark_swap_dom0 = 0;
     	benchmark_idle = 0;
     }
 
