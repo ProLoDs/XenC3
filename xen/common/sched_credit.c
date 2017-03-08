@@ -1693,10 +1693,10 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	// check if last is trsuted
 	if(this_cpu(last_domid_1) == 0)
 	{
-		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
+		this_cpu(last_domid_1) = current_element->vcpu->domain->domid;
 		this_cpu(noise_distance) += cache_misses;
 		// Check if current is trusted
-		if(current_element->sdom->dom->domain_id == 0)
+		if(current_element->vcpu->domain->domid == 0)
 		{
 			benchmark_last_next++;
 			return current_element;
@@ -1719,21 +1719,20 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	{
 		// avoid uninitialised warning
 		iter_svc = current_element;
-		current_element->vcpu->domain->domain_id;
-		this_cpu(last_domid_1) = current_element->sdom->dom->domain_id;
+		this_cpu(last_domid_1) = current_element->vcpu->domain->domid;
 		list_for_each( iter,runq )
 	    {
 		  iter_svc = __runq_elem(iter);
 		  if ( iter_svc->pri != CSCHED_PRI_IDLE )
 		  {
 		  // DOMAIN0 always has Domain Id 0
-		    if ( 0 == iter_svc->sdom->dom->domain_id)
+		    if ( 0 == iter_svc->vcpu->domain->domid)
 			  break;
 		  }
 	    }
 		if (iter_svc->pri != CSCHED_PRI_IDLE )
 		{
-			if( iter_svc->sdom->dom->domain_id == 0)
+			if( iter_svc->vcpu->domain->domid == 0)
 			{
 			benchmark_swap_dom0++;
 
