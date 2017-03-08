@@ -1661,7 +1661,6 @@ __runq_count(struct list_head * const runq){
 }
 
 
-static int first_start = 1;
 DEFINE_PER_CPU(domid_t, last_domid_1);
 DEFINE_PER_CPU(uint64_t, noise_distance);
 static uint64_t benchmark_total = 0;
@@ -1699,7 +1698,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		// Check if current is trusted
 		if(current_element->sdom->dom->domain_id == 0)
 		{
-			benchmark_last_next_1++;
+			benchmark_last_next++;
 			return current_element;
 		}else
 		{
