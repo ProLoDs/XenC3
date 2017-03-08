@@ -1662,7 +1662,7 @@ __runq_count(struct list_head * const runq){
 
 
 DEFINE_PER_CPU(domid_t, last_domid_1);
-DEFINE_PER_CPU(uint64_t, noise_distance);
+DEFINE_PER_CPU(uint64_t, noise_distance_c3);
 static uint64_t benchmark_total = 0;
 static uint64_t benchmark_last_next = 0;
 static uint64_t benchmark_flush_cache = 0;
@@ -1684,7 +1684,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	if (current_element->pri == CSCHED_PRI_IDLE)
 	{
 		benchmark_idle++;
-		this_cpu(noise_distance) += cache_misses;
+		this_cpu(noise_distance_c3) += cache_misses;
 		return current_element;
 	}
 
@@ -1694,7 +1694,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	if(this_cpu(last_domid_1) == 0)
 	{
 		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
-		this_cpu(noise_distance) += cache_misses;
+		this_cpu(noise_distance_c3) += cache_misses;
 		// Check if current is trusted
 		if(current_element->vcpu->domain->domain_id == 0)
 		{
@@ -1702,15 +1702,15 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			return current_element;
 		}else
 		{
-			if(this_cpu(noise_distance) >= CACHEMISS_THRESHOLD)
+			if(this_cpu(noise_distance_c3) >= CACHEMISS_THRESHOLD)
 			{
 				benchmark_cache_miss_successful++;
-				this_cpu(noise_distance) = 0;
+				this_cpu(noise_distance_c3) = 0;
 				return current_element;
 			}else
 			{
 				benchmark_flush_cache++;
-				this_cpu(noise_distance) = 0;
+				this_cpu(noise_distance_c3) = 0;
 				asm volatile ("wbinvd");
 				return current_element;
 			}
