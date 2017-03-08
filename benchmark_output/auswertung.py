@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 # Converts 10m17.684s to 617.684 Seconds
-
+from statistics import pstdev
 credit = []
 cache = []
 creditc3_50 = []
@@ -38,6 +38,7 @@ with open("output.csv","w") as out:
     for c1,c2,c3,c4 in map(None,credit,cache,creditc3_50,creditc3_100):
         #print str(c1) + "," + str(c2) + "," + str(c3)
         out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + ";" + str(c4) + "\n")
-    out.write(";;;\n")
+    out.write("Average;;;\n")
     out.write(str(avg(credit)) + ";" + str(avg(cache)) + ";" + str(avg(creditc3_50))+ ";" + str(avg(creditc3_100)) + "\n")
-    
+    out.write("standartabweichung;;;\n")
+    out.write(str(pstdev(credit)) + ";" + str(pstdev(cache)) + ";" + str(pstdev(creditc3_50))+ ";" + str(pstdev(creditc3_100)) + "\n")
