@@ -66,7 +66,7 @@ void start_counter(enum cache_level l)
     		break;
     case(L3):
 	        SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
-	        ecx = PERFEVTSEL1;
+	        ecx = PERFEVTSEL0;
     		break;
     default:
     	    return;
@@ -116,7 +116,7 @@ uint64_t stop_counter(enum cache_level l)
     		break;
     case(L3):
 			SET_EVENT_MASK(event, L3_ALLMISS_EVENT, L3_ALLMISS_MASK);
-			ecx = PERFEVTSEL1;
+			ecx = PERFEVTSEL0;
 			wrmsr(ecx,event);
 			ecx = PMC1;
 			ret = rdmsr(ecx);

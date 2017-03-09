@@ -41,7 +41,7 @@ add_to_list("output_c3_100_line_dom2.txt",creditc3_600)
 #print credit , cache
 
 with open("output.csv","w") as out:
-    out.write("Credit Scheduler;Credit C3 100 Scheduler;Credit C3 300 Scheduler;Credit C6 300 Scheduler;Flush Cache\n")
+    out.write("Credit Scheduler;Credit C3 100 Scheduler;Credit C3 300 Scheduler;Credit C3 300 Scheduler;Flush Cache\n")
     for c1,c2,c3,c4,c5 in map(None,credit,creditc3_100,creditc3_300,creditc3_600,cache):
         #print str(c1) + "," + str(c2) + "," + str(c3)
         out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + ";" + str(c4) + ";" + str(c5) +"\n")

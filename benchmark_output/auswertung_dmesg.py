@@ -1,13 +1,17 @@
 #! /usr/bin/env python
 
+import sys
 
+if(len(sys.argv) < 2):
+    print "Usage: python auswertung_dmesg.py <Input file>"
+    sys.exit(0)
 flush_cache = 0
 good_path = 0
 swap_dom0 = 0
 enough_cache_misses = 0
         
 raw_datasets = []
-with open("dmesg_100_line.txt","r") as dmesg_in:
+with open(sys.argv[1],"r") as dmesg_in:
     raw = dmesg_in.read()
     
 for dataset in raw.split("Total"):
