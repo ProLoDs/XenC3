@@ -1669,7 +1669,7 @@ static uint64_t benchmark_flush_cache = 0;
 static uint64_t benchmark_cache_miss_successful = 0;
 static uint64_t benchmark_swap_dom0 = 0;
 static uint64_t benchmark_idle = 0;
-#define CACHEMISS_THRESHOLD 15728640  // L3
+#define CACHEMISS_THRESHOLD 245760  // L3
 //#define CACHEMISS_THRESHOLD 4096 // L2
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
