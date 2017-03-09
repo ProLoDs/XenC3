@@ -1841,11 +1841,11 @@ csched_schedule(
     //cache_misses_L2 = test_msr();
     printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
 
-    this_cpu(cache_misses_L2) =  stop_counter(L2);
-    start_counter(L2);
+    this_cpu(cache_misses_L2) =  stop_counter(L3);
+    start_counter(L3);
 //    asm volatile("wbinvd");
 //     FIXME Shit ends here
-    __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
+    //__swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
     snext = __runq_elem(runq->next);
 
 
