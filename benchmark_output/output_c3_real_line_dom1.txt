@@ -1,0 +1,5500 @@
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.078s
+user	6m29.704s
+sys	0m2.100s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.785s
+user	6m29.380s
+sys	0m2.100s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.922s
+user	6m29.448s
+sys	0m2.156s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.238s
+user	6m29.936s
+sys	0m1.972s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.029s
+user	6m29.340s
+sys	0m2.332s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.629s
+user	6m30.336s
+sys	0m1.884s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.944s
+user	6m29.480s
+sys	0m2.188s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.255s
+user	6m30.000s
+sys	0m2.036s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.623s
+user	6m29.560s
+sys	0m1.756s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.754s
+user	6m29.276s
+sys	0m2.264s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.813s
+user	6m30.252s
+sys	0m2.272s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.475s
+user	6m28.952s
+sys	0m2.140s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.090s
+user	6m29.740s
+sys	0m2.248s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.208s
+user	6m29.680s
+sys	0m2.136s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.167s
+user	6m29.892s
+sys	0m1.968s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.123s
+user	6m30.112s
+sys	0m1.784s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.673s
+user	6m30.596s
+sys	0m1.856s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.063s
+user	6m29.676s
+sys	0m2.144s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.154s
+user	6m29.524s
+sys	0m2.212s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.581s
+user	6m29.388s
+sys	0m1.988s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.050s
+user	6m29.620s
+sys	0m2.184s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.357s
+user	6m30.076s
+sys	0m2.060s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.994s
+user	6m29.456s
+sys	0m2.180s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.439s
+user	6m30.356s
+sys	0m1.900s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.452s
+user	6m29.912s
+sys	0m2.176s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m33.175s
+user	6m30.608s
+sys	0m2.232s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.477s
+user	6m30.156s
+sys	0m2.172s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.253s
+user	6m30.056s
+sys	0m1.956s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.119s
+user	6m29.964s
+sys	0m2.016s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.698s
+user	6m29.284s
+sys	0m2.048s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.826s
+user	6m29.572s
+sys	0m2.008s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.573s
+user	6m30.200s
+sys	0m2.080s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.579s
+user	6m30.044s
+sys	0m2.196s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.038s
+user	6m29.448s
+sys	0m2.204s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.563s
+user	6m30.192s
+sys	0m2.044s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.084s
+user	6m29.880s
+sys	0m1.880s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.874s
+user	6m29.600s
+sys	0m2.008s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.050s
+user	6m29.744s
+sys	0m2.080s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.978s
+user	6m29.768s
+sys	0m1.940s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.075s
+user	6m29.444s
+sys	0m2.200s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m33.652s
+user	6m31.172s
+sys	0m2.088s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.195s
+user	6m29.716s
+sys	0m2.176s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.832s
+user	6m29.576s
+sys	0m2.072s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.984s
+user	6m29.848s
+sys	0m1.856s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.815s
+user	6m29.556s
+sys	0m1.932s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.502s
+user	6m30.036s
+sys	0m2.136s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m33.700s
+user	6m31.396s
+sys	0m2.084s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.911s
+user	6m30.536s
+sys	0m2.132s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.978s
+user	6m29.680s
+sys	0m2.024s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.107s
+user	6m29.868s
+sys	0m1.936s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.242s
+user	6m30.068s
+sys	0m1.944s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.735s
+user	6m30.404s
+sys	0m2.068s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.557s
+user	6m29.148s
+sys	0m2.064s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.452s
+user	6m30.164s
+sys	0m2.008s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.220s
+user	6m29.864s
+sys	0m2.120s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.597s
+user	6m30.308s
+sys	0m2.044s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.696s
+user	6m30.580s
+sys	0m2.020s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m33.782s
+user	6m31.384s
+sys	0m2.096s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.594s
+user	6m30.260s
+sys	0m2.088s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.167s
+user	6m29.936s
+sys	0m1.988s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.197s
+user	6m30.100s
+sys	0m1.876s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.290s
+user	6m30.092s
+sys	0m2.072s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.619s
+user	6m29.200s
+sys	0m2.200s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.422s
+user	6m30.032s
+sys	0m2.068s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.173s
+user	6m29.836s
+sys	0m2.112s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.178s
+user	6m29.908s
+sys	0m1.904s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m35.359s
+user	6m29.696s
+sys	0m2.092s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.338s
+user	6m30.096s
+sys	0m2.028s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.908s
+user	6m29.696s
+sys	0m1.928s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.478s
+user	6m30.220s
+sys	0m1.960s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.372s
+user	6m30.000s
+sys	0m2.068s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m33.509s
+user	6m30.896s
+sys	0m2.152s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.333s
+user	6m30.000s
+sys	0m1.972s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.617s
+user	6m30.352s
+sys	0m1.944s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.379s
+user	6m30.156s
+sys	0m1.916s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m33.422s
+user	6m31.280s
+sys	0m1.932s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m36.458s
+user	6m33.720s
+sys	0m2.292s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m30.060s
+user	6m27.896s
+sys	0m1.972s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.855s
+user	6m29.348s
+sys	0m2.176s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.785s
+user	6m29.544s
+sys	0m2.140s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.223s
+user	6m29.912s
+sys	0m1.932s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.079s
+user	6m29.908s
+sys	0m1.888s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.636s
+user	6m30.208s
+sys	0m2.040s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.098s
+user	6m29.692s
+sys	0m2.000s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.573s
+user	6m29.164s
+sys	0m2.068s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.583s
+user	6m29.476s
+sys	0m1.920s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.891s
+user	6m29.712s
+sys	0m1.936s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.966s
+user	6m29.696s
+sys	0m2.056s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.654s
+user	6m29.036s
+sys	0m2.196s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.855s
+user	6m29.604s
+sys	0m2.032s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.338s
+user	6m29.992s
+sys	0m1.964s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.197s
+user	6m28.980s
+sys	0m2.036s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m32.220s
+user	6m29.724s
+sys	0m2.220s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m31.129s
+user	6m28.780s
+sys	0m1.988s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m30.790s
+user	6m28.784s
+sys	0m1.864s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m30.206s
+user	6m27.944s
+sys	0m1.932s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m30.767s
+user	6m28.436s
+sys	0m1.972s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m29.945s
+user	6m27.552s
+sys	0m2.052s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m30.806s
+user	6m28.680s
+sys	0m1.880s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
+[PARSEC] Benchmarks to run:  parsec.canneal
+
+[PARSEC] [========== Running benchmark parsec.canneal [1] ==========]
+[PARSEC] Deleting old run directory.
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+2500000.nets
+[PARSEC] Running 'time /root/./parsec-3.0/pkgs/kernels/canneal/inst/amd64-linux.gcc/bin/canneal 1 15000 2000 2500000.nets 6000':
+[PARSEC] [---------- Beginning of output ----------]
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+Threadcount: 1
+15000 swaps per temperature step
+start temperature: 2000
+netlist filename: 2500000.nets
+number of temperature steps: 6000
+locs created
+locs assigned
+Just saw element: 100000
+Just saw element: 200000
+Just saw element: 300000
+Just saw element: 400000
+Just saw element: 500000
+Just saw element: 600000
+Just saw element: 700000
+Just saw element: 800000
+Just saw element: 900000
+Just saw element: 1000000
+Just saw element: 1100000
+Just saw element: 1200000
+Just saw element: 1300000
+Just saw element: 1400000
+Just saw element: 1500000
+Just saw element: 1600000
+Just saw element: 1700000
+Just saw element: 1800000
+Just saw element: 1900000
+Just saw element: 2000000
+Just saw element: 2100000
+Just saw element: 2200000
+Just saw element: 2300000
+Just saw element: 2400000
+Just saw element: 2500000
+netlist created. 2500000 elements.
+Final routing is: 9.03315e+09
+
+real	6m29.777s
+user	6m27.368s
+sys	0m2.108s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.

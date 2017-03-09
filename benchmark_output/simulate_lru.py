@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import random
 from statistics import mean
-L2_CACHE_SIZE = 24576
+L2_CACHE_SIZE = 24576 / 6
 SET_ASSOZIATE = 8
 NUMBER_OF_CACHE_SETS = L2_CACHE_SIZE / SET_ASSOZIATE
 
@@ -25,7 +25,7 @@ class CacheSet():
 def simmulate():
     result = 0
     cache_sets = [CacheSet() for _ in range( NUMBER_OF_CACHE_SETS)]
-    for _ in range(L2_CACHE_SIZE / 2):
+    for _ in range(L2_CACHE_SIZE * 6):
         random.choice(cache_sets).access()
             
     for line in cache_sets:

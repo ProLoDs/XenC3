@@ -4,8 +4,9 @@
 from statistics import pstdev
 credit = []
 cache = []
-creditc3_50 = []
 creditc3_100 = []
+creditc3_300 = []
+creditc3_600 = []
 def avg(l):
     return reduce(lambda x, y: x + y, l) / len(l)
 
@@ -27,18 +28,24 @@ add_to_list("output_cache_dom1.txt",cache)
 add_to_list("output_cache_dom2.txt",cache)
 add_to_list("output_credit_dom1.txt",credit)
 add_to_list("output_credit_dom2.txt",credit)
-add_to_list("output_c3_50_dom1.txt",creditc3_50)
-add_to_list("output_c3_50_dom2.txt",creditc3_50)
-add_to_list("output_c3_100_2_dom1.txt",creditc3_100)
-add_to_list("output_c3_100_2_dom2.txt",creditc3_100)
+
+add_to_list("output_c3_real_line_dom1.txt",creditc3_100)
+add_to_list("output_c3_real_line_dom2.txt",creditc3_100)
+
+add_to_list("output_c3_50_dom1.txt",creditc3_300)
+add_to_list("output_c3_50_dom2.txt",creditc3_300)
+
+add_to_list("output_c3_100_line_dom1.txt",creditc3_600)
+add_to_list("output_c3_100_line_dom2.txt",creditc3_600)
+
 #print credit , cache
 
 with open("output.csv","w") as out:
-    out.write("Credit Scheduler;Flush Cache;Credit C3 50 Scheduler;Credit C3 100 Scheduler\n")
-    for c1,c2,c3,c4 in map(None,credit,cache,creditc3_50,creditc3_100):
+    out.write("Credit Scheduler;Credit C3 100 Scheduler;Credit C3 300 Scheduler;Credit C6 300 Scheduler;Flush Cache\n")
+    for c1,c2,c3,c4,c5 in map(None,credit,creditc3_100,creditc3_300,creditc3_600,cache):
         #print str(c1) + "," + str(c2) + "," + str(c3)
-        out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + ";" + str(c4) + "\n")
+        out.write(str(c1) + ";" + str(c2) + ";" + str(c3) + ";" + str(c4) + ";" + str(c5) +"\n")
     out.write("Average;;;\n")
-    out.write(str(avg(credit)) + ";" + str(avg(cache)) + ";" + str(avg(creditc3_50))+ ";" + str(avg(creditc3_100)) + "\n")
+    out.write(str(avg(credit)) + ";"  + str(avg(creditc3_100))+ ";" + str(avg(creditc3_300))+ ";"+ str(avg(creditc3_600)) + ";" + str(avg(cache)) + "\n")
     out.write("standartabweichung;;;\n")
-    out.write(str(pstdev(credit)) + ";" + str(pstdev(cache)) + ";" + str(pstdev(creditc3_50))+ ";" + str(pstdev(creditc3_100)) + "\n")
+    out.write(str(pstdev(credit)) +";" + str(pstdev(creditc3_100))+ ";" + str(pstdev(creditc3_300)) + ";" + str(pstdev(creditc3_600)) + ";" + str(pstdev(cache)) + "\n")
