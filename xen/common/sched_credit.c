@@ -1747,7 +1747,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			list_del(iter);
 			// add to the front of queue
 			list_add(iter,runq);
-			printRDTSC()
+			printRDTSC();
 			return current_element;
 		    }
 		}
