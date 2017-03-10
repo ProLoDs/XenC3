@@ -1660,7 +1660,12 @@ __runq_count(struct list_head * const runq){
     printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
 
-
+static inline void printRDTSC() {
+  uint64_t a, d;
+  asm volatile ("rdtsc" : "=a" (a), "=d" (d));
+  a = (d<<32) | a;
+  printk("rdtsc:"PRIu64"% \n",a);
+}
 DEFINE_PER_CPU(domid_t, last_domid_1);
 DEFINE_PER_CPU(uint64_t, noise_distance_c3);
 static uint64_t benchmark_total = 0;
@@ -1712,6 +1717,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 				benchmark_flush_cache++;
 				this_cpu(noise_distance_c3) = 0;
 				asm volatile ("wbinvd");
+				printRDTSC();
 				return current_element;
 			}
 		}
@@ -1741,6 +1747,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			list_del(iter);
 			// add to the front of queue
 			list_add(iter,runq);
+			printRDTSC()
 			return current_element;
 		    }
 		}
