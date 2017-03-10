@@ -1659,8 +1659,14 @@ __runq_count(struct list_head * const runq){
     }
     printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
-
-static inline void printRDTSC() {
+static inline int isTrusted(domid_t domID)
+{
+	if (domID == 0)
+		return 1;
+	return 0;
+}
+static inline void printRDTSC()
+{
   uint64_t a, d;
   asm volatile ("rdtsc" : "=a" (a), "=d" (d));
   a = (d<<32) | a;
@@ -1696,7 +1702,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 
 
 	// check if last is trsuted
-	if(this_cpu(last_domid_1) == 0)
+	if(isTrusted(this_cpu(last_domid_1)))
 	{
 		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
 		this_cpu(noise_distance_c3) += cache_misses;
@@ -1731,14 +1737,13 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		  iter_svc = __runq_elem(iter);
 		  if ( iter_svc->pri != CSCHED_PRI_IDLE )
 		  {
-		  // DOMAIN0 always has Domain Id 0
-		    if ( 0 == iter_svc->vcpu->domain->domain_id)
+		    if ( isTrusted( iter_svc->vcpu->domain->domain_id))
 			  break;
 		  }
 	    }
 		if (iter_svc->pri != CSCHED_PRI_IDLE )
 		{
-			if( iter_svc->vcpu->domain->domain_id == 0)
+			if( isTrusted(iter_svc->vcpu->domain->domain_id))
 			{
 			benchmark_swap_dom0++;
 
