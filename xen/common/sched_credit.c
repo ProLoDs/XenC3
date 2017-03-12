@@ -1680,8 +1680,8 @@ static uint64_t benchmark_flush_cache = 0;
 static uint64_t benchmark_cache_miss_successful = 0;
 static uint64_t benchmark_swap_dom0 = 0;
 static uint64_t benchmark_idle = 0;
-#define CACHEMISS_THRESHOLD 245760  // L3
-//#define CACHEMISS_THRESHOLD 4096 // L2
+//#define CACHEMISS_THRESHOLD 245760  // L3
+#define CACHEMISS_THRESHOLD 4096 // L2
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
@@ -1856,8 +1856,8 @@ csched_schedule(
     //cache_misses_L2 = test_msr();
     //printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
 
-    this_cpu(cache_misses_L2) =  stop_counter(L3);
-    start_counter(L3);
+    this_cpu(cache_misses_L2) =  stop_counter(L2);
+    start_counter(L2);
 //    asm volatile("wbinvd");
 //     FIXME Shit ends here
     __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
