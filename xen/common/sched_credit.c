@@ -1665,12 +1665,12 @@ static inline int isTrusted(domid_t domID)
 		return 1;
 	return 0;
 }
-static inline void printRDTSC()
+static inline void printRDTSC(const char* event)
 {
   uint64_t a, d;
   asm volatile ("rdtsc" : "=a" (a), "=d" (d));
   a = (d<<32) | a;
-  printk("rdtsc:"PRIu64"% \n",a);
+  printk("%s rdtsc:%"PRIu64" \n", event, a);
 }
 DEFINE_PER_CPU(domid_t, last_domid_1);
 DEFINE_PER_CPU(uint64_t, noise_distance_c3);
@@ -1707,7 +1707,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
 		this_cpu(noise_distance_c3) += cache_misses;
 		// Check if current is trusted
-		if(current_element->vcpu->domain->domain_id == 0)
+		if(isTrusted(current_element->vcpu->domain->domain_id))
 		{
 			benchmark_last_next++;
 			return current_element;
@@ -1717,13 +1717,14 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			{
 				benchmark_cache_miss_successful++;
 				this_cpu(noise_distance_c3) = 0;
+				printRDTSC("Enough_noise");
 				return current_element;
 			}else
 			{
 				benchmark_flush_cache++;
 				this_cpu(noise_distance_c3) = 0;
 				asm volatile ("wbinvd");
-				printRDTSC();
+				printRDTSC("wbinvd_1");
 				return current_element;
 			}
 		}
@@ -1752,18 +1753,20 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			list_del(iter);
 			// add to the front of queue
 			list_add(iter,runq);
-			printRDTSC();
+			//printRDTSC();
 			return current_element;
 		    }
 		}
 
 		benchmark_flush_cache++;
 		asm volatile ("wbinvd");
+		printRDTSC("wbinvd_2");
 		return current_element;
 
 	}
 	// if nothing works....
 	asm volatile ("wbinvd");
+	printRDTSC("wbinvd_3");
 	return current_element;
 }
 /*
