@@ -1617,13 +1617,6 @@ csched_load_balance(struct csched_private *prv, int cpu,
     return snext;
 }
 
-DEFINE_PER_CPU(domid_t, last_domid);
-DEFINE_PER_CPU(uint64_t, noise_distance);
-uint64_t benchmark_total = 0;
-uint64_t benchmark_last_next = 0;
-uint64_t benchmark_flush_cache = 0;
-uint64_t benchmark_cache_miss_successful = 0;
-uint64_t benchmark_swap_dom0 = 0;
 /*
  * Just clear cache each time
  */
@@ -1679,91 +1672,14 @@ __swap_simple_Dom0_swap(struct list_head * const runq)
 	return  __runq_elem(runq->next);
 }
 
+DEFINE_PER_CPU(uint64_t, cache_misses_L2);
 
 
 
-/*
- *
- * Checks for Domain Id pattern like 121 or 212
-*/
-#define CACHEMISS_THRESHOLD 1572864 / 2
-static inline struct csched_vcpu *
-__swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses)
-{
-	struct list_head *iter;
-	struct csched_vcpu  iter_svc;
-
-	benchmark_total++;
-
-	// idle task skip
-	if (current_element->pri == CSCHED_PRI_IDLE)
-		return current_element;
 
 
 
-	// check if last is trsuted
-	if(this_cpu(last_domid) == 0)
-	{
-		this_cpu(noise_distance) += cache_misses;
-		// Check if current is trusted
-		if(current_element->sdom->dom->domain_id == 0)
-		{
-			benchmark_last_next++;
-			return current_element;
-		}else
-		{
-			if(this_cpu(noise_distance) >= CACHEMISS_THRESHOLD)
-			{
-				benchmark_cache_miss_successful++;
-				this_cpu(noise_distance) = 0;
-				return current_element;
-			}else
-			{
-				benchmark_flush_cache++;
-				this_cpu(noise_distance) = 0;
-				asm volatile ("wbinvd");
-			}
-		}
-	} else
-	{
 
-		list_for_each( iter, current_element->runq_elem.next )
-	    {
-		  iter_svc = *__runq_elem(iter);
-		  if ( iter_svc.pri != CSCHED_PRI_IDLE )
-		  {
-		  // DOMAIN0 always has Domain Id 0
-		    if ( 0 == iter_svc.sdom->dom->domain_id)
-			  break;
-		  }
-	    }
-		if (&iter_svc.sdom->dom->domain_id == 0)
-		{
-			benchmark_swap_dom0++;
-			// add to the front of queue
-			list_del(iter);
-			list_add(&iter_svc.runq_elem,iter);
-			//delete old
-
-		    return __runq_elem(iter);
-		}
-		else
-		{
-			benchmark_flush_cache++;
-			asm volatile ("wbinvd");
-			return current_element;
-		}
-	}
-	// if nothing works....
-	asm volatile ("wbinvd");
-	return current_element;
-}
-
-
-/*
- * This function pulls the next different Domain in front of the Queue
- *
- */
 static inline void
 __runq_count(struct list_head * const runq){
     struct list_head *iter;
@@ -1790,47 +1706,120 @@ __runq_count(struct list_head * const runq){
                 domU2++;
                 break;
             default:
-            	printk("Unknown Domain ID %i \n",iter_svc.sdom->dom->domain_id);
+                printk("Unknown Domain ID %i \n",iter_svc.sdom->dom->domain_id);
             }
         }
 
     }
     printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
+static inline int isTrusted(domid_t domID)
+{
+	if (domID == 0)
+		return 1;
+	return 0;
+}
+static inline void printRDTSC()
+{
+  uint64_t a, d;
+  asm volatile ("rdtsc" : "=a" (a), "=d" (d));
+  a = (d<<32) | a;
+  printk("rdtsc:"PRIu64"% \n",a);
+}
+DEFINE_PER_CPU(domid_t, last_domid_1);
+DEFINE_PER_CPU(uint64_t, noise_distance_c3);
+static uint64_t benchmark_total = 0;
+static uint64_t benchmark_last_next = 0;
+static uint64_t benchmark_flush_cache = 0;
+static uint64_t benchmark_cache_miss_successful = 0;
+static uint64_t benchmark_swap_dom0 = 0;
+static uint64_t benchmark_idle = 0;
+#define CACHEMISS_THRESHOLD 245760  // L3
+//#define CACHEMISS_THRESHOLD 4096 // L2
 static inline struct csched_vcpu *
-__swap_runq(struct list_head * const runq, domid_t current_domain)
+__swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
 	struct list_head *iter;
-	struct csched_vcpu  iter_svc;
-	list_for_each( iter, runq )
+	struct csched_vcpu  *iter_svc;
+    const int cpu = smp_processor_id();
+    struct list_head * const runq = RUNQ(cpu);
+	benchmark_total++;
+
+	// All VCPUs in Idle
+	if (current_element->pri == CSCHED_PRI_IDLE)
+	{
+		benchmark_idle++;
+		this_cpu(noise_distance_c3) += cache_misses;
+		return current_element;
+	}
+
+
+
+	// check if last is trsuted
+	if(isTrusted(this_cpu(last_domid_1)))
+	{
+		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+		this_cpu(noise_distance_c3) += cache_misses;
+		// Check if current is trusted
+		if(current_element->vcpu->domain->domain_id == 0)
+		{
+			benchmark_last_next++;
+			return current_element;
+		}else
+		{
+			if(this_cpu(noise_distance_c3) >= CACHEMISS_THRESHOLD)
+			{
+				benchmark_cache_miss_successful++;
+				this_cpu(noise_distance_c3) = 0;
+				return current_element;
+			}else
+			{
+				benchmark_flush_cache++;
+				this_cpu(noise_distance_c3) = 0;
+				asm volatile ("wbinvd");
+				printRDTSC();
+				return current_element;
+			}
+		}
+	} else
+	{
+		// avoid uninitialised warning
+		iter_svc = current_element;
+		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+		list_for_each( iter,runq )
 	    {
-	        iter_svc = *__runq_elem(iter);
-	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
-	        {
-	            // DOMAIN0 always has Domain Id 0
-	            if ( 0 == iter_svc.sdom->dom->domain_id)
-	                break;
-	        }
+		  iter_svc = __runq_elem(iter);
+		  if ( iter_svc->pri != CSCHED_PRI_IDLE )
+		  {
+		    if ( isTrusted( iter_svc->vcpu->domain->domain_id))
+			  break;
+		  }
 	    }
-	if (&iter_svc.sdom->dom->domain_id != 0){
-	    printk("No Dom0 in Q \n");
-	    // TODO manual override of cache
+		if (iter_svc->pri != CSCHED_PRI_IDLE )
+		{
+			if( isTrusted(iter_svc->vcpu->domain->domain_id))
+			{
+			benchmark_swap_dom0++;
+
+
+			//delete old
+			list_del(iter);
+			// add to the front of queue
+			list_add(iter,runq);
+			printRDTSC();
+			return current_element;
+		    }
+		}
+
+		benchmark_flush_cache++;
+		asm volatile ("wbinvd");
+		return current_element;
 
 	}
-	// add to the front of queue
-	list_add(&iter_svc.runq_elem,iter);
-	//delete old
-	__runq_remove(&iter_svc);
-
-	return  __runq_elem(runq->next);
+	// if nothing works....
+	asm volatile ("wbinvd");
+	return current_element;
 }
-/*
- * C3 Test Vars --> clean up needed!
- */
-uint64_t cache_misses_L2_c3 = 0;
-int first_start_c3 = 1;
-uint64_t delta = 0;
-uint64_t tmp= 0;
 /*
  * This function is in the critical path. It is designed to be simple and
  * fast for the common case.
@@ -1903,37 +1892,43 @@ csched_schedule(
     else
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
+
+    // FIXME insert shit here
+
+    /*
+     * TODO:-Replace Swap durch insert
+     * 		-Stabilitätes test der neuen Änderungen
+     * 		-L3 anstatt L2...
+     * 		-
+     *
+     */
+
+
+    //cache_misses_L2 = test_msr();
+    //printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
+
+    this_cpu(cache_misses_L2) =  stop_counter(L3);
+    start_counter(L3);
+//    asm volatile("wbinvd");
+//     FIXME Shit ends here
+    __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
     snext = __runq_elem(runq->next);
 
-// TODO Insert check and swap here
 
-
-
-
-
-    printk("Cache Misses: %" PRIu64 " \n",delta);
-    if(first_start_c3){
-        first_start_c3=0;
-    }else {
-    	tmp = stop_counter(L2);
-    	delta = tmp - cache_misses_L2_c3 ;
-        cache_misses_L2_c3 =  tmp;
+    if(benchmark_total >= 1000){
+    	printk("Total: %"PRIu64 "\n",benchmark_total);
+    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
+    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
+    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
+    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
+    	printk("Idle: %"PRIu64 "\n",benchmark_idle);
+    	benchmark_total = 0;
+    	benchmark_cache_miss_successful = 0;
+    	benchmark_flush_cache = 0;
+    	benchmark_last_next = 0;
+    	benchmark_swap_dom0 = 0;
+    	benchmark_idle = 0;
     }
-    start_counter(L2);
-//    printk("test function new test: %" PRIu64 " \n", test_msr());
-    //__runq_count(runq);
-
-
-//    if(__check_swap_simple(snext))
-//    {
-//    	//printk("SWAP needed! \n");
-//    	snext = __swap_runq(runq, snext->sdom->dom->domain_id);
-//    }
-//    __runq_count(runq);
-
-// END OF TESTAREA
-
-
 
     ret.migrated = 0;
 
@@ -1991,7 +1986,6 @@ out:
     CSCHED_VCPU_CHECK(ret.task);
     return ret;
 }
-
 static void
 csched_dump_vcpu(struct csched_vcpu *svc)
 {
