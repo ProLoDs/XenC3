@@ -1522,7 +1522,7 @@ csched_runq_steal(int peer_cpu, int cpu, int pri, int balance_step)
 }
 
 static struct csched_vcpu *
-ok	(struct csched_private *prv, int cpu,
+csched_load_balance(struct csched_private *prv, int cpu,
     struct csched_vcpu *snext, bool_t *stolen)
 {
     struct csched_vcpu *speer;
@@ -1842,10 +1842,38 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
 
+    // FIXME insert shit here
+
+    /*
+     * TODO:-Replace Swap durch insert
+     * 		-Stabilitätes test der neuen Änderungen
+     * 		-L3 anstatt L2...
+     * 		-
+     *
+     */
+
+
+    //cache_misses_L2 = test_msr();
+    //printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
+
 
     snext = __runq_elem(runq->next);
 
 
+    if(benchmark_total >= 1000){
+    	printk("Total: %"PRIu64 "\n",benchmark_total);
+    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
+    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
+    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
+    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
+    	printk("Idle: %"PRIu64 "\n",benchmark_idle);
+    	benchmark_total = 0;
+    	benchmark_cache_miss_successful = 0;
+    	benchmark_flush_cache = 0;
+    	benchmark_last_next = 0;
+    	benchmark_swap_dom0 = 0;
+    	benchmark_idle = 0;
+    }
 
     ret.migrated = 0;
 
@@ -1875,45 +1903,11 @@ csched_schedule(
     else
         snext = csched_load_balance(prv, cpu, snext, &ret.migrated);
 
-
-    // FIXME insert shit here
-
-    /*
-     * TODO:-Replace Swap durch insert
-     * 		-Stabilitätes test der neuen Änderungen
-     * 		-L3 anstatt L2...
-     * 		-
-     *
-     */
-
-
-    //cache_misses_L2 = test_msr();
-    //printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
-
     this_cpu(cache_misses_L2) =  stop_counter(L2);
-    start_counter(L2);
-//    asm volatile("wbinvd");
-//     FIXME Shit ends here
-    snext = __swap_cachemiss(snext, this_cpu(cache_misses_L2));
-
-
-
-//    if(benchmark_total >= 1000){
-//    	printk("Total: %"PRIu64 "\n",benchmark_total);
-//    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
-//    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
-//    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
-//    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
-//    	printk("Idle: %"PRIu64 "\n",benchmark_idle);
-//    	benchmark_total = 0;
-//    	benchmark_cache_miss_successful = 0;
-//    	benchmark_flush_cache = 0;
-//    	benchmark_last_next = 0;
-//    	benchmark_swap_dom0 = 0;
-//    	benchmark_idle = 0;
-//    }
-
-
+      start_counter(L2);
+  //    asm volatile("wbinvd");
+  //     FIXME Shit ends here
+     snext =  __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
     /*
      * Update idlers mask if necessary. When we're idling, other CPUs
      * will tickle us when they get extra work.
