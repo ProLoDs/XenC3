@@ -2045,7 +2045,7 @@ static int
 csched_init(struct scheduler *ops)
 {
     struct csched_private *prv;
-    this_cpu(noise_distance) = 0;
+    this_cpu(noise_distance_c3) = 0;
     prv = xzalloc(struct csched_private);
     if ( prv == NULL )
         return -ENOMEM;
