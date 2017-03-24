@@ -1645,7 +1645,7 @@ static inline void printRDTSC(const char* event)
   printk("%s rdtsc:%"PRIu64" \n", event, a);
 }
 DEFINE_PER_CPU(domid_t, last_domid_c3);
-DEFINE_PER_CPU(uint64_t, noise_distance_c3);
+DEFINE_PER_CPU(uint64_t, noise_distance_c3sched);
 DEFINE_PER_CPU(uint64_t, cache_misses_L2_c3);
 static uint64_t benchmark_total = 0;
 static uint64_t benchmark_last_next = 0;
@@ -1668,7 +1668,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	if (current_element->pri == CSCHED_PRI_IDLE)
 	{
 		benchmark_idle++;
-		this_cpu(noise_distance_c3) += cache_misses;
+		this_cpu(noise_distance_c3sched) += cache_misses;
 		return current_element;
 	}
 
@@ -1678,7 +1678,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	if(isTrusted(this_cpu(last_domid_c3)))
 	{
 		this_cpu(last_domid_c3) = current_element->vcpu->domain->domain_id;
-		this_cpu(noise_distance_c3) += cache_misses;
+		this_cpu(noise_distance_c3sched) += cache_misses;
 		// Check if current is trusted
 		if(isTrusted(current_element->vcpu->domain->domain_id))
 		{
@@ -1686,16 +1686,16 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			return current_element;
 		}else
 		{
-			if(this_cpu(noise_distance_c3) >= CACHEMISS_THRESHOLD)
+			if(this_cpu(noise_distance_c3sched) >= CACHEMISS_THRESHOLD)
 			{
 				benchmark_cache_miss_successful++;
-				this_cpu(noise_distance_c3) = 0;
+				this_cpu(noise_distance_c3sched) = 0;
 				printRDTSC("Enough_noise");
 				return current_element;
 			}else
 			{
 				benchmark_flush_cache++;
-				this_cpu(noise_distance_c3) = 0;
+				this_cpu(noise_distance_c3sched) = 0;
 				asm volatile ("wbinvd");
 				printRDTSC("wbinvd_1");
 				return current_element;
@@ -2045,7 +2045,7 @@ static int
 csched_init(struct scheduler *ops)
 {
     struct csched_private *prv;
-    this_cpu(noise_distance_c3) = 0;
+    this_cpu(noise_distance_c3sched) = 0;
     prv = xzalloc(struct csched_private);
     if ( prv == NULL )
         return -ENOMEM;
