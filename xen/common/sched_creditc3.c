@@ -1884,7 +1884,7 @@ csched_schedule(
     start_counter(L2);
 
 
-     if(__swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2_c3)) && load_balanced)
+     if(__swap_cachemiss(snext, this_cpu(cache_misses_L2_c3)) && load_balanced)
     	 snext = __runq_elem(runq->next);
     /*
      * Update idlers mask if necessary. When we're idling, other CPUs
