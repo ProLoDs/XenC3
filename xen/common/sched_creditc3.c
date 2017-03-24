@@ -1626,116 +1626,35 @@ __swap_clear_cache(void)
 	 asm volatile("wbinvd");
 }
 
-/*
- * After an untrusted Domain, just try to swap for Dom0
- * enforce DomU-X, Dom0, DomU-X, Dom0 ...
- */
-static inline struct csched_vcpu *
-__swap_simple_Dom0_swap(struct list_head * const runq)
-{
-	struct list_head *iter;
-	struct csched_vcpu  iter_svc;
-	struct csched_vcpu * current_element = __runq_elem(runq->next);
-
-
-
-	// idle task skip
-	if (current_element->pri == CSCHED_PRI_IDLE)
-		return current_element;
-	// current is already dom0
-	if(current_element->sdom->dom->domain_id == 0)
-		return current_element;
-	//last domain was dom0
-	if (this_cpu(last_domid) == 0)
-		return current_element;
-
-	list_for_each( iter, runq )
-	    {
-	        iter_svc = *__runq_elem(iter);
-	        if ( iter_svc.pri != CSCHED_PRI_IDLE )
-	        {
-	            // DOMAIN0 always has Domain Id 0
-	            if ( 0 == iter_svc.sdom->dom->domain_id)
-	                break;
-	        }
-	    }
-	if (&iter_svc.sdom->dom->domain_id != 0){
-	    printk("No Dom0 in Q \n");
-	    return current_element;
-
-	}
-	// add to the front of queue
-	list_add(&iter_svc.runq_elem,iter);
-	//delete old
-	list_del(iter);
-
-	return  __runq_elem(runq->next);
-}
-
-DEFINE_PER_CPU(uint64_t, cache_misses_L2);
 
 
 
 
 
-
-
-static inline void
-__runq_count(struct list_head * const runq){
-    struct list_head *iter;
-    struct csched_vcpu  iter_svc;
-    int dom0 = 0;
-    int domU1 = 0;
-    int domU2 = 0;
-    list_for_each( iter, runq )
-    {
-        iter_svc = *__runq_elem(iter);
-        if ( iter_svc.pri != CSCHED_PRI_IDLE )
-        {
-            switch(iter_svc.sdom->dom->domain_id){
-            case 0:
-                dom0++;
-//                printk("Dom0 \n");
-                break;
-            case 1:
-                domU1++;
-//                printk("DomU1 \n");
-                break;
-            case 2:
-//                printk("DomU2 \n");
-                domU2++;
-                break;
-            default:
-                printk("Unknown Domain ID %i \n",iter_svc.sdom->dom->domain_id);
-            }
-        }
-
-    }
-    printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
-}
 static inline int isTrusted(domid_t domID)
 {
 	if (domID == 0)
 		return 1;
 	return 0;
 }
-static inline void printRDTSC()
+static inline void printRDTSC(const char* event)
 {
   uint64_t a, d;
   asm volatile ("rdtsc" : "=a" (a), "=d" (d));
   a = (d<<32) | a;
-  printk("rdtsc:"PRIu64"% \n",a);
+  printk("%s rdtsc:%"PRIu64" \n", event, a);
 }
-DEFINE_PER_CPU(domid_t, last_domid_1);
+DEFINE_PER_CPU(domid_t, last_domid_c3);
 DEFINE_PER_CPU(uint64_t, noise_distance_c3);
+DEFINE_PER_CPU(uint64_t, cache_misses_L2_c3);
 static uint64_t benchmark_total = 0;
 static uint64_t benchmark_last_next = 0;
 static uint64_t benchmark_flush_cache = 0;
 static uint64_t benchmark_cache_miss_successful = 0;
 static uint64_t benchmark_swap_dom0 = 0;
 static uint64_t benchmark_idle = 0;
-#define CACHEMISS_THRESHOLD 245760  // L3
-//#define CACHEMISS_THRESHOLD 4096 // L2
+//#define CACHEMISS_THRESHOLD 245760  // L3
+#define CACHEMISS_THRESHOLD 4096 // L2
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
@@ -1756,12 +1675,12 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 
 
 	// check if last is trsuted
-	if(isTrusted(this_cpu(last_domid_1)))
+	if(isTrusted(this_cpu(last_domid_c3)))
 	{
-		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+		this_cpu(last_domid_c3) = current_element->vcpu->domain->domain_id;
 		this_cpu(noise_distance_c3) += cache_misses;
 		// Check if current is trusted
-		if(current_element->vcpu->domain->domain_id == 0)
+		if(isTrusted(current_element->vcpu->domain->domain_id))
 		{
 			benchmark_last_next++;
 			return current_element;
@@ -1771,13 +1690,14 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			{
 				benchmark_cache_miss_successful++;
 				this_cpu(noise_distance_c3) = 0;
+				printRDTSC("Enough_noise");
 				return current_element;
 			}else
 			{
 				benchmark_flush_cache++;
 				this_cpu(noise_distance_c3) = 0;
 				asm volatile ("wbinvd");
-				printRDTSC();
+				printRDTSC("wbinvd_1");
 				return current_element;
 			}
 		}
@@ -1785,7 +1705,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	{
 		// avoid uninitialised warning
 		iter_svc = current_element;
-		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+		this_cpu(last_domid_c3) = current_element->vcpu->domain->domain_id;
 		list_for_each( iter,runq )
 	    {
 		  iter_svc = __runq_elem(iter);
@@ -1801,23 +1721,25 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			{
 			benchmark_swap_dom0++;
 
-
+			__runq_insert(cpu, current_element);
 			//delete old
 			list_del(iter);
 			// add to the front of queue
 			list_add(iter,runq);
-			printRDTSC();
-			return current_element;
+			//printRDTSC();
+			return iter_svc;
 		    }
 		}
 
 		benchmark_flush_cache++;
 		asm volatile ("wbinvd");
+		printRDTSC("wbinvd_2");
 		return current_element;
 
 	}
 	// if nothing works....
 	asm volatile ("wbinvd");
+	printRDTSC("wbinvd_3");
 	return current_element;
 }
 /*
@@ -1907,11 +1829,7 @@ csched_schedule(
     //cache_misses_L2 = test_msr();
     //printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
 
-    this_cpu(cache_misses_L2) =  stop_counter(L3);
-    start_counter(L3);
-//    asm volatile("wbinvd");
-//     FIXME Shit ends here
-    __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
+
     snext = __runq_elem(runq->next);
 
 
@@ -1958,6 +1876,11 @@ csched_schedule(
     else
         snext = csched_load_balance(prv, cpu, snext, &ret.migrated);
 
+    this_cpu(cache_misses_L2) =  stop_counter(L2);
+      start_counter(L2);
+  //    asm volatile("wbinvd");
+  //     FIXME Shit ends here
+     snext =  __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
     /*
      * Update idlers mask if necessary. When we're idling, other CPUs
      * will tickle us when they get extra work.
@@ -1986,6 +1909,7 @@ out:
     CSCHED_VCPU_CHECK(ret.task);
     return ret;
 }
+
 static void
 csched_dump_vcpu(struct csched_vcpu *svc)
 {
