@@ -1880,12 +1880,12 @@ csched_schedule(
         load_balanced = 1;
     }
 
-    this_cpu(cache_misses_L2_c3) =  stop_counter(L2);
-    start_counter(L2);
+//    this_cpu(cache_misses_L2_c3) =  stop_counter(L2);
+//    start_counter(L2);
 
 
-     if(__swap_cachemiss(snext, this_cpu(cache_misses_L2_c3)) && load_balanced)
-    	 snext = __runq_elem(runq->next);
+//     if(__swap_cachemiss(snext, this_cpu(cache_misses_L2_c3)) && load_balanced)
+//    	 snext = __runq_elem(runq->next);
     /*
      * Update idlers mask if necessary. When we're idling, other CPUs
      * will tickle us when they get extra work.
