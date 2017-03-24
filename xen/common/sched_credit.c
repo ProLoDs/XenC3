@@ -1672,6 +1672,13 @@ static inline void printRDTSC(const char* event)
   a = (d<<32) | a;
   printk("%s rdtsc:%"PRIu64" \n", event, a);
 }
+static inline void printRDTSC2(domid_t curr, domid_t nextbeforeswap, domid_t nextafterswap, domid_t finalnext)
+{
+  uint64_t a, d;
+  asm volatile ("rdtsc" : "=a" (a), "=d" (d));
+  a = (d<<32) | a;
+  printk("%"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" rdtsc:%"PRIu64" \n", curr, nextbeforeswap, nextafterswap, finalnext, a);
+}
 DEFINE_PER_CPU(domid_t, last_domid_1);
 DEFINE_PER_CPU(uint64_t, noise_distance_c3);
 static uint64_t benchmark_total = 0;
@@ -1784,9 +1791,14 @@ csched_schedule(
     struct csched_vcpu *snext;
     struct task_slice ret;
     s_time_t runtime, tslice;
+    domid_t thecurr = 0;
+    domid_t thebeforeswap = 0; 
+    domid_t thenextswap = 0;
+    domid_t thenext = 0;
 
     SCHED_STAT_CRANK(schedule);
     CSCHED_VCPU_CHECK(current);
+    thecurr = scurr->vcpu->domain->domain_id;
 
     runtime = now - current->runstate.state_entry_time;
     if ( runtime < 0 ) /* Does this ever happen? */
@@ -1860,7 +1872,10 @@ csched_schedule(
     start_counter(L2);
 //    asm volatile("wbinvd");
 //     FIXME Shit ends here
+    thebeforeswap = (__runq_elem(runq->next))->vcpu->domain->domain_id;
     __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
+    thenextswap = (__runq_elem(runq->next))->vcpu->domain->domain_id;
+    
     snext = __runq_elem(runq->next);
 
 
@@ -1931,7 +1946,8 @@ out:
     ret.time = (is_idle_vcpu(snext->vcpu) ?
                 -1 : tslice);
     ret.task = snext->vcpu;
-
+    thenext = snext->vcpu->domain->domain_id;
+    printRDTSC2(thecurr, thebeforeswap, thenextswap, thenext); 
     CSCHED_VCPU_CHECK(ret.task);
     return ret;
 }
