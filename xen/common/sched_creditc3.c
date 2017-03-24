@@ -1880,7 +1880,7 @@ csched_schedule(
       start_counter(L2);
   //    asm volatile("wbinvd");
   //     FIXME Shit ends here
-     snext =  __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
+     snext =  __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2_c3));
     /*
      * Update idlers mask if necessary. When we're idling, other CPUs
      * will tickle us when they get extra work.
