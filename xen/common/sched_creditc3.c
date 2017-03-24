@@ -1833,20 +1833,20 @@ csched_schedule(
     snext = __runq_elem(runq->next);
 
 
-    if(benchmark_total >= 1000){
-    	printk("Total: %"PRIu64 "\n",benchmark_total);
-    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
-    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
-    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
-    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
-    	printk("Idle: %"PRIu64 "\n",benchmark_idle);
-    	benchmark_total = 0;
-    	benchmark_cache_miss_successful = 0;
-    	benchmark_flush_cache = 0;
-    	benchmark_last_next = 0;
-    	benchmark_swap_dom0 = 0;
-    	benchmark_idle = 0;
-    }
+//    if(benchmark_total >= 1000){
+//    	printk("Total: %"PRIu64 "\n",benchmark_total);
+//    	printk("FLush Cache: %"PRIu64 "\n",benchmark_flush_cache);
+//    	printk("Good Path: %"PRIu64 "\n",benchmark_last_next);
+//    	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
+//    	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
+//    	printk("Idle: %"PRIu64 "\n",benchmark_idle);
+//    	benchmark_total = 0;
+//    	benchmark_cache_miss_successful = 0;
+//    	benchmark_flush_cache = 0;
+//    	benchmark_last_next = 0;
+//    	benchmark_swap_dom0 = 0;
+//    	benchmark_idle = 0;
+//    }
 
     ret.migrated = 0;
 
@@ -1876,7 +1876,7 @@ csched_schedule(
     else
         snext = csched_load_balance(prv, cpu, snext, &ret.migrated);
 
-    this_cpu(cache_misses_L2) =  stop_counter(L2);
+    this_cpu(cache_misses_L2_c3) =  stop_counter(L2);
       start_counter(L2);
   //    asm volatile("wbinvd");
   //     FIXME Shit ends here
