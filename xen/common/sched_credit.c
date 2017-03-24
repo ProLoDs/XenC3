@@ -1659,10 +1659,18 @@ __runq_count(struct list_head * const runq){
     }
     printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
+static int trustedid = 0;
+static int untrustedid = 0;
 static inline int isTrusted(domid_t domID)
 {
-	if (domID == 0)
+	if(untrustedid==0){
+		untrustedid = domID;
+	}else if(trustedid==0){
+		trustedid = domID;
+	}
+	if (domID == 0 || domID == trustedid){
 		return 1;
+	}
 	return 0;
 }
 static inline void printRDTSC(const char* event)
@@ -1947,7 +1955,9 @@ out:
                 -1 : tslice);
     ret.task = snext->vcpu;
     thenext = snext->vcpu->domain->domain_id;
-    printRDTSC2(thecurr, thebeforeswap, thenextswap, thenext); 
+    if(thenext==thenextswap && thenext != thebeforeswap){
+    	printRDTSC2(thecurr, thebeforeswap, thenextswap, thenext);
+    }
     CSCHED_VCPU_CHECK(ret.task);
     return ret;
 }
