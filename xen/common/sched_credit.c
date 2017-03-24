@@ -1861,7 +1861,7 @@ csched_schedule(
 //    asm volatile("wbinvd");
 //     FIXME Shit ends here
 //    __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
-//    snext = __runq_elem(runq->next);
+    snext = __runq_elem(runq->next);
 //
 //
 //    if(benchmark_total >= 1000){
