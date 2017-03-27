@@ -1659,16 +1659,9 @@ __runq_count(struct list_head * const runq){
     }
     printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
-static int trustedid = 0;
-static int untrustedid = 0;
 static inline int isTrusted(domid_t domID)
 {
-	if(untrustedid==0){
-		untrustedid = domID;
-	}else if(trustedid==0){
-		trustedid = domID;
-	}
-	if (domID == 0 || domID == trustedid){
+	if (domID == 0 || (domID%2) == 0){
 		return 1;
 	}
 	return 0;
@@ -1714,7 +1707,12 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		return current_element;
 	}
 
-
+	if( this_cpu(last_domid_1) == current_element->vcpu->domain->domain_id ){
+		if(isTrusted(current_element->vcpu->domain->domain_id)){
+			this_cpu(noise_distance_c3) += cache_misses;
+		}
+		return current_element;
+	}
 
 	// check if last is trsuted
 	if(isTrusted(this_cpu(last_domid_1)))
