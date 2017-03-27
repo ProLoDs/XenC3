@@ -1903,7 +1903,7 @@ csched_schedule(
     	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
     	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
     	printk("Idle: %"PRIu64 "\n",benchmark_idle);
-    	printk("Trusted Doms: %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16"\n", trusted[0], trusted[1], trusted[2], trusted[3], trusted[4], trusted[5]);
+    	printk("Trusted Doms: %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16"\n", istrusted[0], istrusted[1], istrusted[2], istrusted[3], istrusted[4], istrusted[5]);
     	benchmark_total = 0;
     	benchmark_cache_miss_successful = 0;
     	benchmark_flush_cache = 0;
