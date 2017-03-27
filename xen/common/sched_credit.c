@@ -1682,7 +1682,7 @@ static uint64_t benchmark_swap_dom0 = 0;
 static uint64_t benchmark_idle = 0;
 //#define CACHEMISS_THRESHOLD 245760  // L3
 #define CACHEMISS_THRESHOLD 4096 // L2
-static inline struct csched_vcpu *
+static inline int
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
 	struct list_head *iter;
@@ -1696,7 +1696,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	{
 		benchmark_idle++;
 		this_cpu(noise_distance_c3) += cache_misses;
-		return current_element;
+		return 0;
 	}
 
 
@@ -1710,7 +1710,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		if(isTrusted(current_element->vcpu->domain->domain_id))
 		{
 			benchmark_last_next++;
-			return current_element;
+			return 0;
 		}else
 		{
 			if(this_cpu(noise_distance_c3) >= CACHEMISS_THRESHOLD)
@@ -1718,14 +1718,14 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 				benchmark_cache_miss_successful++;
 				this_cpu(noise_distance_c3) = 0;
 				printRDTSC("Enough_noise");
-				return current_element;
+				return 0;
 			}else
 			{
 				benchmark_flush_cache++;
 				this_cpu(noise_distance_c3) = 0;
 				asm volatile ("wbinvd");
 				printRDTSC("wbinvd_1");
-				return current_element;
+				return 0;
 			}
 		}
 	} else
@@ -1754,14 +1754,14 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			// add to the front of queue
 			list_add(iter,runq);
 			//printRDTSC();
-			return iter_svc;
+			return 1;
 		    }
 		}
 
 		benchmark_flush_cache++;
 		asm volatile ("wbinvd");
 		printRDTSC("wbinvd_2");
-		return current_element;
+		return 0;
 
 	}
 	// if nothing works....
@@ -1784,7 +1784,7 @@ csched_schedule(
     struct csched_vcpu *snext;
     struct task_slice ret;
     s_time_t runtime, tslice;
-
+    int balanced = 0;
     SCHED_STAT_CRANK(schedule);
     CSCHED_VCPU_CHECK(current);
 
@@ -1901,13 +1901,17 @@ csched_schedule(
     if ( snext->pri > CSCHED_PRI_TS_OVER )
         __runq_remove(snext);
     else
+    {
         snext = csched_load_balance(prv, cpu, snext, &ret.migrated);
+        balanced = 1;
+    }
 
     this_cpu(cache_misses_L2) =  stop_counter(L2);
       start_counter(L2);
   //    asm volatile("wbinvd");
   //     FIXME Shit ends here
-     snext =  __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
+     if ( __swap_cachemiss(snext, this_cpu(cache_misses_L2)) && balanced)
+    	 snext = __runq_elem(runq->next);
     /*
      * Update idlers mask if necessary. When we're idling, other CPUs
      * will tickle us when they get extra work.
