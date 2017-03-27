@@ -1767,7 +1767,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 	// if nothing works....
 	asm volatile ("wbinvd");
 	printRDTSC("wbinvd_3");
-	return current_element;
+	return 0;
 }
 /*
  * This function is in the critical path. It is designed to be simple and
