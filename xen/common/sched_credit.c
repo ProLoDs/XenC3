@@ -1659,9 +1659,20 @@ __runq_count(struct list_head * const runq){
     }
     printk("Dom0 %i, DomU1 %i, DomU2 %i \n",dom0 ,domU1 ,domU2);
 }
+domid_t istrusted[6];
+int trustedcount;
 static inline int isTrusted(domid_t domID)
-{
+{ int i = 0;
 	if (domID == 0 || (domID%2) == 0){
+		if(domID > 0){
+			for(i=0;i<6; i++){
+				if(istrusted[i]==domID){
+					break;
+				}else if(istrusted[i] == 0){
+					istrusted[i] = domID;
+				}
+			}
+		}
 		return 1;
 	}
 	return 0;
@@ -1892,6 +1903,7 @@ csched_schedule(
     	printk("Swap Dom0: %"PRIu64 "\n",benchmark_swap_dom0);
     	printk("Enough Cache Miss: %"PRIu64 "\n",benchmark_cache_miss_successful);
     	printk("Idle: %"PRIu64 "\n",benchmark_idle);
+    	printk("Trusted Doms: %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16"\n", trusted[0], trusted[1], trusted[2], trusted[3], trusted[4], trusted[5]);
     	benchmark_total = 0;
     	benchmark_cache_miss_successful = 0;
     	benchmark_flush_cache = 0;
