@@ -1670,6 +1670,7 @@ static inline int isTrusted(domid_t domID)
 					break;
 				}else if(istrusted[i] == 0){
 					istrusted[i] = domID;
+					break;
 				}
 			}
 		}
