@@ -1693,6 +1693,7 @@ static inline void printRDTSC2(domid_t curr, domid_t nextbeforeswap, domid_t nex
   printk("%"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" rdtsc:%"PRIu64" \n", curr, nextbeforeswap, nextafterswap, finalnext, a);
 }
 DEFINE_PER_CPU(domid_t, last_domid_1);
+DEFINE_PER_CPU(domid_t, last_untrusted_domid);
 DEFINE_PER_CPU(uint64_t, noise_distance_c3);
 static uint64_t benchmark_total = 0;
 static uint64_t benchmark_last_next = 0;
@@ -1738,6 +1739,17 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			return current_element;
 		}else
 		{
+			if(this_cpu(last_untrusted_domid) != current_element->vcpu->domain->domain_id){
+				/* Only Flush */
+				benchmark_flush_cache++;
+				asm volatile ("wbinvd");
+				printRDTSC("wbinvd_last_not_next_untrusted");
+				return current_element;
+				/************/
+			}else{
+				return current_element;
+			}
+
 			if(this_cpu(noise_distance_c3) >= CACHEMISS_THRESHOLD)
 			{
 				benchmark_cache_miss_successful++;
@@ -1755,6 +1767,14 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		}
 	} else
 	{
+		/* Only Flush */
+		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+		benchmark_flush_cache++;
+		asm volatile ("wbinvd");
+		printRDTSC("wbinvd_last_not_next_untrusted");
+		return current_element;
+		/************/
+
 		// avoid uninitialised warning
 		iter_svc = current_element;
 		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
@@ -1966,6 +1986,7 @@ out:
                 -1 : tslice);
     ret.task = snext->vcpu;
     thenext = snext->vcpu->domain->domain_id;
+    this_cpu(last_untrusted_domid) = isTrusted(thenext) ? this_cpu(last_untrusted_domid) : thenext;
     if(thenext==thenextswap && thenext != thebeforeswap){
     	printRDTSC2(thecurr, thebeforeswap, thenextswap, thenext);
     }
