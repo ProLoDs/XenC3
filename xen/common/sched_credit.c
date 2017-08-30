@@ -1692,6 +1692,18 @@ static inline void printRDTSC2(domid_t curr, domid_t nextbeforeswap, domid_t nex
   a = (d<<32) | a;
   printk("%"PRIu16" %"PRIu16" %"PRIu16" %"PRIu16" rdtsc:%"PRIu64" \n", curr, nextbeforeswap, nextafterswap, finalnext, a);
 }
+
+static inline void only_flush(struct csched_vcpu * const current_element){
+	this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+	if(!isTrusted(current_element->vcpu->domain->domain_id)){
+		if(this_cpu(last_untrusted_domid) != current_element->vcpu->domain->domain_id){
+			benchmark_flush_cache++;
+			asm volatile ("wbinvd");
+			printRDTSC("wbinvd_last_not_next_untrusted");
+		}
+	}
+}
+
 DEFINE_PER_CPU(domid_t, last_domid_1);
 DEFINE_PER_CPU(domid_t, last_untrusted_domid);
 DEFINE_PER_CPU(uint64_t, noise_distance_c3);
@@ -1703,6 +1715,13 @@ static uint64_t benchmark_swap_dom0 = 0;
 static uint64_t benchmark_idle = 0;
 //#define CACHEMISS_THRESHOLD 245760  // L3
 #define CACHEMISS_THRESHOLD 4096 // L2
+
+/*
+ * Swap to trusted vcpu if switch from one untrusted to a different untrusted vcpu
+ * If last vcpu was trusted, compare achieved noise/cache misses with threshold
+ *
+ * return value is currently not used, next vcpu is the first in the runq
+ */
 static inline struct csched_vcpu *
 __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_misses )
 {
@@ -1720,6 +1739,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		return current_element;
 	}
 
+	//Last vcpu equals current vcpu, add cache misses if trusted
 	if( this_cpu(last_domid_1) == current_element->vcpu->domain->domain_id ){
 		if(isTrusted(current_element->vcpu->domain->domain_id)){
 			this_cpu(noise_distance_c3) += cache_misses;
@@ -1727,7 +1747,13 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		return current_element;
 	}
 
-	// check if last is trsuted
+	//uncomment for only flush
+	/*
+	 * only_flush(current_element);
+	 * return current_element;
+	*/
+
+	// check if last is trusted
 	if(isTrusted(this_cpu(last_domid_1)))
 	{
 		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
@@ -1739,17 +1765,7 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			return current_element;
 		}else
 		{
-			if(this_cpu(last_untrusted_domid) != current_element->vcpu->domain->domain_id){
-				/* Only Flush */
-				benchmark_flush_cache++;
-				asm volatile ("wbinvd");
-				printRDTSC("wbinvd_last_not_next_untrusted");
-				return current_element;
-				/************/
-			}else{
-				return current_element;
-			}
-
+			//enough cache misses according to the threshold
 			if(this_cpu(noise_distance_c3) >= CACHEMISS_THRESHOLD)
 			{
 				benchmark_cache_miss_successful++;
@@ -1767,17 +1783,12 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 		}
 	} else
 	{
-		/* Only Flush */
-		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
-		benchmark_flush_cache++;
-		asm volatile ("wbinvd");
-		printRDTSC("wbinvd_last_not_next_untrusted");
-		return current_element;
-		/************/
 
 		// avoid uninitialised warning
 		iter_svc = current_element;
 		this_cpu(last_domid_1) = current_element->vcpu->domain->domain_id;
+
+		// find trusted vcpu in runq
 		list_for_each( iter,runq )
 	    {
 		  iter_svc = __runq_elem(iter);
@@ -1794,22 +1805,24 @@ __swap_cachemiss(struct csched_vcpu * const current_element, uint64_t cache_miss
 			benchmark_swap_dom0++;
 
 
-			//delete old
+			//remove trusted vcpu
 			list_del(iter);
-			// add to the front of queue
+			//add trusted vcpu to the front of queue
 			list_add(iter,runq);
+			this_cpu(last_domid_1) = iter_svc->vcpu->domain->domain_id;
 			//printRDTSC();
-			return current_element;
+			return iter_svc;
 		    }
 		}
 
+		//No trusted vcpu available
 		benchmark_flush_cache++;
 		asm volatile ("wbinvd");
 		printRDTSC("wbinvd_2");
 		return current_element;
 
 	}
-	// if nothing works....
+	// if nothing works (unlikely)....
 	asm volatile ("wbinvd");
 	printRDTSC("wbinvd_3");
 	return current_element;
@@ -1892,24 +1905,15 @@ csched_schedule(
         BUG_ON( is_idle_vcpu(current) || list_empty(runq) );
 
 
-    // FIXME insert shit here
-
     /*
-     * TODO:-Replace Swap durch insert
-     * 		-Stabilitätes test der neuen Änderungen
-     * 		-L3 anstatt L2...
-     * 		-
-     *
+     * C3-Sched extension, check next vcpu about to be run
      */
-
-
     //cache_misses_L2 = test_msr();
     //printk("Cache Misses: %" PRIu64 " \n",this_cpu(cache_misses_L2));
 
     this_cpu(cache_misses_L2) =  stop_counter(L2);
     start_counter(L2);
-//    asm volatile("wbinvd");
-//     FIXME Shit ends here
+
     thebeforeswap = (__runq_elem(runq->next))->vcpu->domain->domain_id;
     __swap_cachemiss(__runq_elem(runq->next), this_cpu(cache_misses_L2));
     thenextswap = (__runq_elem(runq->next))->vcpu->domain->domain_id;
@@ -1932,6 +1936,9 @@ csched_schedule(
     	benchmark_swap_dom0 = 0;
     	benchmark_idle = 0;
     }
+    /*
+     * End C3-Sched extension, end of main part (see out: for additional monitoring code)
+     */
 
     ret.migrated = 0;
 
@@ -1985,11 +1992,19 @@ out:
     ret.time = (is_idle_vcpu(snext->vcpu) ?
                 -1 : tslice);
     ret.task = snext->vcpu;
+
+    /*
+     * C3-Sched extension monitoring of selected vcpu
+     */
     thenext = snext->vcpu->domain->domain_id;
     this_cpu(last_untrusted_domid) = isTrusted(thenext) ? this_cpu(last_untrusted_domid) : thenext;
     if(thenext==thenextswap && thenext != thebeforeswap){
     	printRDTSC2(thecurr, thebeforeswap, thenextswap, thenext);
     }
+    /*
+     * End C3-Sched extension monitoring
+     */
+
     CSCHED_VCPU_CHECK(ret.task);
     return ret;
 }
