@@ -3,6 +3,8 @@
 *.ko
 *.obj
 *.elf
+*.o.d
+*.d
 
 # Precompiled Headers
 *.gch
@@ -31,3 +33,13 @@
 # Debug files
 *.dSYM/
 *.su
+
+# Ocaml Files
+*.cmx
+*.cmxa
+*.cmo
+*.cma
+*.cmi
+
+.eclipse
+.cproject
